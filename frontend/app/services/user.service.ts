@@ -10,7 +10,7 @@ export class UserService  {
    }
 
    getUsers(): Observable<User[]> {
-      return this.http.get("http://fuel-pricing-platform-dev.herokuapp.com//industryStats/fuelStatement")
+      return this.http.get("http://fuel-pricing-platform-dev.herokuapp.com/industryStats/fuelStatement")
          .map((res: Response) => res.json())
          .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
    }
