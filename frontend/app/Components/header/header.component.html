@@ -1,0 +1,42 @@
+<nav class="navbar navbar-inverse" style="min-width: 1334px">
+    <div class="headerTopBoder"></div>
+  <div class="container-fluid">
+      
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <img src='assets/images/pfjLogo.jpg'>
+      </a>
+    </div>
+    <ul class="nav navbar-nav navbar-center">
+      <li>
+        <a routerLink="/pfjover-view" routerLinkActive="router-link-active">PFJ OVERVIEW</a>
+        <div class="headerMenuDivider"></div>
+      </li>
+      <li>
+        <a ng-disabled="true" routerLink="/retail-pricing" routerLinkActive="router-link-active">RETAIL PRICING</a>
+        <div class="headerMenuDivider"></div>
+      </li>
+      <li>
+        <a routerLink="/executive-reporting" routerLinkActive="router-link-active">EXECUTIVE REPORTING</a>
+        <div class="headerMenuDivider"></div>
+      </li>
+      <li>
+        <a routerLink="/customer-pricing" routerLinkActive="router-link-active">CUSTOMER PRICING</a>
+        <div class="headerMenuDivider"></div>
+      </li>
+
+    </ul>
+    <div class="searchBarMenu">
+      <img src="./assets/images/searchicon.png">
+      <input disabled type="text" placeholder="Search..">
+    </div>
+    <div class="loginavatar">
+      <img src="./assets/images/loginavatar.png">
+      <span style="float:right;margin-top:15px;">Logged in User</span>
+    </div>
+
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      </ul>
+  </div>
+</nav>
