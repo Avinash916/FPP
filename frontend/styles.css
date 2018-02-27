@@ -1,1 +1,316 @@
 /* You can add global styles to this file, and also import other style files */
+.headerDiv
+{
+    background: #323136;
+    height: 50px;
+    width: 100%;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: #CECED1;
+}
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+  color:#1286AB;
+}
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+  color: #1286AB;
+}
+
+.router-link-active.router-link-active.router-link-active.router-link-active {
+  color: #1286AB;
+}
+
+
+.customer-pricing {
+  /* top: 0px; */
+  /* height: auto; */
+  /* width: 200px; */
+  /* position: absolute; */
+  /* margin: 0; */
+  /* left: 0px; */
+  font-family: "Interstate-Bold", Helvetica, Arial, serif;
+  font-size: 18.0px;
+  color: rgba(255, 255, 255, 1.0);
+  /* text-align: left; */
+  /* line-height: 22.0px; */
+}
+
+
+
+.imageLogo {
+    background-image: url('./assets/images/pfjLogo.jpg'); 
+ }
+ .navbar-brand {
+    padding: 0px;
+  }
+  .navbar-brand>img {
+    height: 100%;
+    width: auto;
+  }
+  .navbar-inverse{
+    background-color: #16161E;
+    border-color: #16161E;
+  }
+ 
+body {
+  background: rgba(34, 34, 45, 1.0);
+}
+
+.dvStickerHeader
+{
+  background: #2D2D37;
+    top: 0px;
+    height: 35px;
+    width: 507px;
+    position: relative;
+    border-radius: 2px;
+    color: rgba(255, 255, 255, 1.0);
+    padding-left: 10px;
+    line-height: 30px;
+    font-family: "Interstate-Bold", Helvetica, Arial, serif;
+    font-size: 15px;
+}
+
+.dvStickerHeaderCap
+{
+  height: 4px;
+  width: 507px;
+  background: #1286AB;
+  border-radius: 2px;
+}
+
+.dvSticker
+{
+  width: 243px;
+  background: #2D2D37;
+  height: 36px;
+  color: rgba(255, 255, 255, 1.0);
+  border-radius: 2px;
+  float: left;
+  margin: 20px;
+  margin-left: 0;
+  margin-top: 5px;
+}
+
+.dvStickerContainer
+{
+  line-height: 30px;
+}
+
+.dvStickerHeaderLeft
+{
+  float: left;
+  margin-left: 10px;
+}
+.dvStickerHeaderRight
+{
+  float: right;
+  margin-right: 10px;
+}
+.dvStickerContentLeft
+{
+  height: 105px;
+  width: 243px;
+  margin-top: 37px;
+  /* margin-left: -1px; */
+  background: #1E1E28;
+  border-radius: 2px;
+}
+
+.spnStickerLeftVal
+{
+  font-family: "Interstate-Regular", Helvetica, Arial, serif;
+  font-size: 22.0px;
+  /*position: relative;
+  left: 4%;*/
+}
+.spnStickerCenterValVsTg
+{
+      font-family: "Interstate-Bold", Helvetica, Arial, serif;
+      font-size: 10.0px;
+      /*position: relative;
+      right: 65%;*/
+}
+.spnStickerCenterValVsTg
+{
+      font-family: "Interstate-Bold", Helvetica, Arial, serif;
+      font-size: 10.0px;
+      color: #1286AB;
+      font-weight: bold;
+}
+.spnStickerCenterValVsTLy
+{
+      font-family: "Interstate-Bold", Helvetica, Arial, serif;
+      font-size: 10.0px;
+      color: #EB9446;
+      font-weight: bold;
+}
+.spnStickerRightVal
+{
+  font-family: "Interstate-Regular", Helvetica, Arial, serif;
+  font-size: 15.0px;
+  /*position: relative;
+  right: 15%;*/
+  color: #CECED1;
+}
+.dvStickerHeaderCapSmall {
+  height: 4px;
+  width: 243px;
+  background: #1286AB;
+  border-radius: 2px;
+  position: relative;
+}
+
+.dvTableauMap
+{
+  height: 292px;
+  width: 507px;
+  background: #2D2D37;
+  margin-right: 20px;
+  margin-top: 5px;
+}
+
+.dvTableauMapFilter
+{
+  height: 292px;
+  width: 243px;
+  background: #2D2D37;
+  margin-right: 20px;
+  margin-top:5px;
+}
+
+
+.dvStickerHeaderSmall
+{
+  background: #2D2D37;
+    top: 0px;
+    height: 35px;
+    width: 243px;
+    position: relative;
+    border-radius: 2px;
+    color: rgba(255, 255, 255, 1.0);
+    padding-left: 10px;
+    line-height: 30px;
+}
+
+.mixPercentage
+{
+  width: 243px;
+  height: 51px;
+  background: #1E1E28;
+  border-radius: 2px;
+  position: relative;
+  color: rgba(255, 255, 255, 1.0);
+  padding-left: 10px;
+}
+
+.mixPercentageColumns
+{
+  margin-left: 42px;
+  font-size: 12px;
+  font-family: "Interstate-Bold", Helvetica, Arial, serif;
+}
+
+.vl {
+  border-left: 2px solid #FFFFFF;
+  /* height: 500px; */
+  position: absolute;
+  bottom: 7px;
+  height: 17px;
+  margin-left: 51px;
+}
+
+.imgMixPercentage
+{
+  position: absolute;
+  bottom: 10px;
+  right: 50px;
+}
+  /*.navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+}*/
+
+.dvStickerDevider
+{
+  height: 4px;
+  width: 243px;
+  background: #214251;
+  border-radius: 2px;
+  position: relative;
+}
+
+.dvStickerLst
+{
+  height: 87px;
+  width: 243px;
+  background: #2D2D37;
+  border-radius: 2px;
+    position: relative;
+    color: rgba(255, 255, 255, 1.0);
+    padding-left: 10px;
+}
+
+.searchBarMenu {
+  width: 185px;
+    /* float: right; */
+    height: 30px;
+    background: #24242C;
+    border-radius: 10px;
+    margin-top: 0.8%;
+    color: #fff;
+    position: absolute;
+    right: 20%;
+    
+}
+.searchBarMenu img
+{
+  margin: 9px;
+}
+
+.searchBarMenu input
+{
+  background: transparent;
+  border: 0;
+  /* float: left; */
+  position: absolute;
+  top: 17%;
+  outline: none;
+  width: 142px;
+}
+.loginavatar
+{
+    position: absolute;
+    right: 8%;
+    color: #fff;
+}
+
+.loginavatar img
+{
+  width: 58px;
+  height: 47px;
+}
+
+.active1
+{
+  color: aqua;
+}
+.headerTopBoder
+{
+  height: 4px;
+  width: 100%;
+  background: #1286AB;
+  border-radius: 2px;
+}
+.headerMenuDivider
+{
+  position: absolute;
+  left: 100%;
+  top: 24%;
+  border-left: 2px solid #2D2D37;
+  height: 25px;
+}
