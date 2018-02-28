@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PfjDataTileComponent implements OnInit {
   @Input() dataTileName : string;
-  @Input() dataTile : object;
+  @Input() dataTile : any;
   @Input() isRequiredSubTile:boolean;
   @Input() arrItemsSubTile
   constructor() { }
