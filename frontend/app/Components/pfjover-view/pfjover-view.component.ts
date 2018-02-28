@@ -11,7 +11,7 @@ import { CustomerPriceDetails } from '../../Models/customer-price-details';
 export class PfjoverViewComponent implements OnInit {
   selectedCustPricingDetails : CustomerPriceDetails;
   selectedViewTableau:string;
-  constructor(private serviceConsumer: ServiceConsumer ,private repository : RepositoryService ) {
+  constructor(public serviceConsumer: ServiceConsumer ,public repository : RepositoryService ) {
    }
 
   ngOnInit() {
