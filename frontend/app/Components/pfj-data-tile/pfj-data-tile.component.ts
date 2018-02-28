@@ -14,6 +14,6 @@ export class PfjDataTileComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }
+  } 
 
 }
