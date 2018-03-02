@@ -9,7 +9,7 @@
       "outDir": "src/main/resources/static",
       "assets": [
         "assets",
-        "favicon.ico",
+        "pilotflyingj_favicon.ico",
         "images"
       ],
       "index": "index.html",

@@ -12,5 +12,9 @@ export class PfjtotalComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  roundOffData(data:string)
+  {
+    data = data.toString().trim().replace("-","");
+    return parseFloat(data).toFixed(2);
+  }
 }

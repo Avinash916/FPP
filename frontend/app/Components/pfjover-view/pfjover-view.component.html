@@ -1,7 +1,7 @@
 <div class="container-fluid" style="position: absolute;left:2%">
   <div class="row">
     <div class="customer-pricing" style="width: 1315px">PFJ OVERVIEW
-      <span *ngIf="selectedCustPricingDetails != null" style="margin-left: 15px;color: #CECED1">Last Closed Period: {{selectedCustPricingDetails.lastClosedPeriod}}</span>
+      <span *ngIf="selectedCustPricingDetails != null" style="margin-left: 15px;color: #CECED1">Last Closed Period: <span style="color:#1286AB;">{{selectedCustPricingDetails.lastClosedPeriod}}</span></span>
       <div style="float: right;margin-right:22px;font-size: 14px;color: #CECED1">
 
 
@@ -18,7 +18,7 @@
     <ng-container *ngIf="selectedCustPricingDetails != null">
       <app-pfjtotal [pfjTotal]="selectedCustPricingDetails.pfjTotal"></app-pfjtotal>
       <!-- Tableu map-->
-      <div style="float:left;margin-top: 20px;">
+      <div style="float:left;">
         <div class="dvStickerHeaderCap" style="width: 507px;"></div>
         <div class="dvStickerHeader" style="width: 507px;">{{this.repository.selectedViewTableau}}</div>
         <div class="dvStickerContainer">
@@ -27,7 +27,7 @@
       </div>
 
       <!--Choose view-->
-      <div style="float:left;margin-top: 20px;">
+      <div style="float:left;">
         <div class="dvStickerHeaderCapSmall" style="width: 243px;"></div>
         <div class="dvStickerHeaderSmall" style="width: 243px;">CHOOSE VIEW</div>
         <div class="dvStickerContainer" style="width: 243px;">
@@ -78,7 +78,7 @@
           </div>
         </div>
       </div>
-      <div style="margin-bottom: 20px;float:left;width:100%"></div>
+      <div style="margin-bottom: 5px;float:left;width:100%"></div>
       <app-pfj-data-tile [dataTileName]="'BETTER OF'" [dataTile]="selectedCustPricingDetails.betterOf" [isRequiredSubTile]="true"></app-pfj-data-tile>
       <app-pfj-data-tile [dataTileName]="'TOTAL RETAIL'" [dataTile]="selectedCustPricingDetails.totalRetail"></app-pfj-data-tile>
       <app-pfj-data-tile [dataTileName]="'RETAIL MINUS'" [dataTile]="selectedCustPricingDetails.retailMinus" [isRequiredSubTile]="true"></app-pfj-data-tile>

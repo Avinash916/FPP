@@ -211,7 +211,7 @@ body {
     padding-left: 10px;
     line-height: 30px;
     font-family: "Interstate-Bold", Helvetica, Arial, serif;
-    font-size: 15px;
+    font-size: 12px;
 }
 
 .dvStickerHeaderCap
@@ -233,6 +233,8 @@ body {
   margin: 20px;
   margin-left: 0;
   margin-top: 5px;
+  font-size: 12px;
+  font-family: "Interstate-Bold", Helvetica, Arial, serif;
 }
 
 .dvStickerContainer
@@ -252,7 +254,7 @@ body {
 }
 .dvStickerContentLeft
 {
-  height: 105px;
+  height: 80px;
   width: 243px;
   margin-top: 37px;
   /* margin-left: -1px; */
@@ -263,14 +265,15 @@ body {
 .spnStickerLeftVal
 {
   font-family: "Interstate-Regular", Helvetica, Arial, serif;
-  font-size: 22.0px;
+  font-size: 18.0px;
+  color: #CFCFD1;
   /*position: relative;
   left: 4%;*/
 }
 .spnStickerCenterValVsTg
 {
       font-family: "Interstate-Bold", Helvetica, Arial, serif;
-      font-size: 10.0px;
+      font-size: 9.0px;
       /*position: relative;
       right: 65%;*/
 }
@@ -291,10 +294,11 @@ body {
 .spnStickerRightVal
 {
   font-family: "Interstate-Regular", Helvetica, Arial, serif;
-  font-size: 15.0px;
-  /*position: relative;
-  right: 15%;*/
+  font-size: 12.0px;
   color: #CECED1;
+  float: right;
+  margin-right: 9px;
+  text-align: right;
 }
 .dvStickerHeaderCapSmall {
   height: 4px;
@@ -306,7 +310,7 @@ body {
 
 .dvTableauMap
 {
-  height: 292px;
+  height: 232px;
   width: 507px;
   background: #2D2D37;
   margin-right: 20px;
@@ -315,7 +319,7 @@ body {
 
 .dvTableauMapFilter
 {
-  height: 292px;
+  height: 232px;
   width: 243px;
   background: #2D2D37;
   margin-right: 20px;
@@ -334,6 +338,8 @@ body {
     color: rgba(255, 255, 255, 1.0);
     padding-left: 10px;
     line-height: 30px;
+    font-size: 12px;
+    font-family: "Interstate-Bold", Helvetica, Arial, serif;
 }
 
 .mixPercentage

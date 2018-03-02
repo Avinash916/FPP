@@ -3,7 +3,7 @@
   <div class="dvStickerHeaderSmall">{{dataTileName}}</div>
   <div class="dvStickerContainer">
     <div class="dvStickerContainer">
-      <div style="min-height: 143px;">
+      <div style="min-height: 116px;">
         <div class=dvSticker>
           <div class="dvStickerHeaderLeft"> TOTAL GP$</div>
           <div class="dvStickerHeaderRight"> 140.4</div>
@@ -12,27 +12,27 @@
               <span class="col-sm-6 spnStickerLeftVal">
                 <img *ngIf="dataTile.grossProfitDollars.vsTgLeftPositive" src='assets/images/up_arrow.png'>
               <img *ngIf="!dataTile.grossProfitDollars.vsTgLeftPositive" src='assets/images/down_arrow.png'>
-              {{dataTile.grossProfitDollars.vsTgLeft}}</span>
+              {{roundOffData(dataTile.grossProfitDollars.vsTgLeft)}}</span>
               <div>
-                <span class="col-sm-3 spnStickerCenterValVsTg">VS.TG</span>
-                <span class="col-sm-3 spnStickerRightVal">{{dataTile.grossProfitDollars.vsTgRight}}</span>
+                <span class="col-sm-2 spnStickerCenterValVsTg">VS.TG</span>
+                <span class="col-sm-3 spnStickerRightVal">{{roundOffData(dataTile.grossProfitDollars.vsTgRight)}}</span>
               </div>
             </div>
             <div style="padding-top: 10px;">
               <span class="col-sm-6 spnStickerLeftVal">
                 <img *ngIf="dataTile.grossProfitDollars.vsLyLeftPositive" src='assets/images/up_arrow.png'>
               <img *ngIf="!dataTile.grossProfitDollars.vsLyLeftPositive" src='assets/images/down_arrow.png'> 
-              {{dataTile.grossProfitDollars.vsLyLeft}}</span>
+              {{roundOffData(dataTile.grossProfitDollars.vsLyLeft)}}</span>
               <div>
-                <span class="col-sm-3 spnStickerCenterValVsTLy">VS.LY</span>
-                <span class="col-sm-3 spnStickerRightVal">{{dataTile.grossProfitDollars.vsLyRight}}</span>
+                <span class="col-sm-2 spnStickerCenterValVsTLy">VS.LY</span>
+                <span class="col-sm-3 spnStickerRightVal">{{roundOffData(dataTile.grossProfitDollars.vsLyRight)}}</span>
               </div>
             </div>
           </div>
         </div>
 
       </div>
-      <div style="min-height: 143px;">
+      <div style="min-height: 116px;">
         <div class=dvSticker>
           <div class="dvStickerHeaderLeft"> VOLUME</div>
           <div class="dvStickerHeaderRight"> 140.4</div>
@@ -41,20 +41,20 @@
               <span class="col-sm-6 spnStickerLeftVal">
               <img *ngIf="dataTile.volume.vsTgLeftPositive" src='assets/images/up_arrow.png'>
               <img *ngIf="!dataTile.volume.vsTgLeftPositive" src='assets/images/down_arrow.png'>
-              {{dataTile.volume.vsTgLeft}}</span>
+              {{roundOffData(dataTile.volume.vsTgLeft)}}</span>
               <div>
-                <span class="col-sm-3 spnStickerCenterValVsTg">VS.TG</span>
-                <span class="col-sm-3 spnStickerRightVal">{{dataTile.volume.vsTgRight}}</span>
+                <span class="col-sm-2 spnStickerCenterValVsTg">VS.TG</span>
+                <span class="col-sm-3 spnStickerRightVal">{{roundOffData(dataTile.volume.vsTgRight)}}%</span>
               </div>
             </div>
             <div style="padding-top: 10px;">
               <span class="col-sm-6 spnStickerLeftVal">
               <img *ngIf="dataTile.volume.vsLyLeftPositive" src='assets/images/up_arrow.png'>
               <img *ngIf="!dataTile.volume.vsLyLeftPositive" src='assets/images/down_arrow.png'>
-              {{dataTile.volume.vsLyLeft}}</span>
+              {{roundOffData(dataTile.volume.vsLyLeft)}}</span>
               <div>
-                <span class="col-sm-3 spnStickerCenterValVsTLy">VS.LY</span>
-                <span class="col-sm-3 spnStickerRightVal">{{dataTile.volume.vsLyRight}}</span>
+                <span class="col-sm-2 spnStickerCenterValVsTLy">VS.LY</span>
+                <span class="col-sm-3 spnStickerRightVal">{{roundOffData(dataTile.volume.vsLyRight)}}%</span>
               </div>
             </div>
           </div>
@@ -67,7 +67,7 @@
         <div>
           <div class="mixPercentageColumns">
             <span style="position: absolute;top:0px;">ACTUAL</span>
-            <span style="position: absolute;bottom:0px;">{{dataTile.mixPercentage.mixActual}}%</span>
+            <span style="position: absolute;bottom:0px;">{{roundOffData(dataTile.mixPercentage.mixActual)}}%</span>
           </div>
 
           <div class="mixPercentageColumns">
@@ -77,7 +77,7 @@
 
           <div class="mixPercentageColumns" style="margin-left: 110px;">
             <span style="position: absolute;top:0px;">TARGET</span>
-            <span style="position: absolute;bottom:0px;">{{dataTile.mixPercentage.mixTarget}}%</span>
+            <span style="position: absolute;bottom:0px;">{{roundOffData(dataTile.mixPercentage.mixTarget)}}%</span>
           </div>
           <div class="mixPercentageColumns" style="margin-left: 111px;">
             <div class="vl"></div>
@@ -88,12 +88,12 @@
             <img *ngIf = "dataTile.mixPercentage.mixVsLyPositive"class="imgMixPercentage" src='assets/images/up_arrow.png'>
             <img *ngIf = "!dataTile.mixPercentage.mixVsLyPositive"class="imgMixPercentage" src='assets/images/down_arrow.png'>
             <span style="position: absolute;top:0px;">VS.LY</span>
-            <span style="position: absolute;bottom:0px;">{{dataTile.mixPercentage.mixVsLy}}%</span>
+            <span style="position: absolute;bottom:0px;">{{roundOffData(dataTile.mixPercentage.mixVsLy)}}%</span>
           </div>
 
         </div>
       </div>
-      <div style="min-height: 143px;">
+      <div style="min-height: 116px;">
         <div class=dvSticker>
           <div class="dvStickerHeaderLeft"> MARGIN</div>
           <div class="dvStickerHeaderRight"> 140.4</div>
@@ -102,20 +102,20 @@
               <span class="col-sm-6 spnStickerLeftVal">
               <img *ngIf="dataTile.margin.vsTgLeftPositive" src='assets/images/up_arrow.png'>
               <img *ngIf="!dataTile.margin.vsTgLeftPositive" src='assets/images/down_arrow.png'>
-              {{dataTile.margin.vsTgLeft}}</span>
+              {{roundOffData(dataTile.margin.vsTgLeft)}}</span>
               <div>
-                <span class="col-sm-3 spnStickerCenterValVsTg">VS.TG</span>
-                <span class="col-sm-3 spnStickerRightVal">{{dataTile.margin.vsTgRight}}</span>
+                <span class="col-sm-2 spnStickerCenterValVsTg">VS.TG</span>
+                <span class="col-sm-3 spnStickerRightVal">{{roundOffData(dataTile.margin.vsTgRight)}}</span>
               </div>
             </div>
             <div style="padding-top: 10px;">
               <span class="col-sm-6 spnStickerLeftVal">
               <img *ngIf="dataTile.margin.vsLyLeftPositive" src='assets/images/up_arrow.png'>
               <img *ngIf="!dataTile.margin.vsLyLeftPositive" src='assets/images/down_arrow.png'>
-              {{dataTile.margin.vsLyLeft}}</span>
+              {{roundOffData(dataTile.margin.vsLyLeft)}}</span>
               <div>
-                <span class="col-sm-3 spnStickerCenterValVsTLy">VS.LY</span>
-                <span class="col-sm-3 spnStickerRightVal">{{dataTile.margin.vsLyRight}}</span>
+                <span class="col-sm-2 spnStickerCenterValVsTLy">VS.LY</span>
+                <span class="col-sm-3 spnStickerRightVal">{{roundOffData(dataTile.margin.vsLyRight)}}</span>
               </div>
             </div>
           </div>
