@@ -3,6 +3,8 @@ package com.pilot.main.pilotservice.pojo;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+import com.pilot.main.pilotservice.util.CustomerPricingUtil;
+
 public class BetterOf implements Serializable {
 
 	/**
@@ -63,7 +65,7 @@ public class BetterOf implements Serializable {
 	}
 
 	public void setBuyingPerfActual(BigDecimal buyingPerfActual) {
-		this.buyingPerfActual = buyingPerfActual;
+		this.buyingPerfActual = CustomerPricingUtil.formatMillionNumbers(buyingPerfActual);
 	}
 
 	public BigDecimal getBuyingPerfTarget() {
@@ -71,7 +73,7 @@ public class BetterOf implements Serializable {
 	}
 
 	public void setBuyingPerfTarget(BigDecimal buyingPerfTarget) {
-		this.buyingPerfTarget = buyingPerfTarget;
+		this.buyingPerfTarget = CustomerPricingUtil.formatMillionNumbers(buyingPerfTarget);
 	}
 
 	public BigDecimal getEffPumpFeeActual() {
@@ -79,7 +81,7 @@ public class BetterOf implements Serializable {
 	}
 
 	public void setEffPumpFeeActual(BigDecimal effPumpFeeActual) {
-		this.effPumpFeeActual = effPumpFeeActual;
+		this.effPumpFeeActual = CustomerPricingUtil.formatMillionNumbers(effPumpFeeActual);
 	}
 
 	public BigDecimal getEffPumpFeeTarget() {
@@ -87,7 +89,7 @@ public class BetterOf implements Serializable {
 	}
 
 	public void setEffPumpFeeTarget(BigDecimal effPumpFeeTarget) {
-		this.effPumpFeeTarget = effPumpFeeTarget;
+		this.effPumpFeeTarget = CustomerPricingUtil.formatMillionNumbers(effPumpFeeTarget);
 	}
 
 	@Override
