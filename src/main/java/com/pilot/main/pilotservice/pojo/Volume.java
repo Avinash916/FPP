@@ -4,12 +4,16 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+import com.pilot.main.pilotservice.util.CustomerPricingUtil;
+
 public class Volume implements Serializable {
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 8752721638535299465L;
+
+	private BigDecimal header;
 
 	private BigDecimal vsTgLeft;
 	
@@ -23,12 +27,20 @@ public class Volume implements Serializable {
 	
 	private BigDecimal vsLyRight;
 
+	public BigDecimal getHeader() {
+		return header;
+	}
+
+	public void setHeader(BigDecimal header) {
+		this.header = CustomerPricingUtil.formatMillionNumbers(header);
+	}
+
 	public BigDecimal getVsTgLeft() {
 		return vsTgLeft;
 	}
 
 	public void setVsTgLeft(BigDecimal vsTgLeft) {
-		this.vsTgLeft = vsTgLeft.divide(BigDecimal.valueOf(1000000), 2, RoundingMode.HALF_UP);
+		this.vsTgLeft = CustomerPricingUtil.formatMillionNumbers(vsTgLeft);
 	}
 
 	public Boolean getVsTgLeftPositive() {
@@ -44,7 +56,7 @@ public class Volume implements Serializable {
 	}
 
 	public void setVsTgRight(BigDecimal vsTgRight) {
-		this.vsTgRight = vsTgRight.divide(BigDecimal.valueOf(1000000), 2, RoundingMode.HALF_UP);
+		this.vsTgRight = CustomerPricingUtil.formatMillionNumbers(vsTgRight);
 	}
 
 	public BigDecimal getVsLyLeft() {
@@ -52,7 +64,7 @@ public class Volume implements Serializable {
 	}
 
 	public void setVsLyLeft(BigDecimal vsLyLeft) {
-		this.vsLyLeft = vsLyLeft.divide(BigDecimal.valueOf(1000000), 2, RoundingMode.HALF_UP);
+		this.vsLyLeft = CustomerPricingUtil.formatMillionNumbers(vsLyLeft);
 	}
 
 	public Boolean getVsLyLeftPositive() {
@@ -68,13 +80,13 @@ public class Volume implements Serializable {
 	}
 
 	public void setVsLyRight(BigDecimal vsLyRight) {
-		this.vsLyRight = vsLyRight.divide(BigDecimal.valueOf(1000000), 2, RoundingMode.HALF_UP);
+		this.vsLyRight = CustomerPricingUtil.formatMillionNumbers(vsLyRight);
 	}
 
 	@Override
 	public String toString() {
-		return "Volume [vsTgLeft=" + vsTgLeft + ", vsTgLeftPositive=" + vsTgLeftPositive + ", vsTgRight=" + vsTgRight
-				+ ", vsLyLeft=" + vsLyLeft + ", vsLyLeftPositive=" + vsLyLeftPositive + ", vsLyRight=" + vsLyRight
-				+ "]";
+		return "Volume [header=" + header + ", vsTgLeft=" + vsTgLeft + ", vsTgLeftPositive=" + vsTgLeftPositive
+				+ ", vsTgRight=" + vsTgRight + ", vsLyLeft=" + vsLyLeft + ", vsLyLeftPositive=" + vsLyLeftPositive
+				+ ", vsLyRight=" + vsLyRight + "]";
 	}
 }

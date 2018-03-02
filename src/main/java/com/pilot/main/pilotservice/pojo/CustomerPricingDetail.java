@@ -95,5 +95,4 @@ public class CustomerPricingDetail implements Serializable {
 				+ ", pFJTotal=" + pFJTotal + ", betterOf=" + betterOf + ", totalRetail=" + totalRetail
 				+ ", retailMinus=" + retailMinus + ", funded=" + funded + ", ccc=" + ccc + "]";
 	}
-
 }
