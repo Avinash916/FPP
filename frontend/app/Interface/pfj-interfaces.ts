@@ -7,6 +7,7 @@ export interface ICustPriceDetailsVersusProp {
     vsLyLeft:string;
     vsLyLeftPositive:string;
     vsLyRight:string;
+    header:string;
 }
 
 export interface ICustPriceTilesDetails

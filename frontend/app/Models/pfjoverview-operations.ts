@@ -4,7 +4,7 @@ export class PfjOverviewOperations {
     public PopulateCustomerPricingDetails(data): CustomerPriceDetails[]
     {
         let arrCustomerPricingDetails : CustomerPriceDetails[]=[];
-        let arrCustPricingDetailsService:any[] = data;
+       /* let arrCustPricingDetailsService:any[] = data;
         arrCustPricingDetailsService.forEach(c => {
             let customerPriceDetails:CustomerPriceDetails = new CustomerPriceDetails();
             customerPriceDetails.temporalPeriod = c.temporalPeriod;
@@ -16,8 +16,8 @@ export class PfjOverviewOperations {
             customerPriceDetails.funded = c.funded;
             customerPriceDetails.ccc = c.ccc;
             arrCustomerPricingDetails.push(customerPriceDetails);
-        });
-        /*let c = data;
+        });*/
+        let c = data;
         let customerPriceDetails:CustomerPriceDetails = new CustomerPriceDetails();
         customerPriceDetails.temporalPeriod = c.temporalPeriod;
         customerPriceDetails.pfjTotal = c.pfjTotal;
@@ -27,7 +27,7 @@ export class PfjOverviewOperations {
         customerPriceDetails.funded = c.funded;
         customerPriceDetails.ccc = c.ccc;
         arrCustomerPricingDetails.push(customerPriceDetails);
-        console.log(JSON.stringify(arrCustomerPricingDetails));*/
+        //console.log(JSON.stringify(arrCustomerPricingDetails));
         return arrCustomerPricingDetails;
     }
 }

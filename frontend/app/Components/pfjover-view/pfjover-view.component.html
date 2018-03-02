@@ -2,77 +2,88 @@
   <div class="row">
     <div class="customer-pricing" style="width: 1315px">PFJ OVERVIEW
       <span *ngIf="selectedCustPricingDetails != null" style="margin-left: 15px;color: #CECED1">Last Closed Period: {{selectedCustPricingDetails.lastClosedPeriod}}</span>
-      <div style="float: right;width: 20%;margin-right:22px;font-size: 14px;color: #CECED1">
-        <div style="float: right;margin-left: 10px;line-height: 20px;">
-          <span style="padding-left: 2px;">LCYTD</span>
-          <input style="float: left;" [checked] = "this.repository.selectedDataPeriod == 'LCYTD'" (click)="ProcessSelectedCustomerPricingDetails('LCYTD')" name="toggleDataPeriod" ng-control="toggleDataPeriod"
-            type="radio">
-        </div>
-        <div style="float: right;margin-left: 10px;line-height: 20px;">
-          <span style="padding-left: 2px;">LCM</span>
-          <input style="float: left;" [checked] = "this.repository.selectedDataPeriod == 'LCM'" (click)="ProcessSelectedCustomerPricingDetails('LCM')" name="toggleDataPeriod" ng-control="toggleDataPeriod"
-            type="radio">
-        </div>
-        <div style="float: right;margin-left: 10px;line-height: 20px;">
-          <span style="padding-left: 2px;">MTD</span>
-          <input style="float: left;" [checked] = "this.repository.selectedDataPeriod == 'MTD'" (click)="ProcessSelectedCustomerPricingDetails('MTD')" name="toggleDataPeriod" ng-control="toggleDataPeriod"
-            type="radio">
-        </div>
+      <div style="float: right;margin-right:22px;font-size: 14px;color: #CECED1">
+
+
+        <input type="radio" (click)="ProcessSelectedCustomerPricingDetails('MTD')" id="ddlMTD" name="toggleDataPeriod" [checked]="this.repository.selectedDataPeriod == 'MTD'">
+        <label style="margin: 0 5px 0 10px;" for="ddlMTD">MTD</label>
+        <input type="radio" (click)="ProcessSelectedCustomerPricingDetails('LCM')" id="ddlLCM" name="toggleDataPeriod" [checked]="this.repository.selectedDataPeriod == 'LCM'">
+        <label style="margin: 0 5px 0 10px;" for="ddlLCM">LCM</label>
+        <input type="radio" (click)="ProcessSelectedCustomerPricingDetails('LCYTD')" id="ddlLCYTD" name="toggleDataPeriod" [checked]="this.repository.selectedDataPeriod == 'LCYTD'">
+        <label style="margin: 0 5px 0 10px;" for="ddlLCYTD">LCYTD</label>
+
       </div>
     </div>
     <!--PFJ total section -->
     <ng-container *ngIf="selectedCustPricingDetails != null">
-     <app-pfjtotal [pfjTotal] = "selectedCustPricingDetails.pfjTotal"></app-pfjtotal>
-     <!-- Tableu map-->
-     <div style="float:left;margin-top: 20px;">
-      <div class="dvStickerHeaderCap" style="width: 507px;"></div>
-      <div class="dvStickerHeader" style="width: 507px;">{{selectedViewTableau}}</div>
-      <div class="dvStickerContainer">
-        <div class="dvTableauMap"></div>
-      </div>
-    </div>
-
-    <!--Choose view-->
-    <div style="float:left;margin-top: 20px;">
-      <div class="dvStickerHeaderCapSmall" style="width: 243px;"></div>
-      <div class="dvStickerHeaderSmall" style="width: 243px;">CHOOSE VIEW</div>
-      <div class="dvStickerContainer" style="width: 243px;">
-        <div class="dvTableauMapFilter" style="width: 243px;font-size: 12px;">
-          <div style="color:#CECED1;padding-top:7%">
-            <span style="margin-left: 5px;vertical-align: sub">
-              <input checked value="GROSS PROFIT $" (click) = "ToggleTableauHeaderTxt('GROSS PROFIT $')" name="tableauFilter" ng-control="options" type="radio">
-            </span>
-            <span>
-              GROSS PROFIT $
-            </span>
-          </div>
-          <div style="color:#CECED1;padding-top:27%">
-            <span style="margin-left: 5px;vertical-align: sub">
-              <input value="VOLUME" (click) = "ToggleTableauHeaderTxt('VOLUME')" name="tableauFilter" ng-control="options" type="radio">
-            </span>
-            <span>
-              VOLUME
-            </span>
-          </div>
-          <div style="color:#CECED1;padding-top:27%">
-            <span style="margin-left: 5px;vertical-align: sub">
-              <input value="MARGIN" (click) = "ToggleTableauHeaderTxt('MARGIN')" name="tableauFilter" ng-control="options" type="radio">
-            </span>
-            <span>
-              MARGIN
-            </span>
-          </div>
-          <div></div>
-          <div></div>
+      <app-pfjtotal [pfjTotal]="selectedCustPricingDetails.pfjTotal"></app-pfjtotal>
+      <!-- Tableu map-->
+      <div style="float:left;margin-top: 20px;">
+        <div class="dvStickerHeaderCap" style="width: 507px;"></div>
+        <div class="dvStickerHeader" style="width: 507px;">{{this.repository.selectedViewTableau}}</div>
+        <div class="dvStickerContainer">
+          <div class="dvTableauMap"></div>
         </div>
       </div>
+
+      <!--Choose view-->
+      <div style="float:left;margin-top: 20px;">
+        <div class="dvStickerHeaderCapSmall" style="width: 243px;"></div>
+        <div class="dvStickerHeaderSmall" style="width: 243px;">CHOOSE VIEW</div>
+        <div class="dvStickerContainer" style="width: 243px;">
+          <div class="dvTableauMapFilter" style="width: 243px;font-size: 12px;">
+    <div class="chooseViewRadioButtonsDiv">
+        <input type="radio"(click)="ToggleTableauHeaderTxt('GROSS PROFIT $')" 
+        id="ddlGrossProfitTableau" name="tableauFilter" [checked]="this.repository.selectedTableauFilter == 'GROSS PROFIT $'">
+        <label for="ddlGrossProfitTableau">GROSS PROFIT $</label>
     </div>
-    <div style="margin-bottom: 20px;float:left;width:100%"></div>
-     <app-pfj-data-tile [dataTileName] = "'BETTER OF'" [dataTile] = "selectedCustPricingDetails.betterOf" [isRequiredSubTile] = "true"></app-pfj-data-tile>
-     <app-pfj-data-tile [dataTileName] = "'TOTAL RETAIL'" [dataTile] = "selectedCustPricingDetails.totalRetail"></app-pfj-data-tile>
-     <app-pfj-data-tile [dataTileName] = "'RETAIL MINUS'" [dataTile] = "selectedCustPricingDetails.retailMinus" [isRequiredSubTile] = "true"></app-pfj-data-tile>
-     <app-pfj-data-tile [dataTileName] = "'FUNDED'" [dataTile] = "selectedCustPricingDetails.funded"></app-pfj-data-tile>
-     <app-pfj-data-tile [dataTileName] = "'CCC'" [dataTile] = "selectedCustPricingDetails.ccc"></app-pfj-data-tile>
+    <div class="chooseViewRadioButtonsDiv">
+        <input type="radio" (click)="ToggleTableauHeaderTxt('VOLUME')" 
+        id="ddlVolumeTableau" name="tableauFilter" [checked]="this.repository.selectedTableauFilter == 'VOLUME'">
+        <label for="ddlVolumeTableau">VOLUME</label>
+    </div>
+    <div class="chooseViewRadioButtonsDiv">
+        <input type="radio" (click)="ToggleTableauHeaderTxt('MARGIN')" 
+        id="ddlMarginTableau" name="tableauFilter" [checked]="this.repository.selectedTableauFilter == 'MARGIN'">
+        <label for="ddlMarginTableau">MARGIN</label>
+    </div>
+  
+            <!--<div style="color:#CECED1;padding-top:7%">
+              <span style="margin-left: 5px;vertical-align: sub">
+                <input checked value="GROSS PROFIT $" (click)="ToggleTableauHeaderTxt('GROSS PROFIT $')" name="tableauFilter" ng-control="options"
+                  type="radio">
+              </span>
+              <span>
+                GROSS PROFIT $
+              </span>
+            </div>
+            <div style="color:#CECED1;padding-top:27%">
+              <span style="margin-left: 5px;vertical-align: sub">
+                <input value="VOLUME" (click)="ToggleTableauHeaderTxt('VOLUME')" name="tableauFilter" ng-control="options" type="radio">
+              </span>
+              <span>
+                VOLUME
+              </span>
+            </div>
+            <div style="color:#CECED1;padding-top:27%">
+              <span style="margin-left: 5px;vertical-align: sub">
+                <input value="MARGIN" (click)="ToggleTableauHeaderTxt('MARGIN')" name="tableauFilter" ng-control="options" type="radio">
+              </span>
+              <span>
+                MARGIN
+              </span>
+            </div>-->
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-bottom: 20px;float:left;width:100%"></div>
+      <app-pfj-data-tile [dataTileName]="'BETTER OF'" [dataTile]="selectedCustPricingDetails.betterOf" [isRequiredSubTile]="true"></app-pfj-data-tile>
+      <app-pfj-data-tile [dataTileName]="'TOTAL RETAIL'" [dataTile]="selectedCustPricingDetails.totalRetail"></app-pfj-data-tile>
+      <app-pfj-data-tile [dataTileName]="'RETAIL MINUS'" [dataTile]="selectedCustPricingDetails.retailMinus" [isRequiredSubTile]="true"></app-pfj-data-tile>
+      <app-pfj-data-tile [dataTileName]="'FUNDED'" [dataTile]="selectedCustPricingDetails.funded"></app-pfj-data-tile>
+      <app-pfj-data-tile [dataTileName]="'CCC'" [dataTile]="selectedCustPricingDetails.ccc"></app-pfj-data-tile>
 
     </ng-container>
     <div style="margin-bottom: 20px;float:left;width:100%"></div>
