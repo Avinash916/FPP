@@ -15,10 +15,10 @@ import com.pilot.main.pilotservice.service.CustomerPricingService;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/customerpricing")
-public class CustomerPricingController {
+@RequestMapping("/pfjoverview")
+public class PFJOverviewController {
 
-	private static final Logger logger = LoggerFactory.getLogger(CustomerPricingController.class);
+	private static final Logger logger = LoggerFactory.getLogger(PFJOverviewController.class);
 
 	@Autowired
 	CustomerPricingService customerPricingService;
@@ -28,7 +28,7 @@ public class CustomerPricingController {
 	 * 
 	 * @return
 	 */
-	@GetMapping(path = "/getprices")
+	@GetMapping(path = "/getdashboard")
 	public List<CustomerPricingDetail> getAllNotes() {
 		logger.info("---in Customer Pricing Controller ---");
 		return customerPricingService.fetchCustomerPricingDetails();
