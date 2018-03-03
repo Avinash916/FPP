@@ -21,7 +21,7 @@ public class PFJOverviewController {
 	private static final Logger logger = LoggerFactory.getLogger(PFJOverviewController.class);
 
 	@Autowired
-	PFJOverviewService customerPricingService;
+	PFJOverviewService pfjOverviewService;
 
 	/**
 	 * Get details for Customer Pricing screen
@@ -29,8 +29,8 @@ public class PFJOverviewController {
 	 * @return
 	 */
 	@GetMapping(path = "/getdashboard")
-	public List<PFJOverviewDetail> getAllNotes() {
+	public List<PFJOverviewDetail> getPFJOVerviewDashboard() {
 		logger.info("---in Customer Pricing Controller ---");
-		return customerPricingService.fetchPFJOverviewDetails();
+		return pfjOverviewService.fetchPFJOverviewDetails();
 	}
 }
