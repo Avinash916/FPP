@@ -10,8 +10,8 @@ export class ServiceConsumer {
 
   GetCustomerPricingDetails():Observable<any>
   {
-    //console.log(AppConfig.PFJApiUrl+"pfjoverview/getdashboard");
-    return this.http.get(AppConfig.PFJApiUrl+"pfjoverview/getdashboard")
+    console.log(AppConfig.PFJApiUrl+"pfjoverview/getdashboard");
+    return this.http.get("pfjoverview/getdashboard")
     .map((res:Response)=>res.json())
     .catch((error:any)=>Observable.throw(error.json().error || 'Server Error'));
   }
