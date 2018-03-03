@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pilot.main.pilotservice.pojo.PFJOverviewDetail;
+import com.pilot.main.pilotservice.pojo.PFJOverview;
 import com.pilot.main.pilotservice.service.PFJOverviewService;
 
 @RestController
@@ -24,12 +24,12 @@ public class PFJOverviewController {
 	PFJOverviewService pfjOverviewService;
 
 	/**
-	 * Get details for Customer Pricing screen
+	 * Get PFJ Overview Dashboard
 	 * 
 	 * @return
 	 */
 	@GetMapping(path = "/getdashboard")
-	public List<PFJOverviewDetail> getPFJOVerviewDashboard() {
+	public List<PFJOverview> getPFJOVerviewDashboard() {
 		logger.info("---in Customer Pricing Controller ---");
 		return pfjOverviewService.fetchPFJOverviewDetails();
 	}

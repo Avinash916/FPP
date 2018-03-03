@@ -15,7 +15,7 @@ import com.pilot.main.pilotrepo.entity.QFctDmCompanyLevelActualVsTargetEntity;
 import com.pilot.main.pilotrepo.repo.FctDmCompanyLevelActualVsTargetRepo;
 import com.pilot.main.pilotservice.pojo.BetterOf;
 import com.pilot.main.pilotservice.pojo.CCC;
-import com.pilot.main.pilotservice.pojo.PFJOverviewDetail;
+import com.pilot.main.pilotservice.pojo.PFJOverview;
 import com.pilot.main.pilotservice.pojo.Funded;
 import com.pilot.main.pilotservice.pojo.GrossProfitDollars;
 import com.pilot.main.pilotservice.pojo.Margin;
@@ -33,7 +33,7 @@ public class PFJOverviewService {
 	@Autowired
 	FctDmCompanyLevelActualVsTargetRepo fctDmCompanyLevelActualVsTargetRepo;
 
-	public List<PFJOverviewDetail> fetchPFJOverviewDetails() {
+	public List<PFJOverview> fetchPFJOverviewDetails() {
 		logger.info("---in Customer Pricing Service ---");
 
 		/*
@@ -41,7 +41,7 @@ public class PFJOverviewService {
 		 */
 		List<FctDmCompanyLevelActualVsTargetEntity> mtdEntities = findEntitiesByTemporalPeriod("MTD");
 		logger.info("Found MTD type rows ---> " + mtdEntities.size());
-		PFJOverviewDetail pfjOverviewDetailsMTD = populatePFJOverviewDetail(mtdEntities);
+		PFJOverview pfjOverviewDetailsMTD = populatePFJOverviewDetail(mtdEntities);
 		pfjOverviewDetailsMTD.setTemporalPeriod("MTD");
 		pfjOverviewDetailsMTD.setLastClosedPeriod(mtdEntities.get(0).getLastClosedPeriod());
 
@@ -50,7 +50,7 @@ public class PFJOverviewService {
 		 */
 		List<FctDmCompanyLevelActualVsTargetEntity> lcmEntities = findEntitiesByTemporalPeriod("LCM");
 		logger.info("Found LCM type rows ---> " + lcmEntities.size());
-		PFJOverviewDetail pfjOverviewDetailsLCM = populatePFJOverviewDetail(lcmEntities);
+		PFJOverview pfjOverviewDetailsLCM = populatePFJOverviewDetail(lcmEntities);
 		pfjOverviewDetailsLCM.setTemporalPeriod("LCM");
 		pfjOverviewDetailsLCM.setLastClosedPeriod(lcmEntities.get(0).getLastClosedPeriod());
 
@@ -59,11 +59,11 @@ public class PFJOverviewService {
 		 */
 		List<FctDmCompanyLevelActualVsTargetEntity> lcytdEntities = findEntitiesByTemporalPeriod("LCYTD");
 		logger.info("Found LCYTD type rows ---> " + lcytdEntities.size());
-		PFJOverviewDetail pfjOverviewDetailsLCYTD = populatePFJOverviewDetail(lcytdEntities);
+		PFJOverview pfjOverviewDetailsLCYTD = populatePFJOverviewDetail(lcytdEntities);
 		pfjOverviewDetailsLCYTD.setTemporalPeriod("LCYTD");
 		pfjOverviewDetailsLCYTD.setLastClosedPeriod(lcytdEntities.get(0).getLastClosedPeriod());
 
-		List<PFJOverviewDetail> pfjOverviewDetailss = new ArrayList<PFJOverviewDetail>();
+		List<PFJOverview> pfjOverviewDetailss = new ArrayList<PFJOverview>();
 		pfjOverviewDetailss.add(pfjOverviewDetailsMTD);
 		pfjOverviewDetailss.add(pfjOverviewDetailsLCM);
 		pfjOverviewDetailss.add(pfjOverviewDetailsLCYTD);
@@ -71,8 +71,8 @@ public class PFJOverviewService {
 		return pfjOverviewDetailss;
 	}
 
-	private PFJOverviewDetail populatePFJOverviewDetail(List<FctDmCompanyLevelActualVsTargetEntity> fctDmCompanyLevelActualVsTargetEntities) {
-		PFJOverviewDetail pfjOverviewDetails = new PFJOverviewDetail();
+	private PFJOverview populatePFJOverviewDetail(List<FctDmCompanyLevelActualVsTargetEntity> fctDmCompanyLevelActualVsTargetEntities) {
+		PFJOverview pfjOverviewDetails = new PFJOverview();
 		
 		/*
 		 * MIX_OF_BUSINESS entities
@@ -134,7 +134,7 @@ public class PFJOverviewService {
 		return pfjOverviewDetails;
 	}
 
-	private void populatePFJTotal(PFJOverviewDetail pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
+	private void populatePFJTotal(PFJOverview pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
 		GrossProfitDollars grossProfitDollars = new GrossProfitDollars();
 		grossProfitDollars.setVsTgLeft(pfjTotalEntity.getActualGrossProfit().subtract(pfjTotalEntity.getTargetGrossProfit()));
 		grossProfitDollars.setVsTgLeftPositive(grossProfitDollars.getVsTgLeft().signum() > 0);
@@ -175,7 +175,7 @@ public class PFJOverviewService {
 		pfjOverviewDetails.setpFJTotal(pfjTotal);
 	}
 
-	private void populateBetterOf(PFJOverviewDetail pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity betterOfEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
+	private void populateBetterOf(PFJOverview pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity betterOfEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
 		GrossProfitDollars grossProfitDollars = new GrossProfitDollars();
 		grossProfitDollars.setVsTgLeft(betterOfEntity.getActualGrossProfit().subtract(betterOfEntity.getTargetGrossProfit()));
 		grossProfitDollars.setVsTgLeftPositive(grossProfitDollars.getVsTgLeft().signum() > 0);
@@ -229,7 +229,7 @@ public class PFJOverviewService {
 		pfjOverviewDetails.setBetterOf(betterOf);
 	}
 
-	private void populateTotalRetail(PFJOverviewDetail pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity totalRetailEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
+	private void populateTotalRetail(PFJOverview pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity totalRetailEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
 		GrossProfitDollars grossProfitDollars = new GrossProfitDollars();
 		grossProfitDollars.setVsTgLeft(totalRetailEntity.getActualGrossProfit().subtract(totalRetailEntity.getTargetGrossProfit()));
 		grossProfitDollars.setVsTgLeftPositive(grossProfitDollars.getVsTgLeft().signum() > 0);
@@ -279,7 +279,7 @@ public class PFJOverviewService {
 		pfjOverviewDetails.setTotalRetail(totalRetail);
 	}
 
-	private void populateRetailMinus(PFJOverviewDetail pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity retailMinusEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
+	private void populateRetailMinus(PFJOverview pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity retailMinusEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
 		GrossProfitDollars grossProfitDollars = new GrossProfitDollars();
 		grossProfitDollars.setVsTgLeft(retailMinusEntity.getActualGrossProfit().subtract(retailMinusEntity.getTargetGrossProfit()));
 		grossProfitDollars.setVsTgLeftPositive(grossProfitDollars.getVsTgLeft().signum() > 0);
@@ -331,7 +331,7 @@ public class PFJOverviewService {
 		pfjOverviewDetails.setRetailMinus(retailMinus);
 	}
 
-	private void populateFunded(PFJOverviewDetail pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity fundedEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
+	private void populateFunded(PFJOverview pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity fundedEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
 		GrossProfitDollars grossProfitDollars = new GrossProfitDollars();
 		grossProfitDollars.setVsTgLeft(fundedEntity.getActualGrossProfit().subtract(fundedEntity.getTargetGrossProfit()));
 		grossProfitDollars.setVsTgLeftPositive(grossProfitDollars.getVsTgLeft().signum() > 0);
@@ -381,7 +381,7 @@ public class PFJOverviewService {
 		pfjOverviewDetails.setFunded(funded);
 	}
 
-	private void populateCCC(PFJOverviewDetail pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity cccEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
+	private void populateCCC(PFJOverview pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity cccEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
 		GrossProfitDollars grossProfitDollars = new GrossProfitDollars();
 		grossProfitDollars.setVsTgLeft(cccEntity.getActualGrossProfit().subtract(cccEntity.getTargetGrossProfit()));
 		grossProfitDollars.setVsTgLeftPositive(grossProfitDollars.getVsTgLeft().signum() > 0);

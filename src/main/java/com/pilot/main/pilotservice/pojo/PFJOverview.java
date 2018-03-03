@@ -2,7 +2,7 @@ package com.pilot.main.pilotservice.pojo;
 
 import java.io.Serializable;
 
-public class PFJOverviewDetail implements Serializable {
+public class PFJOverview implements Serializable {
 	
 	/**
 	 * 
