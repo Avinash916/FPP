@@ -26,13 +26,13 @@ public class FctDmCompanyLevelActualVsTargetEntity implements Serializable {
 	@Column(name = "DIM_QUANTITY_CONVERSION_ID")
 	private Long dimQuantityConversionId;
 
-	@Column(name = "ACTUAL_GROSS_PROFIT")
+	@Column(name = "ACTUAL_PROFIT_NET_OF_DISCOUNTS")
 	private BigDecimal actualGrossProfit;
 
-	@Column(name = "ACTUAL_GROSS_PROFIT_LY")
+	@Column(name = "ACTUAL_PROFIT_NET_OF_DISCOUNTS_LY")
 	private BigDecimal actualGrossProfitLy;
 
-	@Column(name = "TARGET_GROSS_PROFIT")
+	@Column(name = "TARGET_PROFIT_NET_OF_DISCOUNTS")
 	private BigDecimal targetGrossProfit;
 
 	@Column(name = "ACTUAL_VOLUME")
@@ -56,13 +56,13 @@ public class FctDmCompanyLevelActualVsTargetEntity implements Serializable {
 	@Column(name = "TARGET_EFFECTIVE_PUMP_FEE")
 	private BigDecimal targetEffectivePumpFee;
 
-	@Column(name = "ACTUAL_NET_PL_MARGIN")
+	@Column(name = "ACTUAL_MARGIN_NET_OF_DISCOUNTS")
 	private BigDecimal actualNetPlMargin;
 
-	@Column(name = "ACTUAL_NET_PL_MARGIN_LY")
+	@Column(name = "ACTUAL_MARGIN_NET_OF_DISCOUNTS_LY")
 	private BigDecimal actualNetPlMarginLy;
 
-	@Column(name = "TARGET_NET_PL_MARGIN")
+	@Column(name = "TARGET_MARGIN_NET_OF_DISCOUNTS")
 	private BigDecimal targetNetPlMargin;
 	
 	@Column(name = "ACTUAL_EFFECTIVE_RETAIL_MINUS_RATE")
