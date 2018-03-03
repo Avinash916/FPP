@@ -218,8 +218,8 @@ public class FctDmCompanyLevelActualVsTargetEntity implements Serializable {
 		this.targetEffectiveRetailMinusRate = targetEffectiveRetailMinusRate;
 	}
 
-	public String getDimPlPeriodDateId() {
-		return lastClosedPeriod;
+	public Integer getDimPlPeriodDateId() {
+		return dimPlPeriodDateId;
 	}
 
 	public void setDimPlPeriodDateId(Integer dimPlPeriodDateId) {

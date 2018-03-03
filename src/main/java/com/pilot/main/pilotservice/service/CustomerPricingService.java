@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pilot.main.pilotrepo.entity.FctDmCompanyLevelActualVsTargetEntity;
-import com.pilot.main.pilotrepo.entity.QFctDmCompanyLevelActualVsTargetEntity;
+//import com.pilot.main.pilotrepo.entity.QFctDmCompanyLevelActualVsTargetEntity;
 import com.pilot.main.pilotrepo.repo.FctDmCompanyLevelActualVsTargetRepo;
 import com.pilot.main.pilotservice.pojo.BetterOf;
 import com.pilot.main.pilotservice.pojo.CCC;
@@ -43,7 +43,7 @@ public class CustomerPricingService {
 		logger.info("Found MTD type rows ---> " + mtdEntities.size());
 		CustomerPricingDetail customerPricingDetailMTD = populateCustomerPricingDetail(mtdEntities);
 		customerPricingDetailMTD.setTemporalPeriod("MTD");
-		customerPricingDetailMTD.setLastClosedPeriod(mtdEntities.get(0).getLastClosedPeriod());
+		customerPricingDetailMTD.setDimPlPeriodDateId(mtdEntities.get(0).getDimPlPeriodDateId());
 
 		/*
 		 * UI data generation for LCM filter
@@ -52,7 +52,7 @@ public class CustomerPricingService {
 		logger.info("Found LCM type rows ---> " + lcmEntities.size());
 		CustomerPricingDetail customerPricingDetailLCM = populateCustomerPricingDetail(lcmEntities);
 		customerPricingDetailLCM.setTemporalPeriod("LCM");
-		customerPricingDetailLCM.setLastClosedPeriod(lcmEntities.get(0).getLastClosedPeriod());
+		customerPricingDetailLCM.setDimPlPeriodDateId(lcmEntities.get(0).getDimPlPeriodDateId());
 
 		/*
 		 * UI data generation for LCYTD filter
@@ -61,7 +61,7 @@ public class CustomerPricingService {
 		logger.info("Found LCYTD type rows ---> " + lcytdEntities.size());
 		CustomerPricingDetail customerPricingDetailLCYTD = populateCustomerPricingDetail(lcytdEntities);
 		customerPricingDetailLCYTD.setTemporalPeriod("LCYTD");
-		customerPricingDetailLCYTD.setLastClosedPeriod(lcytdEntities.get(0).getLastClosedPeriod());
+		customerPricingDetailLCYTD.setDimPlPeriodDateId(lcytdEntities.get(0).getDimPlPeriodDateId());
 
 		List<CustomerPricingDetail> customerPricingDetails = new ArrayList<CustomerPricingDetail>();
 		customerPricingDetails.add(customerPricingDetailMTD);
@@ -454,6 +454,6 @@ public class CustomerPricingService {
 
 	private List<FctDmCompanyLevelActualVsTargetEntity> findEntitiesByTemporalPeriod(String temporalPeriod) {
 		return (List<FctDmCompanyLevelActualVsTargetEntity>) fctDmCompanyLevelActualVsTargetRepo
-				.findAll(QFctDmCompanyLevelActualVsTargetEntity.fctDmCompanyLevelActualVsTargetEntity.fctDmCompanyLevelActualVsTargetId.temporalPeriod.eq(temporalPeriod));
+				.findAll(FctDmCompanyLevelActualVsTargetEntity.fctDmCompanyLevelActualVsTargetId.fctDmCompanyLevelActualVsTargetId.temporalPeriod.eq(temporalPeriod));
 	}
 }

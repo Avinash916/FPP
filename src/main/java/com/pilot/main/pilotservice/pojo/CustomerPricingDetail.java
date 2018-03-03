@@ -11,7 +11,7 @@ public class CustomerPricingDetail implements Serializable {
 
 	private String temporalPeriod;
 
-	private String lastClosedPeriod;
+	private Integer dimPlPeriodDateId;
 
 	private PFJTotal pFJTotal;
 
@@ -33,12 +33,12 @@ public class CustomerPricingDetail implements Serializable {
 		this.temporalPeriod = temporalPeriod;
 	}
 
-	public String getLastClosedPeriod() {
-		return lastClosedPeriod;
+	public Integer getDimPlPeriodDateId() {
+		return dimPlPeriodDateId;
 	}
 
-	public void setLastClosedPeriod(String lastClosedPeriod) {
-		this.lastClosedPeriod = lastClosedPeriod;
+	public void setDimPlPeriodDateId(Integer dimPlPeriodDateId) {
+		this.dimPlPeriodDateId = dimPlPeriodDateId;
 	}
 
 	public PFJTotal getpFJTotal() {
@@ -91,7 +91,7 @@ public class CustomerPricingDetail implements Serializable {
 
 	@Override
 	public String toString() {
-		return "CustomerPricingDetail [temporalPeriod=" + temporalPeriod + ", lastClosedPeriod=" + lastClosedPeriod
+		return "CustomerPricingDetail [temporalPeriod=" + temporalPeriod + ", lastClosedPeriod=" + dimPlPeriodDateId
 				+ ", pFJTotal=" + pFJTotal + ", betterOf=" + betterOf + ", totalRetail=" + totalRetail
 				+ ", retailMinus=" + retailMinus + ", funded=" + funded + ", ccc=" + ccc + "]";
 	}
