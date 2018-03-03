@@ -15,7 +15,7 @@ import com.pilot.main.pilotrepo.entity.QFctDmCompanyLevelActualVsTargetEntity;
 import com.pilot.main.pilotrepo.repo.FctDmCompanyLevelActualVsTargetRepo;
 import com.pilot.main.pilotservice.pojo.BetterOf;
 import com.pilot.main.pilotservice.pojo.CCC;
-import com.pilot.main.pilotservice.pojo.CustomerPricingDetail;
+import com.pilot.main.pilotservice.pojo.PFJOverviewDetail;
 import com.pilot.main.pilotservice.pojo.Funded;
 import com.pilot.main.pilotservice.pojo.GrossProfitDollars;
 import com.pilot.main.pilotservice.pojo.Margin;
@@ -26,14 +26,14 @@ import com.pilot.main.pilotservice.pojo.TotalRetail;
 import com.pilot.main.pilotservice.pojo.Volume;
 
 @Service
-public class CustomerPricingService {
+public class PFJOverviewService {
 
-	private static final Logger logger = LoggerFactory.getLogger(CustomerPricingService.class);
+	private static final Logger logger = LoggerFactory.getLogger(PFJOverviewService.class);
 
 	@Autowired
 	FctDmCompanyLevelActualVsTargetRepo fctDmCompanyLevelActualVsTargetRepo;
 
-	public List<CustomerPricingDetail> fetchCustomerPricingDetails() {
+	public List<PFJOverviewDetail> fetchPFJOverviewDetails() {
 		logger.info("---in Customer Pricing Service ---");
 
 		/*
@@ -41,38 +41,38 @@ public class CustomerPricingService {
 		 */
 		List<FctDmCompanyLevelActualVsTargetEntity> mtdEntities = findEntitiesByTemporalPeriod("MTD");
 		logger.info("Found MTD type rows ---> " + mtdEntities.size());
-		CustomerPricingDetail customerPricingDetailMTD = populateCustomerPricingDetail(mtdEntities);
-		customerPricingDetailMTD.setTemporalPeriod("MTD");
-		customerPricingDetailMTD.setLastClosedPeriod(mtdEntities.get(0).getLastClosedPeriod());
+		PFJOverviewDetail pfjOverviewDetailsMTD = populatePFJOverviewDetail(mtdEntities);
+		pfjOverviewDetailsMTD.setTemporalPeriod("MTD");
+		pfjOverviewDetailsMTD.setLastClosedPeriod(mtdEntities.get(0).getLastClosedPeriod());
 
 		/*
 		 * UI data generation for LCM filter
 		 */
 		List<FctDmCompanyLevelActualVsTargetEntity> lcmEntities = findEntitiesByTemporalPeriod("LCM");
 		logger.info("Found LCM type rows ---> " + lcmEntities.size());
-		CustomerPricingDetail customerPricingDetailLCM = populateCustomerPricingDetail(lcmEntities);
-		customerPricingDetailLCM.setTemporalPeriod("LCM");
-		customerPricingDetailLCM.setLastClosedPeriod(lcmEntities.get(0).getLastClosedPeriod());
+		PFJOverviewDetail pfjOverviewDetailsLCM = populatePFJOverviewDetail(lcmEntities);
+		pfjOverviewDetailsLCM.setTemporalPeriod("LCM");
+		pfjOverviewDetailsLCM.setLastClosedPeriod(lcmEntities.get(0).getLastClosedPeriod());
 
 		/*
 		 * UI data generation for LCYTD filter
 		 */
 		List<FctDmCompanyLevelActualVsTargetEntity> lcytdEntities = findEntitiesByTemporalPeriod("LCYTD");
 		logger.info("Found LCYTD type rows ---> " + lcytdEntities.size());
-		CustomerPricingDetail customerPricingDetailLCYTD = populateCustomerPricingDetail(lcytdEntities);
-		customerPricingDetailLCYTD.setTemporalPeriod("LCYTD");
-		customerPricingDetailLCYTD.setLastClosedPeriod(lcytdEntities.get(0).getLastClosedPeriod());
+		PFJOverviewDetail pfjOverviewDetailsLCYTD = populatePFJOverviewDetail(lcytdEntities);
+		pfjOverviewDetailsLCYTD.setTemporalPeriod("LCYTD");
+		pfjOverviewDetailsLCYTD.setLastClosedPeriod(lcytdEntities.get(0).getLastClosedPeriod());
 
-		List<CustomerPricingDetail> customerPricingDetails = new ArrayList<CustomerPricingDetail>();
-		customerPricingDetails.add(customerPricingDetailMTD);
-		customerPricingDetails.add(customerPricingDetailLCM);
-		customerPricingDetails.add(customerPricingDetailLCYTD);
+		List<PFJOverviewDetail> pfjOverviewDetailss = new ArrayList<PFJOverviewDetail>();
+		pfjOverviewDetailss.add(pfjOverviewDetailsMTD);
+		pfjOverviewDetailss.add(pfjOverviewDetailsLCM);
+		pfjOverviewDetailss.add(pfjOverviewDetailsLCYTD);
 
-		return customerPricingDetails;
+		return pfjOverviewDetailss;
 	}
 
-	private CustomerPricingDetail populateCustomerPricingDetail(List<FctDmCompanyLevelActualVsTargetEntity> fctDmCompanyLevelActualVsTargetEntities) {
-		CustomerPricingDetail customerPricingDetail = new CustomerPricingDetail();
+	private PFJOverviewDetail populatePFJOverviewDetail(List<FctDmCompanyLevelActualVsTargetEntity> fctDmCompanyLevelActualVsTargetEntities) {
+		PFJOverviewDetail pfjOverviewDetails = new PFJOverviewDetail();
 		
 		/*
 		 * MIX_OF_BUSINESS entities
@@ -104,37 +104,37 @@ public class CustomerPricingService {
 		/*
 		 * Populate PFJTotal
 		 */
-		populatePFJTotal(customerPricingDetail, pfjTotalEntity);
+		populatePFJTotal(pfjOverviewDetails, pfjTotalEntity);
 		
 		/*
 		 * Populate BetterOf
 		 */
-		populateBetterOf(customerPricingDetail, betterOfEntity, pfjTotalEntity);
+		populateBetterOf(pfjOverviewDetails, betterOfEntity, pfjTotalEntity);
 		
 		/*
 		 * Populate TotalRetail
 		 */
-		populateTotalRetail(customerPricingDetail, totalRetailEntity, pfjTotalEntity);
+		populateTotalRetail(pfjOverviewDetails, totalRetailEntity, pfjTotalEntity);
 		
 		/*
 		 * Populate RetailMinus
 		 */
-		populateRetailMinus(customerPricingDetail, retailMinusEntity, pfjTotalEntity);
+		populateRetailMinus(pfjOverviewDetails, retailMinusEntity, pfjTotalEntity);
 		
 		/*
 		 * Populate Funded
 		 */
-		populateFunded(customerPricingDetail, fundedEntity, pfjTotalEntity);
+		populateFunded(pfjOverviewDetails, fundedEntity, pfjTotalEntity);
 		
 		/*
 		 * Populate CCC
 		 */
-		populateCCC(customerPricingDetail, cccEntity, pfjTotalEntity);
+		populateCCC(pfjOverviewDetails, cccEntity, pfjTotalEntity);
 		
-		return customerPricingDetail;
+		return pfjOverviewDetails;
 	}
 
-	private void populatePFJTotal(CustomerPricingDetail customerPricingDetail, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
+	private void populatePFJTotal(PFJOverviewDetail pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
 		GrossProfitDollars grossProfitDollars = new GrossProfitDollars();
 		grossProfitDollars.setVsTgLeft(pfjTotalEntity.getActualGrossProfit().subtract(pfjTotalEntity.getTargetGrossProfit()));
 		grossProfitDollars.setVsTgLeftPositive(grossProfitDollars.getVsTgLeft().signum() > 0);
@@ -172,10 +172,10 @@ public class CustomerPricingService {
 		pfjTotal.setTotalGAL(pfjTotalEntity.getActualVolumeLy().divide(BigDecimal.valueOf(1000000), 2, RoundingMode.HALF_UP));
 		pfjTotal.setTotalTarget(pfjTotalEntity.getTargetVolume().divide(BigDecimal.valueOf(1000000), 2, RoundingMode.HALF_UP));
 		
-		customerPricingDetail.setpFJTotal(pfjTotal);
+		pfjOverviewDetails.setpFJTotal(pfjTotal);
 	}
 
-	private void populateBetterOf(CustomerPricingDetail customerPricingDetail, FctDmCompanyLevelActualVsTargetEntity betterOfEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
+	private void populateBetterOf(PFJOverviewDetail pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity betterOfEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
 		GrossProfitDollars grossProfitDollars = new GrossProfitDollars();
 		grossProfitDollars.setVsTgLeft(betterOfEntity.getActualGrossProfit().subtract(betterOfEntity.getTargetGrossProfit()));
 		grossProfitDollars.setVsTgLeftPositive(grossProfitDollars.getVsTgLeft().signum() > 0);
@@ -226,10 +226,10 @@ public class CustomerPricingService {
 		betterOf.setEffPumpFeeActual(betterOfEntity.getActualEffectivePumpFee().divide(BigDecimal.valueOf(1000000), 2, RoundingMode.HALF_UP));
 		betterOf.setEffPumpFeeTarget(betterOfEntity.getTargetEffectivePumpFee().divide(BigDecimal.valueOf(1000000), 2, RoundingMode.HALF_UP));
 		
-		customerPricingDetail.setBetterOf(betterOf);
+		pfjOverviewDetails.setBetterOf(betterOf);
 	}
 
-	private void populateTotalRetail(CustomerPricingDetail customerPricingDetail, FctDmCompanyLevelActualVsTargetEntity totalRetailEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
+	private void populateTotalRetail(PFJOverviewDetail pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity totalRetailEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
 		GrossProfitDollars grossProfitDollars = new GrossProfitDollars();
 		grossProfitDollars.setVsTgLeft(totalRetailEntity.getActualGrossProfit().subtract(totalRetailEntity.getTargetGrossProfit()));
 		grossProfitDollars.setVsTgLeftPositive(grossProfitDollars.getVsTgLeft().signum() > 0);
@@ -276,10 +276,10 @@ public class CustomerPricingService {
 		totalRetail.setMargin(margin);
 		totalRetail.setMixPercentage(mixPercentage);
 		
-		customerPricingDetail.setTotalRetail(totalRetail);
+		pfjOverviewDetails.setTotalRetail(totalRetail);
 	}
 
-	private void populateRetailMinus(CustomerPricingDetail customerPricingDetail, FctDmCompanyLevelActualVsTargetEntity retailMinusEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
+	private void populateRetailMinus(PFJOverviewDetail pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity retailMinusEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
 		GrossProfitDollars grossProfitDollars = new GrossProfitDollars();
 		grossProfitDollars.setVsTgLeft(retailMinusEntity.getActualGrossProfit().subtract(retailMinusEntity.getTargetGrossProfit()));
 		grossProfitDollars.setVsTgLeftPositive(grossProfitDollars.getVsTgLeft().signum() > 0);
@@ -328,10 +328,10 @@ public class CustomerPricingService {
 		retailMinus.setRmDiscountActual(retailMinusEntity.getActualEffectiveRetailMinusRate().divide(BigDecimal.valueOf(1000000), 2, RoundingMode.HALF_UP));
 		retailMinus.setRmDiscountTarget(retailMinusEntity.getTargetEffectiveRetailMinusRate().divide(BigDecimal.valueOf(1000000), 2, RoundingMode.HALF_UP));
 		
-		customerPricingDetail.setRetailMinus(retailMinus);
+		pfjOverviewDetails.setRetailMinus(retailMinus);
 	}
 
-	private void populateFunded(CustomerPricingDetail customerPricingDetail, FctDmCompanyLevelActualVsTargetEntity fundedEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
+	private void populateFunded(PFJOverviewDetail pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity fundedEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
 		GrossProfitDollars grossProfitDollars = new GrossProfitDollars();
 		grossProfitDollars.setVsTgLeft(fundedEntity.getActualGrossProfit().subtract(fundedEntity.getTargetGrossProfit()));
 		grossProfitDollars.setVsTgLeftPositive(grossProfitDollars.getVsTgLeft().signum() > 0);
@@ -378,10 +378,10 @@ public class CustomerPricingService {
 		funded.setMargin(margin);
 		funded.setMixPercentage(mixPercentage);
 		
-		customerPricingDetail.setFunded(funded);
+		pfjOverviewDetails.setFunded(funded);
 	}
 
-	private void populateCCC(CustomerPricingDetail customerPricingDetail, FctDmCompanyLevelActualVsTargetEntity cccEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
+	private void populateCCC(PFJOverviewDetail pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity cccEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
 		GrossProfitDollars grossProfitDollars = new GrossProfitDollars();
 		grossProfitDollars.setVsTgLeft(cccEntity.getActualGrossProfit().subtract(cccEntity.getTargetGrossProfit()));
 		grossProfitDollars.setVsTgLeftPositive(grossProfitDollars.getVsTgLeft().signum() > 0);
@@ -428,7 +428,7 @@ public class CustomerPricingService {
 		ccc.setMargin(margin);
 		ccc.setMixPercentage(mixPercentage);
 		
-		customerPricingDetail.setCcc(ccc);
+		pfjOverviewDetails.setCcc(ccc);
 	}
 
 	private List<FctDmCompanyLevelActualVsTargetEntity> findEntitiesByTemporalPeriod(String temporalPeriod) {

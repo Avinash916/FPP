@@ -2,7 +2,7 @@ package com.pilot.main.pilotservice.pojo;
 
 import java.io.Serializable;
 
-public class CustomerPricingDetail implements Serializable {
+public class PFJOverviewDetail implements Serializable {
 	
 	/**
 	 * 
@@ -91,7 +91,7 @@ public class CustomerPricingDetail implements Serializable {
 
 	@Override
 	public String toString() {
-		return "CustomerPricingDetail [temporalPeriod=" + temporalPeriod + ", lastClosedPeriod=" + lastClosedPeriod
+		return "PFJOverviewDetail [temporalPeriod=" + temporalPeriod + ", lastClosedPeriod=" + lastClosedPeriod
 				+ ", pFJTotal=" + pFJTotal + ", betterOf=" + betterOf + ", totalRetail=" + totalRetail
 				+ ", retailMinus=" + retailMinus + ", funded=" + funded + ", ccc=" + ccc + "]";
 	}
