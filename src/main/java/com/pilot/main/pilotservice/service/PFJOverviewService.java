@@ -43,7 +43,7 @@ public class PFJOverviewService {
 		logger.info("Found MTD type rows ---> " + mtdEntities.size());
 		PFJOverview pfjOverviewDetailsMTD = populatePFJOverviewDetail(mtdEntities);
 		pfjOverviewDetailsMTD.setTemporalPeriod("MTD");
-		pfjOverviewDetailsMTD.setLastClosedPeriod(mtdEntities.get(0).getLastClosedPeriod());
+		pfjOverviewDetailsMTD.setDimPlPeriodDateId(mtdEntities.get(0).getDimPlPeriodDateId());
 
 		/*
 		 * UI data generation for LCM filter
@@ -52,7 +52,7 @@ public class PFJOverviewService {
 		logger.info("Found LCM type rows ---> " + lcmEntities.size());
 		PFJOverview pfjOverviewDetailsLCM = populatePFJOverviewDetail(lcmEntities);
 		pfjOverviewDetailsLCM.setTemporalPeriod("LCM");
-		pfjOverviewDetailsLCM.setLastClosedPeriod(lcmEntities.get(0).getLastClosedPeriod());
+		pfjOverviewDetailsLCM.setDimPlPeriodDateId(lcmEntities.get(0).getDimPlPeriodDateId());
 
 		/*
 		 * UI data generation for LCYTD filter
@@ -61,7 +61,7 @@ public class PFJOverviewService {
 		logger.info("Found LCYTD type rows ---> " + lcytdEntities.size());
 		PFJOverview pfjOverviewDetailsLCYTD = populatePFJOverviewDetail(lcytdEntities);
 		pfjOverviewDetailsLCYTD.setTemporalPeriod("LCYTD");
-		pfjOverviewDetailsLCYTD.setLastClosedPeriod(lcytdEntities.get(0).getLastClosedPeriod());
+		pfjOverviewDetailsLCYTD.setDimPlPeriodDateId(lcytdEntities.get(0).getDimPlPeriodDateId());
 
 		List<PFJOverview> pfjOverviewDetailss = new ArrayList<PFJOverview>();
 		pfjOverviewDetailss.add(pfjOverviewDetailsMTD);

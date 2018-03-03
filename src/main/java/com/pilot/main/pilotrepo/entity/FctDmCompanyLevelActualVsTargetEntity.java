@@ -71,8 +71,8 @@ public class FctDmCompanyLevelActualVsTargetEntity implements Serializable {
 	@Column(name = "TARGET_EFFECTIVE_RETAIL_MINUS_RATE")
 	private BigDecimal targetEffectiveRetailMinusRate;
 	
-	@Column(name = "LAST_CLOSED_PERIOD")
-	private String lastClosedPeriod;
+	@Column(name = "DIM_PL_PERIOD_DATE_ID")
+	private Integer dimPlPeriodDateId;
 
 	public FctDmCompanyLevelActualVsTargetId getFctDmCompanyLevelActualVsTargetId() {
 		return fctDmCompanyLevelActualVsTargetId;
@@ -218,12 +218,12 @@ public class FctDmCompanyLevelActualVsTargetEntity implements Serializable {
 		this.targetEffectiveRetailMinusRate = targetEffectiveRetailMinusRate;
 	}
 
-	public String getLastClosedPeriod() {
-		return lastClosedPeriod;
+	public Integer getDimPlPeriodDateId() {
+		return dimPlPeriodDateId;
 	}
 
-	public void setLastClosedPeriod(String lastClosedPeriod) {
-		this.lastClosedPeriod = lastClosedPeriod;
+	public void setDimPlPeriodDateId(Integer dimPlPeriodDateId) {
+		this.dimPlPeriodDateId = dimPlPeriodDateId;
 	}
 
 	@Override
@@ -238,6 +238,6 @@ public class FctDmCompanyLevelActualVsTargetEntity implements Serializable {
 				+ targetEffectivePumpFee + ", actualNetPlMargin=" + actualNetPlMargin + ", actualNetPlMarginLy="
 				+ actualNetPlMarginLy + ", targetNetPlMargin=" + targetNetPlMargin + ", actualEffectiveRetailMinusRate="
 				+ actualEffectiveRetailMinusRate + ", targetEffectiveRetailMinusRate=" + targetEffectiveRetailMinusRate
-				+ ", lastClosedPeriod=" + lastClosedPeriod + "]";
+				+ ", lastClosedPeriod=" + dimPlPeriodDateId + "]";
 	}
 }
