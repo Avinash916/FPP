@@ -15,7 +15,7 @@
                   <img *ngIf="!dataTile.grossProfitDollars.vsTgLeftPositive" src='assets/images/down_arrow.png'>
                 </ng-container>
                 <ng-template #blankContextualHelp>
-                    <span class="blnkContextual"></span>
+                  <span class="blnkContextual"></span>
                 </ng-template>
                 {{utility.FormatContextualData(dataTile.grossProfitDollars.vsTgLeft)}}</span>
               <div>
@@ -30,7 +30,7 @@
                   <img *ngIf="!dataTile.grossProfitDollars.vsLyLeftPositive" src='assets/images/down_arrow.png'>
                 </ng-container>
                 <ng-template #blankContextualHelp>
-                    <span class="blnkContextual"></span>
+                  <span class="blnkContextual"></span>
                 </ng-template>
                 {{utility.FormatContextualData(dataTile.grossProfitDollars.vsLyLeft)}}</span>
               <div>
@@ -54,7 +54,7 @@
                   <img *ngIf="!dataTile.volume.vsTgLeftPositive" src='assets/images/down_arrow.png'>
                 </ng-container>
                 <ng-template #blankContextualHelp>
-                    <span class="blnkContextual"></span>
+                  <span class="blnkContextual"></span>
                 </ng-template>
                 {{utility.FormatContextualData(dataTile.volume.vsTgLeft)}}
               </span>
@@ -70,7 +70,7 @@
                   <img *ngIf="!dataTile.volume.vsLyLeftPositive" src='assets/images/down_arrow.png'>
                 </ng-container>
                 <ng-template #blankContextualHelp>
-                    <span class="blnkContextual"></span>
+                  <span class="blnkContextual"></span>
                 </ng-template>
                 {{utility.FormatContextualData(dataTile.volume.vsLyLeft)}}
               </span>
@@ -107,13 +107,10 @@
           </div>
 
           <div class="mixPercentageColumns" style="margin-left: 186px;">
-            <ng-container *ngIf="dataTile.mixPercentage.mixVsLy != '0'; else blankContextualHelp">
+            <ng-container *ngIf="dataTile.mixPercentage.mixVsLy != '0'">
               <img *ngIf="dataTile.mixPercentage.mixVsLyPositive" class="imgMixPercentage" src='assets/images/up_arrow.png'>
               <img *ngIf="!dataTile.mixPercentage.mixVsLyPositive" class="imgMixPercentage" src='assets/images/down_arrow.png'>
             </ng-container>
-            <ng-template #blankContextualHelp>
-                <span class="blnkContextual"></span>
-            </ng-template>
             <span style="position: absolute;top:0px;">VS.LY</span>
             <span style="position: absolute;bottom:0px;">{{utility.FormatContextualData(dataTile.mixPercentage.mixVsLy)}}%</span>
           </div>
@@ -132,7 +129,7 @@
                   <img *ngIf="!dataTile.margin.vsTgLeftPositive" src='assets/images/down_arrow.png'>
                 </ng-container>
                 <ng-template #blankContextualHelp>
-                    <span class="blnkContextual"></span>
+                  <span class="blnkContextual"></span>
                 </ng-template>
                 {{utility.FormatContextualData(dataTile.margin.vsTgLeft)}}
               </span>
@@ -148,7 +145,7 @@
                   <img *ngIf="!dataTile.margin.vsLyLeftPositive" src='assets/images/down_arrow.png'>
                 </ng-container>
                 <ng-template #blankContextualHelp>
-                    <span class="blnkContextual"></span>
+                  <span class="blnkContextual"></span>
                 </ng-template>
                 {{utility.FormatContextualData(dataTile.margin.vsLyLeft)}}
               </span>
