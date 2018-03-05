@@ -519,3 +519,7 @@ body {
     -webkit-transform: scale(1);
     transform: scale(1);
 }
+.blnkContextual
+{
+  margin-left: 20px;
+}

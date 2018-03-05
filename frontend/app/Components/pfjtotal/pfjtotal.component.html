@@ -9,8 +9,14 @@
           <div class="dvStickerContentLeft">
             <div style="padding-top: 10px;">
               <span class="col-sm-6 spnStickerLeftVal">
+                  <ng-container *ngIf="pfjTotal.grossProfitDollars.vsTgLeft != 0; else blankContextualHelp">
                 <img *ngIf="pfjTotal.grossProfitDollars.vsTgLeftPositive" src='assets/images/up_arrow.png'>
-                <img *ngIf="!pfjTotal.grossProfitDollars.vsTgLeftPositive" src='assets/images/down_arrow.png'> {{utility.FormatContextualData(pfjTotal.grossProfitDollars.vsTgLeft)}}
+                <img *ngIf="!pfjTotal.grossProfitDollars.vsTgLeftPositive" src='assets/images/down_arrow.png'>
+                </ng-container>
+                <ng-template #blankContextualHelp>
+                    <span class="blnkContextual"></span>
+                </ng-template>
+                 {{utility.FormatContextualData(pfjTotal.grossProfitDollars.vsTgLeft)}}
               </span>
               <div>
                 <span class="col-sm-2 spnStickerCenterValVsTg">VS.TG</span>
@@ -19,8 +25,14 @@
             </div>
             <div style="padding-top: 10px;">
               <span class="col-sm-6 spnStickerLeftVal">
+                  <ng-container *ngIf="pfjTotal.grossProfitDollars.vsLyLeft != 0; else blankContextualHelp">
                 <img *ngIf="pfjTotal.grossProfitDollars.vsLyLeftPositive" src='assets/images/up_arrow.png'>
-                <img *ngIf="!pfjTotal.grossProfitDollars.vsLyLeftPositive" src='assets/images/down_arrow.png'> {{utility.FormatContextualData(pfjTotal.grossProfitDollars.vsLyLeft)}}
+                <img *ngIf="!pfjTotal.grossProfitDollars.vsLyLeftPositive" src='assets/images/down_arrow.png'> 
+                </ng-container>
+                <ng-template #blankContextualHelp>
+                    <span class="blnkContextual"></span>
+                </ng-template>
+                {{utility.FormatContextualData(pfjTotal.grossProfitDollars.vsLyLeft)}}
               </span>
               <div>
                 <span class="col-sm-2 spnStickerCenterValVsTLy">VS.LY</span>
@@ -35,8 +47,14 @@
           <div class="dvStickerContentLeft">
             <div style="padding-top: 10px;">
               <span class="col-sm-6 spnStickerLeftVal">
+                  <ng-container *ngIf="pfjTotal.volume.vsTgLeft != 0; else blankContextualHelp">
                 <img *ngIf="pfjTotal.volume.vsTgLeftPositive" src='assets/images/up_arrow.png'>
-                <img *ngIf="!pfjTotal.volume.vsTgLeftPositive" src='assets/images/down_arrow.png'> {{utility.FormatContextualData(pfjTotal.volume.vsTgLeft)}}
+                <img *ngIf="!pfjTotal.volume.vsTgLeftPositive" src='assets/images/down_arrow.png'>
+                </ng-container>
+                <ng-template #blankContextualHelp>
+                    <span class="blnkContextual"></span>
+                </ng-template>
+                 {{utility.FormatContextualData(pfjTotal.volume.vsTgLeft)}}
               </span>
               <div>
                 <span class="col-sm-2 spnStickerCenterValVsTg">VS.TG</span>
@@ -45,8 +63,14 @@
             </div>
             <div style="padding-top: 10px;">
               <span class="col-sm-6 spnStickerLeftVal">
+                  <ng-container *ngIf="pfjTotal.volume.vsLyLeft != 0; else blankContextualHelp">
                 <img *ngIf="pfjTotal.volume.vsLyLeftPositive" src='assets/images/up_arrow.png'>
-                <img *ngIf="!pfjTotal.volume.vsLyLeftPositive" src='assets/images/down_arrow.png'> {{utility.FormatContextualData(pfjTotal.volume.vsLyLeft)}}
+                <img *ngIf="!pfjTotal.volume.vsLyLeftPositive" src='assets/images/down_arrow.png'>
+                </ng-container>
+                <ng-template #blankContextualHelp>
+                    <span class="blnkContextual"></span>
+                </ng-template>
+                 {{utility.FormatContextualData(pfjTotal.volume.vsLyLeft)}}
               </span>
               <div>
                 <span class="col-sm-2 spnStickerCenterValVsTLy">VS.LY</span>
@@ -64,8 +88,14 @@
           <div class="dvStickerContentLeft">
             <div style="padding-top: 10px;">
               <span class="col-sm-6 spnStickerLeftVal">
+                  <ng-container *ngIf="pfjTotal.margin.vsTgLeft != 0; else blankContextualHelp">
                 <img *ngIf="pfjTotal.margin.vsTgLeftPositive" src='assets/images/up_arrow.png'>
-                <img *ngIf="!pfjTotal.margin.vsTgLeftPositive" src='assets/images/down_arrow.png'> {{utility.FormatContextualData(pfjTotal.margin.vsTgLeft)}}
+                <img *ngIf="!pfjTotal.margin.vsTgLeftPositive" src='assets/images/down_arrow.png'>
+                </ng-container>
+                <ng-template #blankContextualHelp>
+                    <span class="blnkContextual"></span>
+                </ng-template>
+                 {{utility.FormatContextualData(pfjTotal.margin.vsTgLeft)}}
               </span>
               <div>
                 <span class="col-sm-2 spnStickerCenterValVsTg">VS.TG</span>
@@ -74,8 +104,13 @@
             </div>
             <div style="padding-top: 10px;">
               <span class="col-sm-6 spnStickerLeftVal">
+                  <ng-container *ngIf="pfjTotal.margin.vsLyLeft != 0; else blankContextualHelp">
                 <img *ngIf="pfjTotal.margin.vsLyLeftPositive" src='assets/images/up_arrow.png'>
-                <img *ngIf="!pfjTotal.margin.vsLyLeftPositive" src='assets/images/down_arrow.png'> {{utility.FormatContextualData(pfjTotal.margin.vsLyLeft)}}
+                <img *ngIf="!pfjTotal.margin.vsLyLeftPositive" src='assets/images/down_arrow.png'>
+                </ng-container> <ng-template #blankContextualHelp>
+                    <span class="blnkContextual"></span>
+                </ng-template>
+                 {{utility.FormatContextualData(pfjTotal.margin.vsLyLeft)}}
               </span>
               <div>
                 <span class="col-sm-2 spnStickerCenterValVsTLy">VS.LY</span>

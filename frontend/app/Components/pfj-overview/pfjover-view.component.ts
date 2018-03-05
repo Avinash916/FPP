@@ -44,8 +44,8 @@ export class PfjoverViewComponent implements OnInit {
   PopulateCustomerPricingDetails(data)
   {
     this.repository.customerPricingDetails = new PfjOverviewOperations().PopulateCustomerPricingDetails(data);
-    this.ProcessSelectedCustomerPricingDetails("MTD");
-    this.repository.selectedDataPeriod = "MTD";
+    this.ProcessSelectedCustomerPricingDetails("LCYTD");
+    this.repository.selectedDataPeriod = "LCYTD";
     this.repository.selectedTableauFilter = "GROSS PROFIT $";
     this.ToggleTableauHeaderTxt("GROSS PROFIT $");
   }
