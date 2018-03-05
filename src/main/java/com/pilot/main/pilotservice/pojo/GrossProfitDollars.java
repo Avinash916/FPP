@@ -2,7 +2,8 @@ package com.pilot.main.pilotservice.pojo;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.math.RoundingMode;
+
+import com.pilot.main.pilotservice.util.PFJOverviewUtil;
 
 public class GrossProfitDollars implements Serializable {
 	
@@ -10,6 +11,8 @@ public class GrossProfitDollars implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -5871771939814681660L;
+
+	private BigDecimal header;
 
 	private BigDecimal vsTgLeft;
 	
@@ -23,12 +26,20 @@ public class GrossProfitDollars implements Serializable {
 	
 	private BigDecimal vsLyRight;
 
+	public BigDecimal getHeader() {
+		return header;
+	}
+
+	public void setHeader(BigDecimal header) {
+		this.header = PFJOverviewUtil.formatMillionNumbers(header);
+	}
+
 	public BigDecimal getVsTgLeft() {
 		return vsTgLeft;
 	}
 
 	public void setVsTgLeft(BigDecimal vsTgLeft) {
-		this.vsTgLeft = vsTgLeft.divide(BigDecimal.valueOf(1000000), 2, RoundingMode.HALF_UP);
+		this.vsTgLeft = PFJOverviewUtil.formatMillionNumbers(vsTgLeft);
 	}
 
 	public Boolean getVsTgLeftPositive() {
@@ -44,7 +55,7 @@ public class GrossProfitDollars implements Serializable {
 	}
 
 	public void setVsTgRight(BigDecimal vsTgRight) {
-		this.vsTgRight = vsTgRight.divide(BigDecimal.valueOf(1000000), 2, RoundingMode.HALF_UP);
+		this.vsTgRight = PFJOverviewUtil.formatMillionNumbers(vsTgRight);
 	}
 
 	public BigDecimal getVsLyLeft() {
@@ -52,7 +63,7 @@ public class GrossProfitDollars implements Serializable {
 	}
 
 	public void setVsLyLeft(BigDecimal vsLyLeft) {
-		this.vsLyLeft = vsLyLeft.divide(BigDecimal.valueOf(1000000), 2, RoundingMode.HALF_UP);
+		this.vsLyLeft = PFJOverviewUtil.formatMillionNumbers(vsLyLeft);
 	}
 
 	public Boolean getVsLyLeftPositive() {
@@ -68,13 +79,13 @@ public class GrossProfitDollars implements Serializable {
 	}
 
 	public void setVsLyRight(BigDecimal vsLyRight) {
-		this.vsLyRight = vsLyRight.divide(BigDecimal.valueOf(1000000), 2, RoundingMode.HALF_UP);
+		this.vsLyRight = PFJOverviewUtil.formatMillionNumbers(vsLyRight);
 	}
 
 	@Override
 	public String toString() {
-		return "GrossProfitDollars [vsTgLeft=" + vsTgLeft + ", vsTgLeftPositive=" + vsTgLeftPositive + ", vsTgRight="
-				+ vsTgRight + ", vsLyLeft=" + vsLyLeft + ", vsLyLeftPositive=" + vsLyLeftPositive + ", vsLyRight="
-				+ vsLyRight + "]";
+		return "GrossProfitDollars [header=" + header + ", vsTgLeft=" + vsTgLeft + ", vsTgLeftPositive="
+				+ vsTgLeftPositive + ", vsTgRight=" + vsTgRight + ", vsLyLeft=" + vsLyLeft + ", vsLyLeftPositive="
+				+ vsLyLeftPositive + ", vsLyRight=" + vsLyRight + "]";
 	}
 }
