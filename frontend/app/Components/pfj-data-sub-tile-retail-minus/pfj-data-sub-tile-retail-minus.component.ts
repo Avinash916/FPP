@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { RetailMinus } from '../../Models/pfj-tiles';
+import { UtilityService } from '../../utility-service';
 
 @Component({
   selector: 'app-pfj-data-sub-tile-retail-minus',
@@ -8,9 +9,8 @@ import { RetailMinus } from '../../Models/pfj-tiles';
 })
 export class PfjDataSubTileRetailMinusComponent implements OnInit {
   @Input() retailMinus : RetailMinus;
-  constructor() { }
+  constructor(public utility:UtilityService) { }
 
   ngOnInit() {
   }
-
 }

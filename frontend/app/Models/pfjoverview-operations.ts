@@ -8,7 +8,7 @@ export class PfjOverviewOperations {
         arrCustPricingDetailsService.forEach(c => {
             let customerPriceDetails:CustomerPriceDetails = new CustomerPriceDetails();
             customerPriceDetails.temporalPeriod = c.temporalPeriod;
-            customerPriceDetails.lastClosedPeriod = c.lastClosedPeriod;
+            customerPriceDetails.dimPlPeriodDateId = c.dimPlPeriodDateId;
             customerPriceDetails.pfjTotal = c.pFJTotal;
             customerPriceDetails.betterOf = c.betterOf;
             customerPriceDetails.totalRetail = c.totalRetail;
@@ -17,6 +17,9 @@ export class PfjOverviewOperations {
             customerPriceDetails.ccc = c.ccc;
             arrCustomerPricingDetails.push(customerPriceDetails);
         });
+       
+        
+
         /*let c = data;
         let customerPriceDetails:CustomerPriceDetails = new CustomerPriceDetails();
         customerPriceDetails.temporalPeriod = c.temporalPeriod;
@@ -27,7 +30,8 @@ export class PfjOverviewOperations {
         customerPriceDetails.funded = c.funded;
         customerPriceDetails.ccc = c.ccc;
         arrCustomerPricingDetails.push(customerPriceDetails);
-        console.log(JSON.stringify(arrCustomerPricingDetails));*/
+        //console.log(JSON.stringify(arrCustomerPricingDetails));*/
         return arrCustomerPricingDetails;
     }
+
 }

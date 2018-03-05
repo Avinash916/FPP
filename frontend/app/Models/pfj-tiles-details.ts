@@ -1,5 +1,6 @@
 import { ICustPriceDetailsVersusProp,ICustPriceMixPercentage } from '../Interface/pfj-interfaces';
 export class GrossProfitDollars implements ICustPriceDetailsVersusProp {
+    header: string;
     vsTgLeft: string;
     vsTgLeftPositive: string;
     vsTgRight: string;
@@ -8,6 +9,7 @@ export class GrossProfitDollars implements ICustPriceDetailsVersusProp {
     vsLyRight: string;
 }
 export class Volume implements ICustPriceDetailsVersusProp {
+    header: string;
     vsTgLeft: string;
     vsTgLeftPositive: string;
     vsTgRight: string;
@@ -16,6 +18,7 @@ export class Volume implements ICustPriceDetailsVersusProp {
     vsLyRight: string;
 }
 export class Margin implements ICustPriceDetailsVersusProp {
+    header: string;
     vsTgLeft: string;
     vsTgLeftPositive: string;
     vsTgRight: string;

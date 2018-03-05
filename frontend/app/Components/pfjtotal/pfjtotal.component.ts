@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PFJTotal } from '../../Models/pfj-tiles';
+import { UtilityService } from '../../utility-service';
 
 @Component({
   selector: 'app-pfjtotal',
@@ -8,9 +9,8 @@ import { PFJTotal } from '../../Models/pfj-tiles';
 })
 export class PfjtotalComponent implements OnInit {
   @Input() pfjTotal : PFJTotal;
-  constructor() { }
+  constructor(public utility:UtilityService) { }
 
   ngOnInit() {
   }
-
 }

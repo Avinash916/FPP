@@ -3,18 +3,18 @@
   <div class="dvStickerHeaderSmall">{{dataTileName}}</div>
   <div class="dvStickerContainer">
     <div class="dvStickerContainer">
-      <div style="min-height: 143px;">
+      <div style="min-height: 116px;">
         <div class=dvSticker>
           <div class="dvStickerHeaderLeft"> TOTAL GP$</div>
-          <div class="dvStickerHeaderRight"> 140.4</div>
+          <div class="dvStickerHeaderRight">{{dataTile.grossProfitDollars.header}}</div>
           <div class="dvStickerContentLeft">
             <div style="padding-top: 10px;">
               <span class="col-sm-6 spnStickerLeftVal">
                 <img *ngIf="dataTile.grossProfitDollars.vsTgLeftPositive" src='assets/images/up_arrow.png'>
               <img *ngIf="!dataTile.grossProfitDollars.vsTgLeftPositive" src='assets/images/down_arrow.png'>
-              {{dataTile.grossProfitDollars.vsTgLeft}}</span>
+              {{utility.FormatContextualData(dataTile.grossProfitDollars.vsTgLeft)}}</span>
               <div>
-                <span class="col-sm-3 spnStickerCenterValVsTg">VS.TG</span>
+                <span class="col-sm-2 spnStickerCenterValVsTg">VS.TG</span>
                 <span class="col-sm-3 spnStickerRightVal">{{dataTile.grossProfitDollars.vsTgRight}}</span>
               </div>
             </div>
@@ -22,9 +22,9 @@
               <span class="col-sm-6 spnStickerLeftVal">
                 <img *ngIf="dataTile.grossProfitDollars.vsLyLeftPositive" src='assets/images/up_arrow.png'>
               <img *ngIf="!dataTile.grossProfitDollars.vsLyLeftPositive" src='assets/images/down_arrow.png'> 
-              {{dataTile.grossProfitDollars.vsLyLeft}}</span>
+              {{utility.FormatContextualData(dataTile.grossProfitDollars.vsLyLeft)}}</span>
               <div>
-                <span class="col-sm-3 spnStickerCenterValVsTLy">VS.LY</span>
+                <span class="col-sm-2 spnStickerCenterValVsTLy">VS.LY</span>
                 <span class="col-sm-3 spnStickerRightVal">{{dataTile.grossProfitDollars.vsLyRight}}</span>
               </div>
             </div>
@@ -32,29 +32,29 @@
         </div>
 
       </div>
-      <div style="min-height: 143px;">
+      <div style="min-height: 116px;">
         <div class=dvSticker>
           <div class="dvStickerHeaderLeft"> VOLUME</div>
-          <div class="dvStickerHeaderRight"> 140.4</div>
+          <div class="dvStickerHeaderRight">{{dataTile.volume.header}}</div>
           <div class="dvStickerContentLeft">
             <div style="padding-top: 10px;">
               <span class="col-sm-6 spnStickerLeftVal">
               <img *ngIf="dataTile.volume.vsTgLeftPositive" src='assets/images/up_arrow.png'>
               <img *ngIf="!dataTile.volume.vsTgLeftPositive" src='assets/images/down_arrow.png'>
-              {{dataTile.volume.vsTgLeft}}</span>
+              {{utility.FormatContextualData(dataTile.volume.vsTgLeft)}}</span>
               <div>
-                <span class="col-sm-3 spnStickerCenterValVsTg">VS.TG</span>
-                <span class="col-sm-3 spnStickerRightVal">{{dataTile.volume.vsTgRight}}</span>
+                <span class="col-sm-2 spnStickerCenterValVsTg">VS.TG</span>
+                <span class="col-sm-3 spnStickerRightVal">{{dataTile.volume.vsTgRight}}%</span>
               </div>
             </div>
             <div style="padding-top: 10px;">
               <span class="col-sm-6 spnStickerLeftVal">
               <img *ngIf="dataTile.volume.vsLyLeftPositive" src='assets/images/up_arrow.png'>
               <img *ngIf="!dataTile.volume.vsLyLeftPositive" src='assets/images/down_arrow.png'>
-              {{dataTile.volume.vsLyLeft}}</span>
+              {{utility.FormatContextualData(dataTile.volume.vsLyLeft)}}</span>
               <div>
-                <span class="col-sm-3 spnStickerCenterValVsTLy">VS.LY</span>
-                <span class="col-sm-3 spnStickerRightVal">{{dataTile.volume.vsLyRight}}</span>
+                <span class="col-sm-2 spnStickerCenterValVsTLy">VS.LY</span>
+                <span class="col-sm-3 spnStickerRightVal">{{dataTile.volume.vsLyRight}}%</span>
               </div>
             </div>
           </div>
@@ -88,23 +88,23 @@
             <img *ngIf = "dataTile.mixPercentage.mixVsLyPositive"class="imgMixPercentage" src='assets/images/up_arrow.png'>
             <img *ngIf = "!dataTile.mixPercentage.mixVsLyPositive"class="imgMixPercentage" src='assets/images/down_arrow.png'>
             <span style="position: absolute;top:0px;">VS.LY</span>
-            <span style="position: absolute;bottom:0px;">{{dataTile.mixPercentage.mixVsLy}}%</span>
+            <span style="position: absolute;bottom:0px;">{{utility.FormatContextualData(dataTile.mixPercentage.mixVsLy)}}%</span>
           </div>
 
         </div>
       </div>
-      <div style="min-height: 143px;">
+      <div style="min-height: 116px;">
         <div class=dvSticker>
           <div class="dvStickerHeaderLeft"> MARGIN</div>
-          <div class="dvStickerHeaderRight"> 140.4</div>
+          <div class="dvStickerHeaderRight">{{dataTile.margin.header}}</div>
           <div class="dvStickerContentLeft">
             <div style="padding-top: 10px;">
               <span class="col-sm-6 spnStickerLeftVal">
               <img *ngIf="dataTile.margin.vsTgLeftPositive" src='assets/images/up_arrow.png'>
               <img *ngIf="!dataTile.margin.vsTgLeftPositive" src='assets/images/down_arrow.png'>
-              {{dataTile.margin.vsTgLeft}}</span>
+              {{utility.FormatContextualData(dataTile.margin.vsTgLeft)}}</span>
               <div>
-                <span class="col-sm-3 spnStickerCenterValVsTg">VS.TG</span>
+                <span class="col-sm-2 spnStickerCenterValVsTg">VS.TG</span>
                 <span class="col-sm-3 spnStickerRightVal">{{dataTile.margin.vsTgRight}}</span>
               </div>
             </div>
@@ -112,9 +112,9 @@
               <span class="col-sm-6 spnStickerLeftVal">
               <img *ngIf="dataTile.margin.vsLyLeftPositive" src='assets/images/up_arrow.png'>
               <img *ngIf="!dataTile.margin.vsLyLeftPositive" src='assets/images/down_arrow.png'>
-              {{dataTile.margin.vsLyLeft}}</span>
+              {{utility.FormatContextualData(dataTile.margin.vsLyLeft)}}</span>
               <div>
-                <span class="col-sm-3 spnStickerCenterValVsTLy">VS.LY</span>
+                <span class="col-sm-2 spnStickerCenterValVsTLy">VS.LY</span>
                 <span class="col-sm-3 spnStickerRightVal">{{dataTile.margin.vsLyRight}}</span>
               </div>
             </div>
