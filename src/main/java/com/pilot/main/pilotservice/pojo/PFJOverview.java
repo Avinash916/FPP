@@ -11,7 +11,7 @@ public class PFJOverview implements Serializable {
 
 	private String temporalPeriod;
 
-	private Integer dimPlPeriodDateId;
+	private String dimPlPeriodDateId;
 
 	private PFJTotal pFJTotal;
 
@@ -33,11 +33,11 @@ public class PFJOverview implements Serializable {
 		this.temporalPeriod = temporalPeriod;
 	}
 
-	public Integer getDimPlPeriodDateId() {
+	public String getDimPlPeriodDateId() {
 		return dimPlPeriodDateId;
 	}
 
-	public void setDimPlPeriodDateId(Integer dimPlPeriodDateId) {
+	public void setDimPlPeriodDateId(String dimPlPeriodDateId) {
 		this.dimPlPeriodDateId = dimPlPeriodDateId;
 	}
 
@@ -95,5 +95,4 @@ public class PFJOverview implements Serializable {
 				+ ", pFJTotal=" + pFJTotal + ", betterOf=" + betterOf + ", totalRetail=" + totalRetail
 				+ ", retailMinus=" + retailMinus + ", funded=" + funded + ", ccc=" + ccc + "]";
 	}
-
 }
