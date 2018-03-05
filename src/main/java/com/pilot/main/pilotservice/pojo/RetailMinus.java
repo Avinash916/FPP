@@ -3,6 +3,8 @@ package com.pilot.main.pilotservice.pojo;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+import com.pilot.main.pilotservice.util.PFJOverviewUtil;
+
 public class RetailMinus implements Serializable {
 
 	/**
@@ -59,7 +61,7 @@ public class RetailMinus implements Serializable {
 	}
 
 	public void setRmDiscountActual(BigDecimal rmDiscountActual) {
-		this.rmDiscountActual = rmDiscountActual;
+		this.rmDiscountActual = PFJOverviewUtil.formatMillionNumbers(rmDiscountActual);
 	}
 
 	public BigDecimal getRmDiscountTarget() {
@@ -67,7 +69,7 @@ public class RetailMinus implements Serializable {
 	}
 
 	public void setRmDiscountTarget(BigDecimal rmDiscountTarget) {
-		this.rmDiscountTarget = rmDiscountTarget;
+		this.rmDiscountTarget = PFJOverviewUtil.formatMillionNumbers(rmDiscountTarget);
 	}
 
 	@Override
