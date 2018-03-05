@@ -8,7 +8,7 @@ export class PfjOverviewOperations {
         arrCustPricingDetailsService.forEach(c => {
             let customerPriceDetails:CustomerPriceDetails = new CustomerPriceDetails();
             customerPriceDetails.temporalPeriod = c.temporalPeriod;
-            customerPriceDetails.lastClosedPeriod = c.lastClosedPeriod;
+            customerPriceDetails.dimPlPeriodDateId = c.dimPlPeriodDateId;
             customerPriceDetails.pfjTotal = c.pFJTotal;
             customerPriceDetails.betterOf = c.betterOf;
             customerPriceDetails.totalRetail = c.totalRetail;

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './Components/header/header.component';
@@ -18,6 +19,8 @@ import { PfjtotalComponent } from './Components/pfjtotal/pfjtotal.component';
 import { PfjDataTileComponent } from './Components/pfj-data-tile/pfj-data-tile.component';
 import { PfjDataSubTileBetterOfComponent } from './Components/pfj-data-sub-tile-better-of/pfj-data-sub-tile-better-of.component';
 import { PfjDataSubTileRetailMinusComponent } from './Components/pfj-data-sub-tile-retail-minus/pfj-data-sub-tile-retail-minus.component';
+
+import { UtilityService } from './utility-service';
 
 @NgModule({
   declarations: [
@@ -37,9 +40,10 @@ import { PfjDataSubTileRetailMinusComponent } from './Components/pfj-data-sub-ti
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpModule
+    HttpModule,
+    
   ],
-  providers: [ServiceConsumer,RepositoryService],
+  providers: [ServiceConsumer,RepositoryService,UtilityService,{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
