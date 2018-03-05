@@ -44,6 +44,7 @@ public class PFJOverviewService {
 		PFJOverview pfjOverviewDetailsMTD = populatePFJOverviewDetail(mtdEntities);
 		pfjOverviewDetailsMTD.setTemporalPeriod("MTD");
 		pfjOverviewDetailsMTD.setDimPlPeriodDateId(mtdEntities.get(0).getDimPlPeriodDateId());
+		logger.info("MTD UI POJO Value  ---> " + pfjOverviewDetailsMTD);
 
 		/*
 		 * UI data generation for LCM filter
@@ -53,6 +54,7 @@ public class PFJOverviewService {
 		PFJOverview pfjOverviewDetailsLCM = populatePFJOverviewDetail(lcmEntities);
 		pfjOverviewDetailsLCM.setTemporalPeriod("LCM");
 		pfjOverviewDetailsLCM.setDimPlPeriodDateId(lcmEntities.get(0).getDimPlPeriodDateId());
+		logger.info("LCM UI POJO Value  ---> " + pfjOverviewDetailsLCM);
 
 		/*
 		 * UI data generation for LCYTD filter
@@ -62,6 +64,7 @@ public class PFJOverviewService {
 		PFJOverview pfjOverviewDetailsLCYTD = populatePFJOverviewDetail(lcytdEntities);
 		pfjOverviewDetailsLCYTD.setTemporalPeriod("LCYTD");
 		pfjOverviewDetailsLCYTD.setDimPlPeriodDateId(lcytdEntities.get(0).getDimPlPeriodDateId());
+		logger.info("LCYTD UI POJO Value  ---> " + pfjOverviewDetailsLCYTD);
 
 		List<PFJOverview> pfjOverviewDetailss = new ArrayList<PFJOverview>();
 		pfjOverviewDetailss.add(pfjOverviewDetailsMTD);
