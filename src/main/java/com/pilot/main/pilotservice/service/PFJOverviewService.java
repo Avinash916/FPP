@@ -139,16 +139,18 @@ public class PFJOverviewService {
 
 	private void populatePFJTotal(PFJOverview pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
 		GrossProfitDollars grossProfitDollars = new GrossProfitDollars();
-		grossProfitDollars.setVsTgLeft(pfjTotalEntity.getActualGrossProfit().subtract(pfjTotalEntity.getTargetGrossProfit()));
+		grossProfitDollars.setHeader(pfjTotalEntity.getActualProfitNetOfDiscounts());
+		grossProfitDollars.setVsTgLeft(pfjTotalEntity.getActualProfitNetOfDiscounts().subtract(pfjTotalEntity.getTargetProfitNetOfDiscounts()));
 		grossProfitDollars.setVsTgLeftPositive(grossProfitDollars.getVsTgLeft().signum() > 0);
 		// grossProfitDollars.setVsTgLeft(grossProfitDollars.getVsTgLeft().abs());
-		grossProfitDollars.setVsTgRight(pfjTotalEntity.getTargetGrossProfit());
-		grossProfitDollars.setVsLyLeft(pfjTotalEntity.getActualGrossProfit().subtract(pfjTotalEntity.getActualGrossProfitLy()));
+		grossProfitDollars.setVsTgRight(pfjTotalEntity.getTargetProfitNetOfDiscounts());
+		grossProfitDollars.setVsLyLeft(pfjTotalEntity.getActualProfitNetOfDiscounts().subtract(pfjTotalEntity.getActualProfitNetOfDiscountsLy()));
 		grossProfitDollars.setVsLyLeftPositive(grossProfitDollars.getVsLyLeft().signum() > 0);
 		// grossProfitDollars.setVsLyLeft(grossProfitDollars.getVsLyLeft().abs());
-		grossProfitDollars.setVsLyRight(pfjTotalEntity.getActualGrossProfitLy());
+		grossProfitDollars.setVsLyRight(pfjTotalEntity.getActualProfitNetOfDiscountsLy());
 
 		Volume volume = new Volume();
+		volume.setHeader(pfjTotalEntity.getActualVolume());
 		volume.setVsTgLeft(pfjTotalEntity.getActualVolume().subtract(pfjTotalEntity.getTargetVolume()));
 		volume.setVsTgLeftPositive(volume.getVsTgLeft().signum() > 0);
 		// volume.setVsTgLeft(volume.getVsTgLeft().abs());
@@ -159,14 +161,15 @@ public class PFJOverviewService {
 		volume.setVsLyRight(pfjTotalEntity.getActualVolume().subtract(pfjTotalEntity.getActualVolumeLy()).divide(pfjTotalEntity.getActualVolumeLy(), 3, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(100)));
 		
 		Margin margin = new Margin();
-		margin.setVsTgLeft(pfjTotalEntity.getActualNetPlMargin().subtract(pfjTotalEntity.getTargetNetPlMargin()));
+		margin.setHeader(pfjTotalEntity.getActualMarginNetOfDiscounts());
+		margin.setVsTgLeft(pfjTotalEntity.getActualMarginNetOfDiscounts().subtract(pfjTotalEntity.getTargetMarginNetOfDiscounts()));
 		margin.setVsTgLeftPositive(margin.getVsTgLeft().signum() > 0);
 		// margin.setVsTgLeft(margin.getVsTgLeft().abs());
-		margin.setVsTgRight(pfjTotalEntity.getTargetNetPlMargin());
-		margin.setVsLyLeft(pfjTotalEntity.getActualNetPlMargin().subtract(pfjTotalEntity.getActualNetPlMarginLy()));
+		margin.setVsTgRight(pfjTotalEntity.getTargetMarginNetOfDiscounts());
+		margin.setVsLyLeft(pfjTotalEntity.getActualMarginNetOfDiscounts().subtract(pfjTotalEntity.getActualMarginNetOfDiscountsLy()));
 		margin.setVsLyLeftPositive(margin.getVsLyLeft().signum() > 0);
 		// margin.setVsLyLeft(margin.getVsLyLeft().abs());
-		margin.setVsLyRight(pfjTotalEntity.getActualNetPlMarginLy());
+		margin.setVsLyRight(pfjTotalEntity.getActualMarginNetOfDiscountsLy());
 		
 		PFJTotal pfjTotal = new PFJTotal();
 		pfjTotal.setGrossProfitDollars(grossProfitDollars);
@@ -180,16 +183,18 @@ public class PFJOverviewService {
 
 	private void populateBetterOf(PFJOverview pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity betterOfEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
 		GrossProfitDollars grossProfitDollars = new GrossProfitDollars();
-		grossProfitDollars.setVsTgLeft(betterOfEntity.getActualGrossProfit().subtract(betterOfEntity.getTargetGrossProfit()));
+		grossProfitDollars.setHeader(betterOfEntity.getActualProfitNetOfDiscounts());
+		grossProfitDollars.setVsTgLeft(betterOfEntity.getActualProfitNetOfDiscounts().subtract(betterOfEntity.getTargetProfitNetOfDiscounts()));
 		grossProfitDollars.setVsTgLeftPositive(grossProfitDollars.getVsTgLeft().signum() > 0);
 		// grossProfitDollars.setVsTgLeft(grossProfitDollars.getVsTgLeft().abs());
-		grossProfitDollars.setVsTgRight(betterOfEntity.getTargetGrossProfit());
-		grossProfitDollars.setVsLyLeft(betterOfEntity.getActualGrossProfit().subtract(betterOfEntity.getActualGrossProfitLy()));
+		grossProfitDollars.setVsTgRight(betterOfEntity.getTargetProfitNetOfDiscounts());
+		grossProfitDollars.setVsLyLeft(betterOfEntity.getActualProfitNetOfDiscounts().subtract(betterOfEntity.getActualProfitNetOfDiscountsLy()));
 		grossProfitDollars.setVsLyLeftPositive(grossProfitDollars.getVsLyLeft().signum() > 0);
 		// grossProfitDollars.setVsLyLeft(grossProfitDollars.getVsLyLeft().abs());
-		grossProfitDollars.setVsLyRight(betterOfEntity.getActualGrossProfitLy());
+		grossProfitDollars.setVsLyRight(betterOfEntity.getActualProfitNetOfDiscountsLy());
 		
 		Volume volume = new Volume();
+		volume.setHeader(betterOfEntity.getActualVolume());
 		volume.setVsTgLeft(betterOfEntity.getActualVolume().subtract(betterOfEntity.getTargetVolume()));
 		volume.setVsTgLeftPositive(volume.getVsTgLeft().signum() > 0);
 		// volume.setVsTgLeft(volume.getVsTgLeft().abs());
@@ -200,17 +205,18 @@ public class PFJOverviewService {
 		volume.setVsLyRight(betterOfEntity.getActualVolume().subtract(betterOfEntity.getActualVolumeLy()).divide(betterOfEntity.getActualVolumeLy(), 3, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(100)));
 		
 		Margin margin = new Margin();
-		margin.setVsTgLeft(betterOfEntity.getActualNetPlMargin().subtract(betterOfEntity.getTargetNetPlMargin()));
+		margin.setHeader(betterOfEntity.getActualMarginNetOfDiscounts());
+		margin.setVsTgLeft(betterOfEntity.getActualMarginNetOfDiscounts().subtract(betterOfEntity.getTargetMarginNetOfDiscounts()));
 		margin.setVsTgLeftPositive(margin.getVsTgLeft().signum() > 0);
 		// margin.setVsTgLeft(margin.getVsTgLeft().abs());
-		margin.setVsTgRight(betterOfEntity.getTargetNetPlMargin());
-		margin.setVsLyLeft(betterOfEntity.getActualNetPlMargin().subtract(betterOfEntity.getActualNetPlMarginLy()));
+		margin.setVsTgRight(betterOfEntity.getTargetMarginNetOfDiscounts());
+		margin.setVsLyLeft(betterOfEntity.getActualMarginNetOfDiscounts().subtract(betterOfEntity.getActualMarginNetOfDiscountsLy()));
 		margin.setVsLyLeftPositive(margin.getVsLyLeft().signum() > 0);
 		// margin.setVsLyLeft(margin.getVsLyLeft().abs());
-		margin.setVsLyRight(betterOfEntity.getActualNetPlMarginLy());
+		margin.setVsLyRight(betterOfEntity.getActualMarginNetOfDiscountsLy());
 		
 		MixPercentage mixPercentage = new MixPercentage();
-		mixPercentage.setMixActual(betterOfEntity.getActualVolume().divide(betterOfEntity.getActualVolume(), 3, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(100)));
+		mixPercentage.setMixActual(betterOfEntity.getActualVolume().divide(pfjTotalEntity.getActualVolume(), 3, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(100)));
 		mixPercentage.setMixTarget(betterOfEntity.getTargetVolume().divide(pfjTotalEntity.getTargetVolume(), 3, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(100)));
 		mixPercentage.setMixVsLy((betterOfEntity.getActualVolume().divide(pfjTotalEntity.getActualVolume(), 3, RoundingMode.HALF_UP))
 									.subtract(betterOfEntity.getActualVolumeLy().divide(pfjTotalEntity.getActualVolumeLy(), 3, RoundingMode.HALF_UP))
@@ -234,16 +240,18 @@ public class PFJOverviewService {
 
 	private void populateTotalRetail(PFJOverview pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity totalRetailEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
 		GrossProfitDollars grossProfitDollars = new GrossProfitDollars();
-		grossProfitDollars.setVsTgLeft(totalRetailEntity.getActualGrossProfit().subtract(totalRetailEntity.getTargetGrossProfit()));
+		grossProfitDollars.setHeader(totalRetailEntity.getActualProfitNetOfDiscounts());
+		grossProfitDollars.setVsTgLeft(totalRetailEntity.getActualProfitNetOfDiscounts().subtract(totalRetailEntity.getTargetProfitNetOfDiscounts()));
 		grossProfitDollars.setVsTgLeftPositive(grossProfitDollars.getVsTgLeft().signum() > 0);
 		// grossProfitDollars.setVsTgLeft(grossProfitDollars.getVsTgLeft().abs());
-		grossProfitDollars.setVsTgRight(totalRetailEntity.getTargetGrossProfit());
-		grossProfitDollars.setVsLyLeft(totalRetailEntity.getActualGrossProfit().subtract(totalRetailEntity.getActualGrossProfitLy()));
+		grossProfitDollars.setVsTgRight(totalRetailEntity.getTargetProfitNetOfDiscounts());
+		grossProfitDollars.setVsLyLeft(totalRetailEntity.getActualProfitNetOfDiscounts().subtract(totalRetailEntity.getActualProfitNetOfDiscountsLy()));
 		grossProfitDollars.setVsLyLeftPositive(grossProfitDollars.getVsLyLeft().signum() > 0);
 		// grossProfitDollars.setVsLyLeft(grossProfitDollars.getVsLyLeft().abs());
-		grossProfitDollars.setVsLyRight(totalRetailEntity.getActualGrossProfitLy());
+		grossProfitDollars.setVsLyRight(totalRetailEntity.getActualProfitNetOfDiscountsLy());
 		
 		Volume volume = new Volume();
+		volume.setHeader(totalRetailEntity.getActualVolume());
 		volume.setVsTgLeft(totalRetailEntity.getActualVolume().subtract(totalRetailEntity.getTargetVolume()));
 		volume.setVsTgLeftPositive(volume.getVsTgLeft().signum() > 0);
 		// volume.setVsTgLeft(volume.getVsTgLeft().abs());
@@ -253,18 +261,20 @@ public class PFJOverviewService {
 		// volume.setVsLyLeft(volume.getVsLyLeft().abs());
 		volume.setVsLyRight(totalRetailEntity.getActualVolume().subtract(totalRetailEntity.getActualVolumeLy()).divide(totalRetailEntity.getActualVolumeLy(), 3, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(100)));
 		
+		// TODO Margin data population review
 		Margin margin = new Margin();
-		margin.setVsTgLeft(totalRetailEntity.getActualNetPlMargin().subtract(totalRetailEntity.getTargetNetPlMargin()));
+		margin.setHeader(totalRetailEntity.getActualMarginNetOfDiscounts());
+		margin.setVsTgLeft(totalRetailEntity.getActualMarginNetOfDiscounts().subtract(totalRetailEntity.getTargetMarginNetOfDiscounts()));
 		margin.setVsTgLeftPositive(margin.getVsTgLeft().signum() > 0);
 		// margin.setVsTgLeft(margin.getVsTgLeft().abs());
-		margin.setVsTgRight(totalRetailEntity.getTargetNetPlMargin());
-		margin.setVsLyLeft(totalRetailEntity.getActualNetPlMargin().subtract(totalRetailEntity.getActualNetPlMarginLy()));
+		margin.setVsTgRight(totalRetailEntity.getTargetMarginNetOfDiscounts());
+		margin.setVsLyLeft(totalRetailEntity.getActualMarginNetOfDiscounts().subtract(totalRetailEntity.getActualMarginNetOfDiscountsLy()));
 		margin.setVsLyLeftPositive(margin.getVsLyLeft().signum() > 0);
 		// margin.setVsLyLeft(margin.getVsLyLeft().abs());
-		margin.setVsLyRight(totalRetailEntity.getActualNetPlMarginLy());
+		margin.setVsLyRight(totalRetailEntity.getActualMarginNetOfDiscountsLy());
 		
 		MixPercentage mixPercentage = new MixPercentage();
-		mixPercentage.setMixActual(totalRetailEntity.getActualVolume().divide(totalRetailEntity.getActualVolume(), 3, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(100)));
+		mixPercentage.setMixActual(totalRetailEntity.getActualVolume().divide(pfjTotalEntity.getActualVolume(), 3, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(100)));
 		mixPercentage.setMixTarget(totalRetailEntity.getTargetVolume().divide(pfjTotalEntity.getTargetVolume(), 3, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(100)));
 		mixPercentage.setMixVsLy((totalRetailEntity.getActualVolume().divide(pfjTotalEntity.getActualVolume(), 3, RoundingMode.HALF_UP))
 									.subtract(totalRetailEntity.getActualVolumeLy().divide(pfjTotalEntity.getActualVolumeLy(), 3, RoundingMode.HALF_UP))
@@ -284,16 +294,18 @@ public class PFJOverviewService {
 
 	private void populateRetailMinus(PFJOverview pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity retailMinusEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
 		GrossProfitDollars grossProfitDollars = new GrossProfitDollars();
-		grossProfitDollars.setVsTgLeft(retailMinusEntity.getActualGrossProfit().subtract(retailMinusEntity.getTargetGrossProfit()));
+		grossProfitDollars.setHeader(retailMinusEntity.getActualProfitNetOfDiscounts());
+		grossProfitDollars.setVsTgLeft(retailMinusEntity.getActualProfitNetOfDiscounts().subtract(retailMinusEntity.getTargetProfitNetOfDiscounts()));
 		grossProfitDollars.setVsTgLeftPositive(grossProfitDollars.getVsTgLeft().signum() > 0);
 		// grossProfitDollars.setVsTgLeft(grossProfitDollars.getVsTgLeft().abs());
-		grossProfitDollars.setVsTgRight(retailMinusEntity.getTargetGrossProfit());
-		grossProfitDollars.setVsLyLeft(retailMinusEntity.getActualGrossProfit().subtract(retailMinusEntity.getActualGrossProfitLy()));
+		grossProfitDollars.setVsTgRight(retailMinusEntity.getTargetProfitNetOfDiscounts());
+		grossProfitDollars.setVsLyLeft(retailMinusEntity.getActualProfitNetOfDiscounts().subtract(retailMinusEntity.getActualProfitNetOfDiscountsLy()));
 		grossProfitDollars.setVsLyLeftPositive(grossProfitDollars.getVsLyLeft().signum() > 0);
 		// grossProfitDollars.setVsLyLeft(grossProfitDollars.getVsLyLeft().abs());
-		grossProfitDollars.setVsLyRight(retailMinusEntity.getActualGrossProfitLy());
+		grossProfitDollars.setVsLyRight(retailMinusEntity.getActualProfitNetOfDiscountsLy());
 		
 		Volume volume = new Volume();
+		volume.setHeader(retailMinusEntity.getActualVolume());
 		volume.setVsTgLeft(retailMinusEntity.getActualVolume().subtract(retailMinusEntity.getTargetVolume()));
 		volume.setVsTgLeftPositive(volume.getVsTgLeft().signum() > 0);
 		// volume.setVsTgLeft(volume.getVsTgLeft().abs());
@@ -304,17 +316,18 @@ public class PFJOverviewService {
 		volume.setVsLyRight(retailMinusEntity.getActualVolume().subtract(retailMinusEntity.getActualVolumeLy()).divide(retailMinusEntity.getActualVolumeLy(), 3, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(100)));
 		
 		Margin margin = new Margin();
-		margin.setVsTgLeft(retailMinusEntity.getActualNetPlMargin().subtract(retailMinusEntity.getTargetNetPlMargin()));
+		margin.setHeader(retailMinusEntity.getActualMarginNetOfDiscounts());
+		margin.setVsTgLeft(retailMinusEntity.getActualMarginNetOfDiscounts().subtract(retailMinusEntity.getTargetMarginNetOfDiscounts()));
 		margin.setVsTgLeftPositive(margin.getVsTgLeft().signum() > 0);
 		// margin.setVsTgLeft(margin.getVsTgLeft().abs());
-		margin.setVsTgRight(retailMinusEntity.getTargetNetPlMargin());
-		margin.setVsLyLeft(retailMinusEntity.getActualNetPlMargin().subtract(retailMinusEntity.getActualNetPlMarginLy()));
+		margin.setVsTgRight(retailMinusEntity.getTargetMarginNetOfDiscounts());
+		margin.setVsLyLeft(retailMinusEntity.getActualMarginNetOfDiscounts().subtract(retailMinusEntity.getActualMarginNetOfDiscountsLy()));
 		margin.setVsLyLeftPositive(margin.getVsLyLeft().signum() > 0);
 		// margin.setVsLyLeft(margin.getVsLyLeft().abs());
-		margin.setVsLyRight(retailMinusEntity.getActualNetPlMarginLy());
+		margin.setVsLyRight(retailMinusEntity.getActualMarginNetOfDiscountsLy());
 		
 		MixPercentage mixPercentage = new MixPercentage();
-		mixPercentage.setMixActual(retailMinusEntity.getActualVolume().divide(retailMinusEntity.getActualVolume(), 3, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(100)));
+		mixPercentage.setMixActual(retailMinusEntity.getActualVolume().divide(pfjTotalEntity.getActualVolume(), 3, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(100)));
 		mixPercentage.setMixTarget(retailMinusEntity.getTargetVolume().divide(pfjTotalEntity.getTargetVolume(), 3, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(100)));
 		mixPercentage.setMixVsLy((retailMinusEntity.getActualVolume().divide(pfjTotalEntity.getActualVolume(), 3, RoundingMode.HALF_UP))
 									.subtract(retailMinusEntity.getActualVolumeLy().divide(pfjTotalEntity.getActualVolumeLy(), 3, RoundingMode.HALF_UP))
@@ -336,16 +349,18 @@ public class PFJOverviewService {
 
 	private void populateFunded(PFJOverview pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity fundedEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
 		GrossProfitDollars grossProfitDollars = new GrossProfitDollars();
-		grossProfitDollars.setVsTgLeft(fundedEntity.getActualGrossProfit().subtract(fundedEntity.getTargetGrossProfit()));
+		grossProfitDollars.setHeader(fundedEntity.getActualProfitNetOfDiscounts());
+		grossProfitDollars.setVsTgLeft(fundedEntity.getActualProfitNetOfDiscounts().subtract(fundedEntity.getTargetProfitNetOfDiscounts()));
 		grossProfitDollars.setVsTgLeftPositive(grossProfitDollars.getVsTgLeft().signum() > 0);
 		// grossProfitDollars.setVsTgLeft(grossProfitDollars.getVsTgLeft().abs());
-		grossProfitDollars.setVsTgRight(fundedEntity.getTargetGrossProfit());
-		grossProfitDollars.setVsLyLeft(fundedEntity.getActualGrossProfit().subtract(fundedEntity.getActualGrossProfitLy()));
+		grossProfitDollars.setVsTgRight(fundedEntity.getTargetProfitNetOfDiscounts());
+		grossProfitDollars.setVsLyLeft(fundedEntity.getActualProfitNetOfDiscounts().subtract(fundedEntity.getActualProfitNetOfDiscountsLy()));
 		grossProfitDollars.setVsLyLeftPositive(grossProfitDollars.getVsLyLeft().signum() > 0);
 		// grossProfitDollars.setVsLyLeft(grossProfitDollars.getVsLyLeft().abs());
-		grossProfitDollars.setVsLyRight(fundedEntity.getActualGrossProfitLy());
+		grossProfitDollars.setVsLyRight(fundedEntity.getActualProfitNetOfDiscountsLy());
 		
 		Volume volume = new Volume();
+		volume.setHeader(fundedEntity.getActualVolume());
 		volume.setVsTgLeft(fundedEntity.getActualVolume().subtract(fundedEntity.getTargetVolume()));
 		volume.setVsTgLeftPositive(volume.getVsTgLeft().signum() > 0);
 		// volume.setVsTgLeft(volume.getVsTgLeft().abs());
@@ -355,18 +370,20 @@ public class PFJOverviewService {
 		// volume.setVsLyLeft(volume.getVsLyLeft().abs());
 		volume.setVsLyRight(fundedEntity.getActualVolume().subtract(fundedEntity.getActualVolumeLy()).divide(fundedEntity.getActualVolumeLy(), 3, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(100)));
 		
+		// TODO Margin data population review
 		Margin margin = new Margin();
-		margin.setVsTgLeft(fundedEntity.getActualNetPlMargin().subtract(fundedEntity.getTargetNetPlMargin()));
+		margin.setHeader(fundedEntity.getActualMarginNetOfDiscounts());
+		margin.setVsTgLeft(fundedEntity.getActualMarginNetOfDiscounts().subtract(fundedEntity.getTargetMarginNetOfDiscounts()));
 		margin.setVsTgLeftPositive(margin.getVsTgLeft().signum() > 0);
 		// margin.setVsTgLeft(margin.getVsTgLeft().abs());
-		margin.setVsTgRight(fundedEntity.getTargetNetPlMargin());
-		margin.setVsLyLeft(fundedEntity.getActualNetPlMargin().subtract(fundedEntity.getActualNetPlMarginLy()));
+		margin.setVsTgRight(fundedEntity.getTargetMarginNetOfDiscounts());
+		margin.setVsLyLeft(fundedEntity.getActualMarginNetOfDiscounts().subtract(fundedEntity.getActualMarginNetOfDiscountsLy()));
 		margin.setVsLyLeftPositive(margin.getVsLyLeft().signum() > 0);
 		// margin.setVsLyLeft(margin.getVsLyLeft().abs());
-		margin.setVsLyRight(fundedEntity.getActualNetPlMarginLy());
+		margin.setVsLyRight(fundedEntity.getActualMarginNetOfDiscountsLy());
 		
 		MixPercentage mixPercentage = new MixPercentage();
-		mixPercentage.setMixActual(fundedEntity.getActualVolume().divide(fundedEntity.getActualVolume(), 3, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(100)));
+		mixPercentage.setMixActual(fundedEntity.getActualVolume().divide(pfjTotalEntity.getActualVolume(), 3, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(100)));
 		mixPercentage.setMixTarget(fundedEntity.getTargetVolume().divide(pfjTotalEntity.getTargetVolume(), 3, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(100)));
 		mixPercentage.setMixVsLy((fundedEntity.getActualVolume().divide(pfjTotalEntity.getActualVolume(), 3, RoundingMode.HALF_UP))
 									.subtract(fundedEntity.getActualVolumeLy().divide(pfjTotalEntity.getActualVolumeLy(), 3, RoundingMode.HALF_UP))
@@ -386,16 +403,18 @@ public class PFJOverviewService {
 
 	private void populateCCC(PFJOverview pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity cccEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
 		GrossProfitDollars grossProfitDollars = new GrossProfitDollars();
-		grossProfitDollars.setVsTgLeft(cccEntity.getActualGrossProfit().subtract(cccEntity.getTargetGrossProfit()));
+		grossProfitDollars.setHeader(cccEntity.getActualProfitNetOfDiscounts());
+		grossProfitDollars.setVsTgLeft(cccEntity.getActualProfitNetOfDiscounts().subtract(cccEntity.getTargetProfitNetOfDiscounts()));
 		grossProfitDollars.setVsTgLeftPositive(grossProfitDollars.getVsTgLeft().signum() > 0);
 		// grossProfitDollars.setVsTgLeft(grossProfitDollars.getVsTgLeft().abs());
-		grossProfitDollars.setVsTgRight(cccEntity.getTargetGrossProfit());
-		grossProfitDollars.setVsLyLeft(cccEntity.getActualGrossProfit().subtract(cccEntity.getActualGrossProfitLy()));
+		grossProfitDollars.setVsTgRight(cccEntity.getTargetProfitNetOfDiscounts());
+		grossProfitDollars.setVsLyLeft(cccEntity.getActualProfitNetOfDiscounts().subtract(cccEntity.getActualProfitNetOfDiscountsLy()));
 		grossProfitDollars.setVsLyLeftPositive(grossProfitDollars.getVsLyLeft().signum() > 0);
 		// grossProfitDollars.setVsLyLeft(grossProfitDollars.getVsLyLeft().abs());
-		grossProfitDollars.setVsLyRight(cccEntity.getActualGrossProfitLy());
+		grossProfitDollars.setVsLyRight(cccEntity.getActualProfitNetOfDiscountsLy());
 		
 		Volume volume = new Volume();
+		volume.setHeader(cccEntity.getActualVolume());
 		volume.setVsTgLeft(cccEntity.getActualVolume().subtract(cccEntity.getTargetVolume()));
 		volume.setVsTgLeftPositive(volume.getVsTgLeft().signum() > 0);
 		// volume.setVsTgLeft(volume.getVsTgLeft().abs());
@@ -405,18 +424,20 @@ public class PFJOverviewService {
 		// volume.setVsLyLeft(volume.getVsLyLeft().abs());
 		volume.setVsLyRight(cccEntity.getActualVolume().subtract(cccEntity.getActualVolumeLy()).divide(cccEntity.getActualVolumeLy(), 3, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(100)));
 		
+		// TODO Margin data population review
 		Margin margin = new Margin();
-		margin.setVsTgLeft(cccEntity.getActualNetPlMargin().subtract(cccEntity.getTargetNetPlMargin()));
+		margin.setHeader(cccEntity.getActualMarginNetOfDiscounts());
+		margin.setVsTgLeft(cccEntity.getActualMarginNetOfDiscounts().subtract(cccEntity.getTargetMarginNetOfDiscounts()));
 		margin.setVsTgLeftPositive(margin.getVsTgLeft().signum() > 0);
 		// margin.setVsTgLeft(margin.getVsTgLeft().abs());
-		margin.setVsTgRight(cccEntity.getTargetNetPlMargin());
-		margin.setVsLyLeft(cccEntity.getActualNetPlMargin().subtract(cccEntity.getActualNetPlMarginLy()));
+		margin.setVsTgRight(cccEntity.getTargetMarginNetOfDiscounts());
+		margin.setVsLyLeft(cccEntity.getActualMarginNetOfDiscounts().subtract(cccEntity.getActualMarginNetOfDiscountsLy()));
 		margin.setVsLyLeftPositive(margin.getVsLyLeft().signum() > 0);
 		// margin.setVsLyLeft(margin.getVsLyLeft().abs());
-		margin.setVsLyRight(cccEntity.getActualNetPlMarginLy());
+		margin.setVsLyRight(cccEntity.getActualMarginNetOfDiscountsLy());
 		
 		MixPercentage mixPercentage = new MixPercentage();
-		mixPercentage.setMixActual(cccEntity.getActualVolume().divide(cccEntity.getActualVolume(), 3, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(100)));
+		mixPercentage.setMixActual(cccEntity.getActualVolume().divide(pfjTotalEntity.getActualVolume(), 3, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(100)));
 		mixPercentage.setMixTarget(cccEntity.getTargetVolume().divide(pfjTotalEntity.getTargetVolume(), 3, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(100)));
 		mixPercentage.setMixVsLy((cccEntity.getActualVolume().divide(pfjTotalEntity.getActualVolume(), 3, RoundingMode.HALF_UP))
 									.subtract(cccEntity.getActualVolumeLy().divide(pfjTotalEntity.getActualVolumeLy(), 3, RoundingMode.HALF_UP))
