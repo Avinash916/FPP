@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { UtilityService } from '../../utility-service';
 
 
 @Component({
@@ -11,14 +12,8 @@ export class PfjDataTileComponent implements OnInit {
   @Input() dataTile : any;
   @Input() isRequiredSubTile:boolean;
   @Input() arrItemsSubTile
-  constructor() { }
+  constructor(public utility:UtilityService) { }
 
   ngOnInit() {
   } 
-
-  roundOffData(data:string)
-  {
-    data = data.toString().trim().replace("-","");
-    return parseFloat(data).toFixed(2);
-  }
 }
