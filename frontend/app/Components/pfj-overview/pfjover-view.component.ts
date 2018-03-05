@@ -5,9 +5,9 @@ import { PfjOverviewOperations } from '../../Models/pfjoverview-operations';
 import { CustomerPriceDetails } from '../../Models/customer-price-details';
 import { VERSION } from '@angular/platform-browser-dynamic';
 @Component({
-  selector: 'app-pfjover-view',
-  templateUrl: './pfjover-view.component.html',
-  styleUrls: ['./pfjover-view.component.css']
+  selector: 'app-pfj-overview',
+  templateUrl: './pfj-overview.component.html',
+  styleUrls: ['./pfj-overview.component.css']
 })
 export class PfjoverViewComponent implements OnInit {
   selectedCustPricingDetails : CustomerPriceDetails;
