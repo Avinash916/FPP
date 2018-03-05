@@ -3,8 +3,6 @@ package com.pilot.main.pilotservice.pojo;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-import com.pilot.main.pilotservice.util.CustomerPricingUtil;
-
 public class PFJTotal implements Serializable {
 	
 	/**
@@ -51,7 +49,7 @@ public class PFJTotal implements Serializable {
 	}
 
 	public void setTotalGAL(BigDecimal totalGAL) {
-		this.totalGAL = CustomerPricingUtil.formatMillionNumbers(totalGAL);
+		this.totalGAL = totalGAL;
 	}
 
 	public BigDecimal getTotalTarget() {
@@ -59,7 +57,7 @@ public class PFJTotal implements Serializable {
 	}
 
 	public void setTotalTarget(BigDecimal totalTarget) {
-		this.totalTarget = CustomerPricingUtil.formatMillionNumbers(totalTarget);
+		this.totalTarget = totalTarget;
 	}
 
 	@Override

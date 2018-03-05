@@ -27,13 +27,13 @@ public class FctDmCompanyLevelActualVsTargetEntity implements Serializable {
 	private Long dimQuantityConversionId;
 
 	@Column(name = "ACTUAL_PROFIT_NET_OF_DISCOUNTS")
-	private BigDecimal actualProfitNetOfDiscounts;
+	private BigDecimal actualGrossProfit;
 
 	@Column(name = "ACTUAL_PROFIT_NET_OF_DISCOUNTS_LY")
-	private BigDecimal actualProfitNetOfDiscountsLy;
+	private BigDecimal actualGrossProfitLy;
 
 	@Column(name = "TARGET_PROFIT_NET_OF_DISCOUNTS")
-	private BigDecimal targetProfitNetOfDiscounts;
+	private BigDecimal targetGrossProfit;
 
 	@Column(name = "ACTUAL_VOLUME")
 	private BigDecimal actualVolume;
@@ -57,13 +57,13 @@ public class FctDmCompanyLevelActualVsTargetEntity implements Serializable {
 	private BigDecimal targetEffectivePumpFee;
 
 	@Column(name = "ACTUAL_MARGIN_NET_OF_DISCOUNTS")
-	private BigDecimal actualMarginNetOfDiscounts;
+	private BigDecimal actualNetPlMargin;
 
-	@Column(name = "ACTUAL_MARGIN_NET_OF_DISCOUNTS_Ly")
-	private BigDecimal actualMarginNetOfDiscountsLy;
+	@Column(name = "ACTUAL_MARGIN_NET_OF_DISCOUNTS_LY")
+	private BigDecimal actualNetPlMarginLy;
 
 	@Column(name = "TARGET_MARGIN_NET_OF_DISCOUNTS")
-	private BigDecimal targetMarginNetOfDiscounts;
+	private BigDecimal targetNetPlMargin;
 	
 	@Column(name = "ACTUAL_EFFECTIVE_RETAIL_MINUS_RATE")
 	private BigDecimal actualEffectiveRetailMinusRate;
@@ -98,28 +98,28 @@ public class FctDmCompanyLevelActualVsTargetEntity implements Serializable {
 		this.dimQuantityConversionId = dimQuantityConversionId;
 	}
 
-	public BigDecimal getActualProfitNetOfDiscounts() {
-		return actualProfitNetOfDiscounts;
+	public BigDecimal getActualGrossProfit() {
+		return actualGrossProfit;
 	}
 
-	public void setActualProfitNetOfDiscounts(BigDecimal actualProfitNetOfDiscounts) {
-		this.actualProfitNetOfDiscounts = actualProfitNetOfDiscounts;
+	public void setActualGrossProfit(BigDecimal actualGrossProfit) {
+		this.actualGrossProfit = actualGrossProfit;
 	}
 
-	public BigDecimal getActualProfitNetOfDiscountsLy() {
-		return actualProfitNetOfDiscountsLy;
+	public BigDecimal getActualGrossProfitLy() {
+		return actualGrossProfitLy;
 	}
 
-	public void setActualProfitNetOfDiscountsLy(BigDecimal actualProfitNetOfDiscountsLy) {
-		this.actualProfitNetOfDiscountsLy = actualProfitNetOfDiscountsLy;
+	public void setActualGrossProfitLy(BigDecimal actualGrossProfitLy) {
+		this.actualGrossProfitLy = actualGrossProfitLy;
 	}
 
-	public BigDecimal getTargetProfitNetOfDiscounts() {
-		return targetProfitNetOfDiscounts;
+	public BigDecimal getTargetGrossProfit() {
+		return targetGrossProfit;
 	}
 
-	public void setTargetProfitNetOfDiscounts(BigDecimal targetProfitNetOfDiscounts) {
-		this.targetProfitNetOfDiscounts = targetProfitNetOfDiscounts;
+	public void setTargetGrossProfit(BigDecimal targetGrossProfit) {
+		this.targetGrossProfit = targetGrossProfit;
 	}
 
 	public BigDecimal getActualVolume() {
@@ -178,28 +178,28 @@ public class FctDmCompanyLevelActualVsTargetEntity implements Serializable {
 		this.targetEffectivePumpFee = targetEffectivePumpFee;
 	}
 
-	public BigDecimal getActualMarginNetOfDiscounts() {
-		return actualMarginNetOfDiscounts;
+	public BigDecimal getActualNetPlMargin() {
+		return actualNetPlMargin;
 	}
 
-	public void setActualMarginNetOfDiscounts(BigDecimal actualMarginNetOfDiscounts) {
-		this.actualMarginNetOfDiscounts = actualMarginNetOfDiscounts;
+	public void setActualNetPlMargin(BigDecimal actualNetPlMargin) {
+		this.actualNetPlMargin = actualNetPlMargin;
 	}
 
-	public BigDecimal getActualMarginNetOfDiscountsLy() {
-		return actualMarginNetOfDiscountsLy;
+	public BigDecimal getActualNetPlMarginLy() {
+		return actualNetPlMarginLy;
 	}
 
-	public void setActualMarginNetOfDiscountsLy(BigDecimal actualMarginNetOfDiscountsLy) {
-		this.actualMarginNetOfDiscountsLy = actualMarginNetOfDiscountsLy;
+	public void setActualNetPlMarginLy(BigDecimal actualNetPlMarginLy) {
+		this.actualNetPlMarginLy = actualNetPlMarginLy;
 	}
 
-	public BigDecimal getTargetMarginNetOfDiscounts() {
-		return targetMarginNetOfDiscounts;
+	public BigDecimal getTargetNetPlMargin() {
+		return targetNetPlMargin;
 	}
 
-	public void setTargetMarginNetOfDiscounts(BigDecimal targetMarginNetOfDiscounts) {
-		this.targetMarginNetOfDiscounts = targetMarginNetOfDiscounts;
+	public void setTargetNetPlMargin(BigDecimal targetNetPlMargin) {
+		this.targetNetPlMargin = targetNetPlMargin;
 	}
 
 	public BigDecimal getActualEffectiveRetailMinusRate() {
@@ -230,16 +230,14 @@ public class FctDmCompanyLevelActualVsTargetEntity implements Serializable {
 	public String toString() {
 		return "FctDmCompanyLevelActualVsTargetEntity [fctDmCompanyLevelActualVsTargetId="
 				+ fctDmCompanyLevelActualVsTargetId + ", dimCurrencyId=" + dimCurrencyId + ", dimQuantityConversionId="
-				+ dimQuantityConversionId + ", actualProfitNetOfDiscounts=" + actualProfitNetOfDiscounts
-				+ ", actualProfitNetOfDiscountsLy=" + actualProfitNetOfDiscountsLy + ", targetProfitNetOfDiscounts="
-				+ targetProfitNetOfDiscounts + ", actualVolume=" + actualVolume + ", actualVolumeLy=" + actualVolumeLy
-				+ ", targetVolume=" + targetVolume + ", actualBuyingPerformance=" + actualBuyingPerformance
-				+ ", targetBuyingPerformance=" + targetBuyingPerformance + ", actualEffectivePumpFee="
-				+ actualEffectivePumpFee + ", targetEffectivePumpFee=" + targetEffectivePumpFee
-				+ ", actualMarginNetOfDiscounts=" + actualMarginNetOfDiscounts + ", actualMarginNetOfDiscountsLy="
-				+ actualMarginNetOfDiscountsLy + ", targetMarginNetOfDiscounts=" + targetMarginNetOfDiscounts
-				+ ", actualEffectiveRetailMinusRate=" + actualEffectiveRetailMinusRate
-				+ ", targetEffectiveRetailMinusRate=" + targetEffectiveRetailMinusRate + ", dimPlPeriodDateId="
-				+ dimPlPeriodDateId + "]";
+				+ dimQuantityConversionId + ", actualGrossProfit=" + actualGrossProfit + ", actualGrossProfitLy="
+				+ actualGrossProfitLy + ", targetGrossProfit=" + targetGrossProfit + ", actualVolume=" + actualVolume
+				+ ", actualVolumeLy=" + actualVolumeLy + ", targetVolume=" + targetVolume + ", actualBuyingPerformance="
+				+ actualBuyingPerformance + ", targetBuyingPerformance=" + targetBuyingPerformance
+				+ ", actualEffectivePumpFee=" + actualEffectivePumpFee + ", targetEffectivePumpFee="
+				+ targetEffectivePumpFee + ", actualNetPlMargin=" + actualNetPlMargin + ", actualNetPlMarginLy="
+				+ actualNetPlMarginLy + ", targetNetPlMargin=" + targetNetPlMargin + ", actualEffectiveRetailMinusRate="
+				+ actualEffectiveRetailMinusRate + ", targetEffectiveRetailMinusRate=" + targetEffectiveRetailMinusRate
+				+ ", lastClosedPeriod=" + dimPlPeriodDateId + "]";
 	}
 }

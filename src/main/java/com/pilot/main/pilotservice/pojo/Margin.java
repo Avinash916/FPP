@@ -4,16 +4,12 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-import com.pilot.main.pilotservice.util.CustomerPricingUtil;
-
 public class Margin implements Serializable {
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 8164962658108108643L;
-
-	private BigDecimal header;
 
 	private BigDecimal vsTgLeft;
 	
@@ -27,20 +23,12 @@ public class Margin implements Serializable {
 	
 	private BigDecimal vsLyRight;
 
-	public BigDecimal getHeader() {
-		return header;
-	}
-
-	public void setHeader(BigDecimal header) {
-		this.header = CustomerPricingUtil.formatMillionNumbers(header);
-	}
-
 	public BigDecimal getVsTgLeft() {
 		return vsTgLeft;
 	}
 
 	public void setVsTgLeft(BigDecimal vsTgLeft) {
-		this.vsTgLeft = CustomerPricingUtil.formatMillionNumbers(vsTgLeft);
+		this.vsTgLeft = vsTgLeft.divide(BigDecimal.valueOf(1000000), 2, RoundingMode.HALF_UP);
 	}
 
 	public Boolean getVsTgLeftPositive() {
@@ -56,7 +44,7 @@ public class Margin implements Serializable {
 	}
 
 	public void setVsTgRight(BigDecimal vsTgRight) {
-		this.vsTgRight = CustomerPricingUtil.formatMillionNumbers(vsTgRight);
+		this.vsTgRight = vsTgRight.divide(BigDecimal.valueOf(1000000), 2, RoundingMode.HALF_UP);
 	}
 
 	public BigDecimal getVsLyLeft() {
@@ -64,7 +52,7 @@ public class Margin implements Serializable {
 	}
 
 	public void setVsLyLeft(BigDecimal vsLyLeft) {
-		this.vsLyLeft = CustomerPricingUtil.formatMillionNumbers(vsLyLeft);
+		this.vsLyLeft = vsLyLeft.divide(BigDecimal.valueOf(1000000), 2, RoundingMode.HALF_UP);
 	}
 
 	public Boolean getVsLyLeftPositive() {
@@ -80,13 +68,13 @@ public class Margin implements Serializable {
 	}
 
 	public void setVsLyRight(BigDecimal vsLyRight) {
-		this.vsLyRight = CustomerPricingUtil.formatMillionNumbers(vsLyRight);
+		this.vsLyRight = vsLyRight.divide(BigDecimal.valueOf(1000000), 2, RoundingMode.HALF_UP);
 	}
 
 	@Override
 	public String toString() {
-		return "Margin [header=" + header + ", vsTgLeft=" + vsTgLeft + ", vsTgLeftPositive=" + vsTgLeftPositive
-				+ ", vsTgRight=" + vsTgRight + ", vsLyLeft=" + vsLyLeft + ", vsLyLeftPositive=" + vsLyLeftPositive
-				+ ", vsLyRight=" + vsLyRight + "]";
+		return "Margin [vsTgLeft=" + vsTgLeft + ", vsTgLeftPositive=" + vsTgLeftPositive + ", vsTgRight=" + vsTgRight
+				+ ", vsLyLeft=" + vsLyLeft + ", vsLyLeftPositive=" + vsLyLeftPositive + ", vsLyRight=" + vsLyRight
+				+ "]";
 	}
 }
