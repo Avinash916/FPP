@@ -3,7 +3,7 @@ package com.pilot.main.pilotservice.util;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class CustomerPricingUtil {
+public class PFJOverviewUtil {
 
 	public static BigDecimal formatMillionNumbers(BigDecimal number) {
 		number = number.divide(BigDecimal.valueOf(1000000), 3, RoundingMode.HALF_UP);

@@ -2,9 +2,8 @@ package com.pilot.main.pilotservice.pojo;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 
-import com.pilot.main.pilotservice.util.CustomerPricingUtil;
+import com.pilot.main.pilotservice.util.PFJOverviewUtil;
 
 public class Margin implements Serializable {
 	
@@ -32,7 +31,7 @@ public class Margin implements Serializable {
 	}
 
 	public void setHeader(BigDecimal header) {
-		this.header = CustomerPricingUtil.formatMillionNumbers(header);
+		this.header = PFJOverviewUtil.formatMillionNumbers(header);
 	}
 
 	public BigDecimal getVsTgLeft() {
@@ -40,7 +39,7 @@ public class Margin implements Serializable {
 	}
 
 	public void setVsTgLeft(BigDecimal vsTgLeft) {
-		this.vsTgLeft = CustomerPricingUtil.formatMillionNumbers(vsTgLeft);
+		this.vsTgLeft = PFJOverviewUtil.formatMillionNumbers(vsTgLeft);
 	}
 
 	public Boolean getVsTgLeftPositive() {
@@ -56,7 +55,7 @@ public class Margin implements Serializable {
 	}
 
 	public void setVsTgRight(BigDecimal vsTgRight) {
-		this.vsTgRight = CustomerPricingUtil.formatMillionNumbers(vsTgRight);
+		this.vsTgRight = PFJOverviewUtil.formatMillionNumbers(vsTgRight);
 	}
 
 	public BigDecimal getVsLyLeft() {
@@ -64,7 +63,7 @@ public class Margin implements Serializable {
 	}
 
 	public void setVsLyLeft(BigDecimal vsLyLeft) {
-		this.vsLyLeft = CustomerPricingUtil.formatMillionNumbers(vsLyLeft);
+		this.vsLyLeft = PFJOverviewUtil.formatMillionNumbers(vsLyLeft);
 	}
 
 	public Boolean getVsLyLeftPositive() {
@@ -80,7 +79,7 @@ public class Margin implements Serializable {
 	}
 
 	public void setVsLyRight(BigDecimal vsLyRight) {
-		this.vsLyRight = CustomerPricingUtil.formatMillionNumbers(vsLyRight);
+		this.vsLyRight = PFJOverviewUtil.formatMillionNumbers(vsLyRight);
 	}
 
 	@Override

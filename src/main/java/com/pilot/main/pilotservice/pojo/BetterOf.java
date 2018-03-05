@@ -3,7 +3,7 @@ package com.pilot.main.pilotservice.pojo;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-import com.pilot.main.pilotservice.util.CustomerPricingUtil;
+import com.pilot.main.pilotservice.util.PFJOverviewUtil;
 
 public class BetterOf implements Serializable {
 
@@ -65,7 +65,7 @@ public class BetterOf implements Serializable {
 	}
 
 	public void setBuyingPerfActual(BigDecimal buyingPerfActual) {
-		this.buyingPerfActual = CustomerPricingUtil.formatMillionNumbers(buyingPerfActual);
+		this.buyingPerfActual = PFJOverviewUtil.formatMillionNumbers(buyingPerfActual);
 	}
 
 	public BigDecimal getBuyingPerfTarget() {
@@ -73,7 +73,7 @@ public class BetterOf implements Serializable {
 	}
 
 	public void setBuyingPerfTarget(BigDecimal buyingPerfTarget) {
-		this.buyingPerfTarget = CustomerPricingUtil.formatMillionNumbers(buyingPerfTarget);
+		this.buyingPerfTarget = PFJOverviewUtil.formatMillionNumbers(buyingPerfTarget);
 	}
 
 	public BigDecimal getEffPumpFeeActual() {
@@ -81,7 +81,7 @@ public class BetterOf implements Serializable {
 	}
 
 	public void setEffPumpFeeActual(BigDecimal effPumpFeeActual) {
-		this.effPumpFeeActual = CustomerPricingUtil.formatMillionNumbers(effPumpFeeActual);
+		this.effPumpFeeActual = PFJOverviewUtil.formatMillionNumbers(effPumpFeeActual);
 	}
 
 	public BigDecimal getEffPumpFeeTarget() {
@@ -89,7 +89,7 @@ public class BetterOf implements Serializable {
 	}
 
 	public void setEffPumpFeeTarget(BigDecimal effPumpFeeTarget) {
-		this.effPumpFeeTarget = CustomerPricingUtil.formatMillionNumbers(effPumpFeeTarget);
+		this.effPumpFeeTarget = PFJOverviewUtil.formatMillionNumbers(effPumpFeeTarget);
 	}
 
 	@Override
