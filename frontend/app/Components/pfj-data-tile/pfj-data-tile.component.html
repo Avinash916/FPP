@@ -10,7 +10,7 @@
           <div class="dvStickerContentLeft">
             <div style="padding-top: 10px;">
               <span class="col-sm-6 spnStickerLeftVal">
-                <ng-container *ngIf="dataTile.grossProfitDollars.vsTgLeft != 0; else blankContextualHelp">
+                <ng-container *ngIf="dataTile.grossProfitDollars.vsTgLeft != '0'; else blankContextualHelp">
                   <img *ngIf="dataTile.grossProfitDollars.vsTgLeftPositive" src='assets/images/up_arrow.png'>
                   <img *ngIf="!dataTile.grossProfitDollars.vsTgLeftPositive" src='assets/images/down_arrow.png'>
                 </ng-container>
@@ -25,7 +25,7 @@
             </div>
             <div style="padding-top: 10px;">
               <span class="col-sm-6 spnStickerLeftVal">
-                <ng-container *ngIf="dataTile.grossProfitDollars.vsLyLeft != 0; else blankContextualHelp">
+                <ng-container *ngIf="dataTile.grossProfitDollars.vsLyLeft != '0'; else blankContextualHelp">
                   <img *ngIf="dataTile.grossProfitDollars.vsLyLeftPositive" src='assets/images/up_arrow.png'>
                   <img *ngIf="!dataTile.grossProfitDollars.vsLyLeftPositive" src='assets/images/down_arrow.png'>
                 </ng-container>
@@ -49,7 +49,7 @@
           <div class="dvStickerContentLeft">
             <div style="padding-top: 10px;">
               <span class="col-sm-6 spnStickerLeftVal">
-                <ng-container *ngIf="dataTile.volume.vsTgLeft != 0; else blankContextualHelp">
+                <ng-container *ngIf="dataTile.volume.vsTgLeft != '0'; else blankContextualHelp">
                   <img *ngIf="dataTile.volume.vsTgLeftPositive" src='assets/images/up_arrow.png'>
                   <img *ngIf="!dataTile.volume.vsTgLeftPositive" src='assets/images/down_arrow.png'>
                 </ng-container>
@@ -65,7 +65,7 @@
             </div>
             <div style="padding-top: 10px;">
               <span class="col-sm-6 spnStickerLeftVal">
-                <ng-container *ngIf="dataTile.volume.vsLyLeft != 0; else blankContextualHelp">
+                <ng-container *ngIf="dataTile.volume.vsLyLeft != '0'; else blankContextualHelp">
                   <img *ngIf="dataTile.volume.vsLyLeftPositive" src='assets/images/up_arrow.png'>
                   <img *ngIf="!dataTile.volume.vsLyLeftPositive" src='assets/images/down_arrow.png'>
                 </ng-container>
@@ -107,7 +107,7 @@
           </div>
 
           <div class="mixPercentageColumns" style="margin-left: 186px;">
-            <ng-container *ngIf="dataTile.mixPercentage.mixVsLy != 0; else blankContextualHelp">
+            <ng-container *ngIf="dataTile.mixPercentage.mixVsLy != '0'; else blankContextualHelp">
               <img *ngIf="dataTile.mixPercentage.mixVsLyPositive" class="imgMixPercentage" src='assets/images/up_arrow.png'>
               <img *ngIf="!dataTile.mixPercentage.mixVsLyPositive" class="imgMixPercentage" src='assets/images/down_arrow.png'>
             </ng-container>
@@ -127,7 +127,7 @@
           <div class="dvStickerContentLeft">
             <div style="padding-top: 10px;">
               <span class="col-sm-6 spnStickerLeftVal">
-                <ng-container *ngIf="dataTile.margin.vsTgLeft != 0; else blankContextualHelp">
+                <ng-container *ngIf="dataTile.margin.vsTgLeft != '0'; else blankContextualHelp">
                   <img *ngIf="dataTile.margin.vsTgLeftPositive" src='assets/images/up_arrow.png'>
                   <img *ngIf="!dataTile.margin.vsTgLeftPositive" src='assets/images/down_arrow.png'>
                 </ng-container>
@@ -143,7 +143,7 @@
             </div>
             <div style="padding-top: 10px;">
               <span class="col-sm-6 spnStickerLeftVal">
-                <ng-container *ngIf="dataTile.margin.vsLyLeft != 0; else blankContextualHelp">
+                <ng-container *ngIf="dataTile.margin.vsLyLeft != '0'; else blankContextualHelp">
                   <img *ngIf="dataTile.margin.vsLyLeftPositive" src='assets/images/up_arrow.png'>
                   <img *ngIf="!dataTile.margin.vsLyLeftPositive" src='assets/images/down_arrow.png'>
                 </ng-container>

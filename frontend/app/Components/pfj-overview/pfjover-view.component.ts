@@ -54,13 +54,13 @@ export class PfjoverViewComponent implements OnInit {
   {
     this.repository.selctedCustomerPricingDetails = this.repository.customerPricingDetails.find(c=>c.temporalPeriod.toUpperCase() == dataPeriod.toUpperCase());
     this.selectedCustPricingDetails = this.repository.selctedCustomerPricingDetails;
-    console.log(JSON.stringify(this.selectedCustPricingDetails));
+    //console.log(JSON.stringify(this.selectedCustPricingDetails));
     this.repository.selectedDataPeriod = dataPeriod;
   }
 
   ToggleTableauHeaderTxt(data)
   {
-    console.log(data);
+    //console.log(data);
     this.repository.selectedTableauFilter = data;
     this.repository.selectedViewTableau = data;
   }
