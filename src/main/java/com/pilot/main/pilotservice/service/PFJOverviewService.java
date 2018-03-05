@@ -2,6 +2,8 @@ package com.pilot.main.pilotservice.service;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,11 +17,11 @@ import com.pilot.main.pilotrepo.entity.QFctDmCompanyLevelActualVsTargetEntity;
 import com.pilot.main.pilotrepo.repo.FctDmCompanyLevelActualVsTargetRepo;
 import com.pilot.main.pilotservice.pojo.BetterOf;
 import com.pilot.main.pilotservice.pojo.CCC;
-import com.pilot.main.pilotservice.pojo.PFJOverview;
 import com.pilot.main.pilotservice.pojo.Funded;
 import com.pilot.main.pilotservice.pojo.GrossProfitDollars;
 import com.pilot.main.pilotservice.pojo.Margin;
 import com.pilot.main.pilotservice.pojo.MixPercentage;
+import com.pilot.main.pilotservice.pojo.PFJOverview;
 import com.pilot.main.pilotservice.pojo.PFJTotal;
 import com.pilot.main.pilotservice.pojo.RetailMinus;
 import com.pilot.main.pilotservice.pojo.TotalRetail;
@@ -43,7 +45,14 @@ public class PFJOverviewService {
 		logger.info("Found MTD type rows ---> " + mtdEntities.size());
 		PFJOverview pfjOverviewDetailsMTD = populatePFJOverviewDetail(mtdEntities);
 		pfjOverviewDetailsMTD.setTemporalPeriod("MTD");
-		pfjOverviewDetailsMTD.setDimPlPeriodDateId(mtdEntities.get(0).getDimPlPeriodDateId());
+
+		String datestr = String.valueOf(mtdEntities.get(0).getDimPlPeriodDateId());
+		DateTimeFormatter inputformat = DateTimeFormatter.ofPattern("yyyyMMdd");
+		LocalDate dateTime = LocalDate.parse(datestr, inputformat);
+		
+		DateTimeFormatter outputformat = DateTimeFormatter.ofPattern("MMMM yyyy");
+		
+		pfjOverviewDetailsMTD.setDimPlPeriodDateId(dateTime.format(outputformat));
 		logger.info("MTD UI POJO Value  ---> " + pfjOverviewDetailsMTD);
 
 		/*
@@ -53,7 +62,7 @@ public class PFJOverviewService {
 		logger.info("Found LCM type rows ---> " + lcmEntities.size());
 		PFJOverview pfjOverviewDetailsLCM = populatePFJOverviewDetail(lcmEntities);
 		pfjOverviewDetailsLCM.setTemporalPeriod("LCM");
-		pfjOverviewDetailsLCM.setDimPlPeriodDateId(lcmEntities.get(0).getDimPlPeriodDateId());
+		pfjOverviewDetailsLCM.setDimPlPeriodDateId(dateTime.format(outputformat));
 		logger.info("LCM UI POJO Value  ---> " + pfjOverviewDetailsLCM);
 
 		/*
@@ -63,7 +72,7 @@ public class PFJOverviewService {
 		logger.info("Found LCYTD type rows ---> " + lcytdEntities.size());
 		PFJOverview pfjOverviewDetailsLCYTD = populatePFJOverviewDetail(lcytdEntities);
 		pfjOverviewDetailsLCYTD.setTemporalPeriod("LCYTD");
-		pfjOverviewDetailsLCYTD.setDimPlPeriodDateId(lcytdEntities.get(0).getDimPlPeriodDateId());
+		pfjOverviewDetailsLCYTD.setDimPlPeriodDateId(dateTime.format(outputformat));
 		logger.info("LCYTD UI POJO Value  ---> " + pfjOverviewDetailsLCYTD);
 
 		List<PFJOverview> pfjOverviewDetailss = new ArrayList<PFJOverview>();
