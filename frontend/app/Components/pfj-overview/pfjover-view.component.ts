@@ -4,22 +4,32 @@ import { RepositoryService } from '../../repository.service';
 import { PfjOverviewOperations } from '../../Models/pfjoverview-operations';
 import { CustomerPriceDetails } from '../../Models/customer-price-details';
 import { VERSION } from '@angular/platform-browser-dynamic';
+import { AppConfig } from '../../app-config';
+import { UtilityService } from '../../utility-service';
 @Component({
   selector: 'app-pfj-overview',
   templateUrl: './pfj-overview.component.html',
   styleUrls: ['./pfj-overview.component.css']
 })
 export class PfjoverViewComponent implements OnInit {
+
+  
+
   selectedCustPricingDetails : CustomerPriceDetails;
-  constructor(public serviceConsumer: ServiceConsumer ,public repository : RepositoryService ) {
+  constructor(public serviceConsumer: ServiceConsumer ,public repository : RepositoryService,
+              public utility:UtilityService ) {
    }
 
   ngOnInit() {
    if(this.repository.customerPricingDetails.length<=0)
     {
+      let appName = this.utility.GetPrimaryDomainName(location.hostname);
       //Get customer pricing details from service.
-      this.serviceConsumer.GetCustomerPricingDetails()
-      .subscribe(data=>this.PopulateCustomerPricingDetails(data),error=>console.log(error));
+      this.serviceConsumer.GetHerokuEnvVariables(appName)
+      .subscribe(data=>this.GetHerokuConfigVars(data),error=>console.log(error));
+
+      //this.serviceConsumer.GetCustomerPricingDetails()
+      //.subscribe(data=>this.PopulateCustomerPricingDetails(data),error=>console.log(error));
     }
     else
     {
@@ -39,6 +49,14 @@ export class PfjoverViewComponent implements OnInit {
       var o = JSON.parse(s);
       console.log(o);
       this.PopulateCustomerPricingDetails(o);*/
+  }
+
+  GetHerokuConfigVars(data)
+  {
+    AppConfig.PFJApiUrl = data.FPP_API_URL;
+    console.log("AppConfig.PFJApiUrl "+AppConfig.PFJApiUrl);
+    this.serviceConsumer.GetCustomerPricingDetails()
+    .subscribe(data=>this.PopulateCustomerPricingDetails(data),error=>console.log(error));
   }
 
   PopulateCustomerPricingDetails(data)

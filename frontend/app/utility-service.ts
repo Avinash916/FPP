@@ -5,4 +5,9 @@ export class UtilityService {
     {
         return data = data.toString().trim().replace("-","");
     }
+
+    GetPrimaryDomainName(domain:string):string
+    {
+        return domain.split('.')[0];
+    }
 }
