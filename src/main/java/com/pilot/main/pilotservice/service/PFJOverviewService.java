@@ -117,37 +117,37 @@ public class PFJOverviewService {
 				cccEntity = fctDmCompanyLevelActualVsTargetEntity;
 			}
 		}
-		
+
 		/*
 		 * Populate PFJTotal
 		 */
 		populatePFJTotal(pfjOverviewDetails, pfjTotalEntity);
-		
+
 		/*
 		 * Populate BetterOf
 		 */
 		populateBetterOf(pfjOverviewDetails, betterOfEntity, pfjTotalEntity);
-		
+
 		/*
 		 * Populate TotalRetail
 		 */
 		populateTotalRetail(pfjOverviewDetails, totalRetailEntity, pfjTotalEntity);
-		
+
 		/*
 		 * Populate RetailMinus
 		 */
 		populateRetailMinus(pfjOverviewDetails, retailMinusEntity, pfjTotalEntity);
-		
+
 		/*
 		 * Populate Funded
 		 */
 		populateFunded(pfjOverviewDetails, fundedEntity, pfjTotalEntity);
-		
+
 		/*
 		 * Populate CCC
 		 */
 		populateCCC(pfjOverviewDetails, cccEntity, pfjTotalEntity);
-		
+
 		return pfjOverviewDetails;
 	}
 
