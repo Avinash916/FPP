@@ -21,7 +21,6 @@ import { PfjDataSubTileBetterOfComponent } from './Components/pfj-data-sub-tile-
 import { PfjDataSubTileRetailMinusComponent } from './Components/pfj-data-sub-tile-retail-minus/pfj-data-sub-tile-retail-minus.component';
 
 import { UtilityService } from './utility-service';
-
 @NgModule({
   declarations: [
     AppComponent,
