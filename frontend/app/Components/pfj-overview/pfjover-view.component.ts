@@ -25,17 +25,22 @@ export class PfjoverViewComponent implements OnInit {
   ngOnInit() {
    if(this.repository.customerPricingDetails.length<=0)
     {
-      let appName = this.utility.GetPrimaryDomainName(location.hostname);
-      this.http.get('/heroku-env').map(response => response)
-      .subscribe(data=>console.log("data "+JSON.stringify(data)));
+     // let appName = this.utility.GetPrimaryDomainName(location.hostname);
+     var arr = window.location.href.split('/');
+     var result = arr[0] + "//" + arr[2];
+      AppConfig.PFJApiUrl = result+'/';
+
+     
+     //this.http.get('/heroku-env').map(response => response)
+      //.subscribe(data=>console.log("data "+JSON.stringify(data)));
      // console.log("this.apiToken "+this.apiToken);
 
       //Get customer pricing details from service.
-      this.serviceConsumer.GetHerokuEnvVariables(appName)
-      .subscribe(data=>this.GetHerokuConfigVars(data),error=>console.log(error));
+      //this.serviceConsumer.GetHerokuEnvVariables(result)
+      //.subscribe(data=>this.GetHerokuConfigVars(data),error=>console.log(error));
 
-      //this.serviceConsumer.GetCustomerPricingDetails()
-      //.subscribe(data=>this.PopulateCustomerPricingDetails(data),error=>console.log(error));
+      this.serviceConsumer.GetCustomerPricingDetails()
+      .subscribe(data=>this.PopulateCustomerPricingDetails(data),error=>console.log(error));
     }
     else
     {

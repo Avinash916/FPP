@@ -1,7 +1,6 @@
 const path = require('path');
 const express = require('express');
 const app = express();
-let API_TOKEN = process.env.API_TOKEN;
 
 // If an incoming request uses
 // a protocol other than HTTPS,
@@ -24,14 +23,6 @@ app.use(forceSSL());
 // Run the app by serving the static files
 // in the src/main/resources/static directory
 app.use(express.static(__dirname + '/src/main/resources/static'));
-
-
-
-app.get('/heroku-token', function(req, res){
-  res.write(API_TOKEN);
-  res.end();
-});
-
 
 // For all GET requests, send back index.html
 // so that PathLocationStrategy can be used  
