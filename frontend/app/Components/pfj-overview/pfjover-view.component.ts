@@ -6,24 +6,30 @@ import { CustomerPriceDetails } from '../../Models/customer-price-details';
 import { VERSION } from '@angular/platform-browser-dynamic';
 import { AppConfig } from '../../app-config';
 import { UtilityService } from '../../utility-service';
+import { Observable } from 'rxjs/Rx';
+import { Http, Response, RequestOptions, Headers } from '@angular/http';
 @Component({
   selector: 'app-pfj-overview',
   templateUrl: './pfj-overview.component.html',
   styleUrls: ['./pfj-overview.component.css']
 })
 export class PfjoverViewComponent implements OnInit {
-
+  apiToken:Observable<any> = null;
   
 
   selectedCustPricingDetails : CustomerPriceDetails;
   constructor(public serviceConsumer: ServiceConsumer ,public repository : RepositoryService,
-              public utility:UtilityService ) {
+              public utility:UtilityService,private http:Http) {
    }
 
   ngOnInit() {
    if(this.repository.customerPricingDetails.length<=0)
     {
       let appName = this.utility.GetPrimaryDomainName(location.hostname);
+      this.http.get('/heroku-env').map(response => response)
+      .subscribe(data=>console.log("data "+JSON.stringify(data)));
+     // console.log("this.apiToken "+this.apiToken);
+
       //Get customer pricing details from service.
       this.serviceConsumer.GetHerokuEnvVariables(appName)
       .subscribe(data=>this.GetHerokuConfigVars(data),error=>console.log(error));
