@@ -3,8 +3,6 @@ package com.pilot.main.pilotservice.pojo;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-import com.pilot.main.pilotservice.util.PFJOverviewUtil;
-
 public class Volume implements Serializable {
 	
 	/**
