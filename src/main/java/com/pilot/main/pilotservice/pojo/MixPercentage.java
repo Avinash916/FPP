@@ -2,7 +2,6 @@ package com.pilot.main.pilotservice.pojo;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 public class MixPercentage implements Serializable {
 	
@@ -24,7 +23,7 @@ public class MixPercentage implements Serializable {
 	}
 
 	public void setMixActual(BigDecimal mixActual) {
-		this.mixActual = mixActual.divide(BigDecimal.valueOf(1000000), 2, RoundingMode.HALF_UP);
+		this.mixActual = mixActual;
 	}
 
 	public BigDecimal getMixTarget() {
@@ -32,7 +31,7 @@ public class MixPercentage implements Serializable {
 	}
 
 	public void setMixTarget(BigDecimal mixTarget) {
-		this.mixTarget = mixTarget.divide(BigDecimal.valueOf(1000000), 2, RoundingMode.HALF_UP);
+		this.mixTarget = mixTarget;
 	}
 
 	public BigDecimal getMixVsLy() {
@@ -40,7 +39,7 @@ public class MixPercentage implements Serializable {
 	}
 
 	public void setMixVsLy(BigDecimal mixVsLy) {
-		this.mixVsLy = mixVsLy.divide(BigDecimal.valueOf(1000000), 2, RoundingMode.HALF_UP);
+		this.mixVsLy = mixVsLy;
 	}
 
 	public Boolean getMixVsLyPositive() {
