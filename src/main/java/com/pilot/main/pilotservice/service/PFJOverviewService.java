@@ -164,7 +164,7 @@ public class PFJOverviewService {
 		pfjTotal.setGrossProfitDollars(grossProfitDollars);
 		pfjTotal.setVolume(volume);
 		pfjTotal.setMargin(margin);
-		pfjTotal.setTotalGAL(PFJOverviewUtil.formatWithMillion(pfjTotalEntity.getActualVolumeLy()));
+		pfjTotal.setTotalGAL(PFJOverviewUtil.formatWithMillion(pfjTotalEntity.getActualVolume()));
 		pfjTotal.setTotalTarget(PFJOverviewUtil.formatWithMillion(pfjTotalEntity.getTargetVolume()));
 
 		pfjOverviewDetails.setpFJTotal(pfjTotal);
@@ -284,7 +284,7 @@ public class PFJOverviewService {
 		volume.setVsTgLeftPositive(vsTgLeft.signum() > 0);
 		volume.setVsTgRight(PFJOverviewUtil.formatWithoutMillion(
 				pfjOverviewEntity.getActualVolume().subtract(pfjOverviewEntity.getTargetVolume())
-						.divide(pfjOverviewEntity.getTargetVolume(), 3, RoundingMode.HALF_UP)
+						.divide(pfjOverviewEntity.getTargetVolume(), 6, RoundingMode.HALF_UP)
 						.multiply(BigDecimal.valueOf(100))));
 
 		BigDecimal vsLyLeft = pfjOverviewEntity.getActualVolume().subtract(pfjOverviewEntity.getActualVolumeLy());
@@ -292,7 +292,7 @@ public class PFJOverviewService {
 		volume.setVsLyLeftPositive(vsLyLeft.signum() > 0);
 		volume.setVsLyRight(PFJOverviewUtil.formatWithoutMillion(
 				pfjOverviewEntity.getActualVolume().subtract(pfjOverviewEntity.getActualVolumeLy())
-						.divide(pfjOverviewEntity.getActualVolumeLy(), 3, RoundingMode.HALF_UP)
+						.divide(pfjOverviewEntity.getActualVolumeLy(), 6, RoundingMode.HALF_UP)
 						.multiply(BigDecimal.valueOf(100))));
 
 		return volume;
@@ -323,14 +323,12 @@ public class PFJOverviewService {
 								.divide(pfjTotalEntity.getActualVolume(), 3, RoundingMode.HALF_UP)
 								.multiply(BigDecimal.valueOf(100))
 								.setScale(1, RoundingMode.HALF_UP);
-		// mixPercentage.setMixActual(PFJOverviewUtil.formatWithoutMillion(mixActual));
 		mixPercentage.setMixActual(mixActual.toString());
 
 		BigDecimal mixTarget = pfjOverviewEntity.getTargetVolume()
 								.divide(pfjTotalEntity.getTargetVolume(), 3, RoundingMode.HALF_UP)
 								.multiply(BigDecimal.valueOf(100))
 								.setScale(1, RoundingMode.HALF_UP);
-		// mixPercentage.setMixTarget(PFJOverviewUtil.formatWithoutMillion(mixTarget));
 		mixPercentage.setMixTarget(mixTarget.toString());
 
 		BigDecimal mixVsLy = (pfjOverviewEntity.getActualVolume().divide(pfjTotalEntity.getActualVolume(), 6, RoundingMode.HALF_UP))
@@ -338,7 +336,6 @@ public class PFJOverviewService {
 								.divide(pfjOverviewEntity.getActualVolumeLy().divide(pfjTotalEntity.getActualVolumeLy(), 6, RoundingMode.HALF_UP), 3, RoundingMode.HALF_UP)
 								.multiply(BigDecimal.valueOf(100))
 								.setScale(1, RoundingMode.HALF_UP);
-		// mixPercentage.setMixVsLy(PFJOverviewUtil.formatWithoutMillion(mixVsLy.abs()));
 		mixPercentage.setMixVsLy(mixVsLy.abs().toString());
 		mixPercentage.setMixVsLyPositive(mixVsLy.signum() > 0);
 
