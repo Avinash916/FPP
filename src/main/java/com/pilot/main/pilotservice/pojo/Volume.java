@@ -31,7 +31,7 @@ public class Volume implements Serializable {
 	}
 
 	public void setHeader(BigDecimal header) {
-		this.header = PFJOverviewUtil.formatMillionNumbers(header);
+		this.header = header;
 	}
 
 	public BigDecimal getVsTgLeft() {
@@ -39,7 +39,7 @@ public class Volume implements Serializable {
 	}
 
 	public void setVsTgLeft(BigDecimal vsTgLeft) {
-		this.vsTgLeft = PFJOverviewUtil.formatMillionNumbers(vsTgLeft);
+		this.vsTgLeft = vsTgLeft;
 	}
 
 	public Boolean getVsTgLeftPositive() {
@@ -55,7 +55,7 @@ public class Volume implements Serializable {
 	}
 
 	public void setVsTgRight(BigDecimal vsTgRight) {
-		this.vsTgRight = PFJOverviewUtil.formatMillionNumbers(vsTgRight);
+		this.vsTgRight = vsTgRight;
 	}
 
 	public BigDecimal getVsLyLeft() {
@@ -63,7 +63,7 @@ public class Volume implements Serializable {
 	}
 
 	public void setVsLyLeft(BigDecimal vsLyLeft) {
-		this.vsLyLeft = PFJOverviewUtil.formatMillionNumbers(vsLyLeft);
+		this.vsLyLeft = vsLyLeft;
 	}
 
 	public Boolean getVsLyLeftPositive() {
@@ -79,7 +79,7 @@ public class Volume implements Serializable {
 	}
 
 	public void setVsLyRight(BigDecimal vsLyRight) {
-		this.vsLyRight = PFJOverviewUtil.formatMillionNumbers(vsLyRight);
+		this.vsLyRight = vsLyRight;
 	}
 
 	@Override

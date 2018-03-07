@@ -3,8 +3,6 @@ package com.pilot.main.pilotservice.pojo;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-import com.pilot.main.pilotservice.util.PFJOverviewUtil;
-
 public class GrossProfitDollars implements Serializable {
 	
 	/**
@@ -31,7 +29,7 @@ public class GrossProfitDollars implements Serializable {
 	}
 
 	public void setHeader(BigDecimal header) {
-		this.header = PFJOverviewUtil.formatMillionNumbers(header);
+		this.header = header;
 	}
 
 	public BigDecimal getVsTgLeft() {
@@ -39,7 +37,7 @@ public class GrossProfitDollars implements Serializable {
 	}
 
 	public void setVsTgLeft(BigDecimal vsTgLeft) {
-		this.vsTgLeft = PFJOverviewUtil.formatMillionNumbers(vsTgLeft);
+		this.vsTgLeft = vsTgLeft;
 	}
 
 	public Boolean getVsTgLeftPositive() {
@@ -55,7 +53,7 @@ public class GrossProfitDollars implements Serializable {
 	}
 
 	public void setVsTgRight(BigDecimal vsTgRight) {
-		this.vsTgRight = PFJOverviewUtil.formatMillionNumbers(vsTgRight);
+		this.vsTgRight = vsTgRight;
 	}
 
 	public BigDecimal getVsLyLeft() {
@@ -63,7 +61,7 @@ public class GrossProfitDollars implements Serializable {
 	}
 
 	public void setVsLyLeft(BigDecimal vsLyLeft) {
-		this.vsLyLeft = PFJOverviewUtil.formatMillionNumbers(vsLyLeft);
+		this.vsLyLeft = vsLyLeft;
 	}
 
 	public Boolean getVsLyLeftPositive() {
@@ -79,7 +77,7 @@ public class GrossProfitDollars implements Serializable {
 	}
 
 	public void setVsLyRight(BigDecimal vsLyRight) {
-		this.vsLyRight = PFJOverviewUtil.formatMillionNumbers(vsLyRight);
+		this.vsLyRight = vsLyRight;
 	}
 
 	@Override
