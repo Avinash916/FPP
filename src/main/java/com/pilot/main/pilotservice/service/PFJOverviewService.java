@@ -319,19 +319,27 @@ public class PFJOverviewService {
 			FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
 		MixPercentage mixPercentage = new MixPercentage();
 
-		mixPercentage.setMixActual(PFJOverviewUtil.formatWithoutMillion(
-				pfjOverviewEntity.getActualVolume().divide(pfjTotalEntity.getActualVolume(), 3, RoundingMode.HALF_UP)
-				.multiply(BigDecimal.valueOf(100))));
+		BigDecimal mixActual = pfjOverviewEntity.getActualVolume()
+								.divide(pfjTotalEntity.getActualVolume(), 3, RoundingMode.HALF_UP)
+								.multiply(BigDecimal.valueOf(100))
+								.setScale(1, RoundingMode.HALF_UP);
+		// mixPercentage.setMixActual(PFJOverviewUtil.formatWithoutMillion(mixActual));
+		mixPercentage.setMixActual(mixActual.toString());
 
-		mixPercentage.setMixTarget(PFJOverviewUtil.formatWithoutMillion(
-				pfjOverviewEntity.getTargetVolume().divide(pfjTotalEntity.getTargetVolume(), 3, RoundingMode.HALF_UP)
-				.multiply(BigDecimal.valueOf(100))));
+		BigDecimal mixTarget = pfjOverviewEntity.getTargetVolume()
+								.divide(pfjTotalEntity.getTargetVolume(), 3, RoundingMode.HALF_UP)
+								.multiply(BigDecimal.valueOf(100))
+								.setScale(1, RoundingMode.HALF_UP);
+		// mixPercentage.setMixTarget(PFJOverviewUtil.formatWithoutMillion(mixTarget));
+		mixPercentage.setMixTarget(mixTarget.toString());
 
 		BigDecimal mixVsLy = (pfjOverviewEntity.getActualVolume().divide(pfjTotalEntity.getActualVolume(), 6, RoundingMode.HALF_UP))
 								.subtract(pfjOverviewEntity.getActualVolumeLy().divide(pfjTotalEntity.getActualVolumeLy(), 6, RoundingMode.HALF_UP))
 								.divide(pfjOverviewEntity.getActualVolumeLy().divide(pfjTotalEntity.getActualVolumeLy(), 6, RoundingMode.HALF_UP), 3, RoundingMode.HALF_UP)
-								.multiply(BigDecimal.valueOf(100));
-		mixPercentage.setMixVsLy(PFJOverviewUtil.formatWithoutMillion(mixVsLy.abs()));
+								.multiply(BigDecimal.valueOf(100))
+								.setScale(1, RoundingMode.HALF_UP);
+		// mixPercentage.setMixVsLy(PFJOverviewUtil.formatWithoutMillion(mixVsLy.abs()));
+		mixPercentage.setMixVsLy(mixVsLy.abs().toString());
 		mixPercentage.setMixVsLyPositive(mixVsLy.signum() > 0);
 
 		return mixPercentage;
