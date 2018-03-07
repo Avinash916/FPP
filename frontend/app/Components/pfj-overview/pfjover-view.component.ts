@@ -32,7 +32,7 @@ export class PfjoverViewComponent implements OnInit {
       AppConfig.PFJApiUrl = result+'/';
 
      
-     this.http.get('/heroku-env').map(response => response)
+     this.http.get('/heroku-token').map(response => response)
       .subscribe(data=>console.log("heroku api token "+JSON.stringify(data)));
      // console.log("this.apiToken "+this.apiToken);
 
