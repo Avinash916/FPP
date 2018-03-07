@@ -1,6 +1,8 @@
 const path = require('path');
 const express = require('express');
 const app = express();
+const Heroku = require('heroku-client');
+const heroku = new Heroku({ token: process.env.HEROKU_API_TOKEN });
 
 // If an incoming request uses
 // a protocol other than HTTPS,
@@ -14,6 +16,11 @@ const forceSSL = function() {
     next();
   }
 }
+
+app.get('/heroku-env', function(req, res){
+  res.write(heroku.HEROKU_API_TOKEN);
+  res.end();
+});
 
 // Instruct the app
 // to use the forceSSL

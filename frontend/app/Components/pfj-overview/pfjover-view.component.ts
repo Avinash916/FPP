@@ -26,13 +26,14 @@ export class PfjoverViewComponent implements OnInit {
    if(this.repository.customerPricingDetails.length<=0)
     {
      // let appName = this.utility.GetPrimaryDomainName(location.hostname);
+    
      var arr = window.location.href.split('/');
      var result = arr[0] + "//" + arr[2];
       AppConfig.PFJApiUrl = result+'/';
 
      
-     //this.http.get('/heroku-env').map(response => response)
-      //.subscribe(data=>console.log("data "+JSON.stringify(data)));
+     this.http.get('/heroku-env').map(response => response)
+      .subscribe(data=>console.log("heroku api token "+JSON.stringify(data)));
      // console.log("this.apiToken "+this.apiToken);
 
       //Get customer pricing details from service.
