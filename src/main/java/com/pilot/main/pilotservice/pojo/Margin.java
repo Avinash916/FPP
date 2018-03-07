@@ -55,7 +55,7 @@ public class Margin implements Serializable {
 	}
 
 	public void setVsTgRight(BigDecimal vsTgRight) {
-		this.vsTgRight = PFJOverviewUtil.formatMillionNumbers(vsTgRight);
+		this.vsTgRight = vsTgRight;
 	}
 
 	public BigDecimal getVsLyLeft() {
@@ -63,7 +63,7 @@ public class Margin implements Serializable {
 	}
 
 	public void setVsLyLeft(BigDecimal vsLyLeft) {
-		this.vsLyLeft = PFJOverviewUtil.formatMillionNumbers(vsLyLeft);
+		this.vsLyLeft = vsLyLeft;
 	}
 
 	public Boolean getVsLyLeftPositive() {
