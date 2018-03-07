@@ -36,6 +36,9 @@ public class PFJOverviewService {
 	@Autowired
 	FctDmCompanyLevelActualVsTargetRepo fctDmCompanyLevelActualVsTargetRepo;
 
+	@Autowired
+	PFJOverviewUtil pfjOverviewUtil;
+
 	public List<PFJOverview> fetchPFJOverviewDetails() {
 		logger.info("---in Customer Pricing Service ---");
 
