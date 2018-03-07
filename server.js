@@ -16,7 +16,7 @@ const forceSSL = function() {
     next();
   }
 }
-
+app.use(app.router);
 app.get('/heroku-env', function(req, res){
   res.write(heroku.HEROKU_API_TOKEN);
   res.end();
@@ -39,5 +39,5 @@ app.get('/*', function(req, res) {
 
 // Start the app by listening on the default
 // Heroku port
-app.listen(process.env.PORT || 8080);
+app.listen(process.env  .PORT || 8080);
 app.set('port', port);
