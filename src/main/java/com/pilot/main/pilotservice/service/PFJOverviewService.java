@@ -269,7 +269,7 @@ public class PFJOverviewService {
 		volume.setVsTgLeft(PFJOverviewUtil.formatWithMillion(pfjOverviewEntity.getActualVolume().subtract(pfjOverviewEntity.getTargetVolume())));
 		volume.setVsTgLeftPositive(volume.getVsTgLeft().signum() > 0);
 		volume.setVsTgRight(PFJOverviewUtil.formatWithoutMillion(pfjOverviewEntity.getActualVolume().subtract(pfjOverviewEntity.getTargetVolume()).divide(pfjOverviewEntity.getTargetVolume(), 3, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(100))));
-		volume.setVsLyLeft(pfjOverviewEntity.getActualVolume().subtract(pfjOverviewEntity.getActualVolumeLy()));
+		volume.setVsLyLeft(PFJOverviewUtil.formatWithoutMillion(pfjOverviewEntity.getActualVolume().subtract(pfjOverviewEntity.getActualVolumeLy())));
 		volume.setVsLyLeftPositive(volume.getVsLyLeft().signum() > 0);
 		volume.setVsLyRight(PFJOverviewUtil.formatWithoutMillion(pfjOverviewEntity.getActualVolume().subtract(pfjOverviewEntity.getActualVolumeLy()).divide(pfjOverviewEntity.getActualVolumeLy(), 3, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(100))));
 		return volume;
