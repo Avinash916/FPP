@@ -18,15 +18,13 @@ const forceSSL = function() {
   }
 }
 
-app.get('/', function (req, res) {
+/*app.get('/', function (req, res) {
   res.send('Hello World!');
-});
+});*/
 
 app.get('/heroku-token', function(req, res){
-  //res.write(heroku.HEROKU_API_TOKEN);
-  //res.end();
-  //res.send('Test');
-  res.send(heroku.HEROKU_API_TOKEN);
+  //res.send(heroku.HEROKU_API_TOKEN);
+  res.send(process.env);
 });
 
 // Instruct the app
@@ -43,11 +41,14 @@ app.use(express.static(__dirname + '/src/main/resources/static'));
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname + '/src/main/resources/static/index.html'));
 });
-//app.use('/api', require('./routes/api'));
 
 // Start the app by listening on the default
 // Heroku port
-app.listen(process.env  .PORT || 4200);
+app.listen(process.env.PORT || 8080);
+
+console.log("app.PORT "+app.PORT);
+console.log("process.env.PORT "+process.env.PORT);
+
 /*app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
 });*/
