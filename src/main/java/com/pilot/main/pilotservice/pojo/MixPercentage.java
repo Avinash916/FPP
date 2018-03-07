@@ -1,7 +1,6 @@
 package com.pilot.main.pilotservice.pojo;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 
 public class MixPercentage implements Serializable {
 	
@@ -10,35 +9,35 @@ public class MixPercentage implements Serializable {
 	 */
 	private static final long serialVersionUID = 3958241561608578208L;
 
-	private BigDecimal mixActual;
+	private String mixActual;
 	
-	private BigDecimal mixTarget;
+	private String mixTarget;
 	
-	private BigDecimal mixVsLy;
+	private String mixVsLy;
 	
 	private Boolean mixVsLyPositive;
 
-	public BigDecimal getMixActual() {
+	public String getMixActual() {
 		return mixActual;
 	}
 
-	public void setMixActual(BigDecimal mixActual) {
+	public void setMixActual(String mixActual) {
 		this.mixActual = mixActual;
 	}
 
-	public BigDecimal getMixTarget() {
+	public String getMixTarget() {
 		return mixTarget;
 	}
 
-	public void setMixTarget(BigDecimal mixTarget) {
+	public void setMixTarget(String mixTarget) {
 		this.mixTarget = mixTarget;
 	}
 
-	public BigDecimal getMixVsLy() {
+	public String getMixVsLy() {
 		return mixVsLy;
 	}
 
-	public void setMixVsLy(BigDecimal mixVsLy) {
+	public void setMixVsLy(String mixVsLy) {
 		this.mixVsLy = mixVsLy;
 	}
 

@@ -1,7 +1,6 @@
 package com.pilot.main.pilotservice.pojo;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 
 public class PFJTotal implements Serializable {
 	
@@ -16,9 +15,9 @@ public class PFJTotal implements Serializable {
 	
 	private Margin margin;
 	
-	private BigDecimal totalGAL;
+	private String totalGAL;
 	
-	private BigDecimal totalTarget;
+	private String totalTarget;
 
 	public GrossProfitDollars getGrossProfitDollars() {
 		return grossProfitDollars;
@@ -44,19 +43,19 @@ public class PFJTotal implements Serializable {
 		this.margin = margin;
 	}
 
-	public BigDecimal getTotalGAL() {
+	public String getTotalGAL() {
 		return totalGAL;
 	}
 
-	public void setTotalGAL(BigDecimal totalGAL) {
+	public void setTotalGAL(String totalGAL) {
 		this.totalGAL = totalGAL;
 	}
 
-	public BigDecimal getTotalTarget() {
+	public String getTotalTarget() {
 		return totalTarget;
 	}
 
-	public void setTotalTarget(BigDecimal totalTarget) {
+	public void setTotalTarget(String totalTarget) {
 		this.totalTarget = totalTarget;
 	}
 

@@ -1,7 +1,6 @@
 package com.pilot.main.pilotservice.pojo;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 
 public class Margin implements Serializable {
 	
@@ -10,33 +9,33 @@ public class Margin implements Serializable {
 	 */
 	private static final long serialVersionUID = 8164962658108108643L;
 
-	private BigDecimal header;
+	private String header;
 
-	private BigDecimal vsTgLeft;
+	private String vsTgLeft;
 	
 	private Boolean vsTgLeftPositive;
 	
-	private BigDecimal vsTgRight;
+	private String vsTgRight;
 	
-	private BigDecimal vsLyLeft;
+	private String vsLyLeft;
 	
 	private Boolean vsLyLeftPositive;
 	
-	private BigDecimal vsLyRight;
+	private String vsLyRight;
 
-	public BigDecimal getHeader() {
+	public String getHeader() {
 		return header;
 	}
 
-	public void setHeader(BigDecimal header) {
+	public void setHeader(String header) {
 		this.header = header;
 	}
 
-	public BigDecimal getVsTgLeft() {
+	public String getVsTgLeft() {
 		return vsTgLeft;
 	}
 
-	public void setVsTgLeft(BigDecimal vsTgLeft) {
+	public void setVsTgLeft(String vsTgLeft) {
 		this.vsTgLeft = vsTgLeft;
 	}
 
@@ -48,19 +47,19 @@ public class Margin implements Serializable {
 		this.vsTgLeftPositive = vsTgLeftPositive;
 	}
 
-	public BigDecimal getVsTgRight() {
+	public String getVsTgRight() {
 		return vsTgRight;
 	}
 
-	public void setVsTgRight(BigDecimal vsTgRight) {
+	public void setVsTgRight(String vsTgRight) {
 		this.vsTgRight = vsTgRight;
 	}
 
-	public BigDecimal getVsLyLeft() {
+	public String getVsLyLeft() {
 		return vsLyLeft;
 	}
 
-	public void setVsLyLeft(BigDecimal vsLyLeft) {
+	public void setVsLyLeft(String vsLyLeft) {
 		this.vsLyLeft = vsLyLeft;
 	}
 
@@ -72,11 +71,11 @@ public class Margin implements Serializable {
 		this.vsLyLeftPositive = vsLyLeftPositive;
 	}
 
-	public BigDecimal getVsLyRight() {
+	public String getVsLyRight() {
 		return vsLyRight;
 	}
 
-	public void setVsLyRight(BigDecimal vsLyRight) {
+	public void setVsLyRight(String vsLyRight) {
 		this.vsLyRight = vsLyRight;
 	}
 

@@ -3,44 +3,48 @@ package com.pilot.main.pilotservice.util;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Component
 public final class PFJOverviewUtil {
 
-	private static final Logger logger = LoggerFactory.getLogger(PFJOverviewUtil.class);
+	private static final StringBuilder formatter = new StringBuilder();
 
-	public static final BigDecimal formatWithMillion(BigDecimal number) {
-		logger.debug("Original value of number  ---> " + number);
+	public static final String formatWithMillion(BigDecimal number) {
 		number = number.divide(BigDecimal.valueOf(1000000), 4, RoundingMode.HALF_UP);
-		logger.debug("After divison with a million to 3rd decimal point  ---> " + number);
 		return formatWithoutMillion(number);
 	}
 
-	public static final BigDecimal formatWithoutMillion(BigDecimal number) {
+	public static final String formatWithoutMillion(BigDecimal number) {
+		String formatted = null;
 		int precision = number.precision();
 		int scale = number.scale();
-		logger.debug("Found precision  ---> " + precision + " and scale ---> " + scale);
-		if (scale == 0 || precision == 0) {
-			if (scale == 0 && precision != 0) {
-				return number;
-			} else if (scale != 0 && precision == 0) {
-				return number;
+		if (scale > precision) {
+			if (number.signum() == 0) {
+				number = number.setScale(3, RoundingMode.HALF_UP);
+				formatted = number.toString();
 			} else {
-				return number;
+				number = number.setScale(4, RoundingMode.HALF_UP);
+				formatter.append(number.toString());
+				int index = formatter.indexOf(".");
+				formatter.deleteCharAt(index - 1);
+				formatted = formatter.toString();
+				formatter.setLength(0);
 			}
-		} else if (scale > precision) {
-			number = number.setScale(4, RoundingMode.HALF_UP);
 		} else if (scale == precision) {
 			number = number.setScale(3, RoundingMode.HALF_UP);
+			formatted = number.toString();
 		} else {
 			int newScale = 5 - ((precision - scale) + 1); // 1 is the decimal point character
-			logger.debug("Found 5 - ((precision - scale) + 1)  ---> " + newScale);
 			number = number.setScale(newScale, RoundingMode.HALF_UP);
-			logger.debug("New value of number after shifting the scale  ---> " + number);
+			formatted = number.toString();
+			if (scale == 0) {
+				formatter.append(number.toString());
+				formatter.insert(1, ',');
+				formatted = formatter.toString();
+				formatter.setLength(0);
+			}
 		}
-		return number;
+		return formatted;
 	}
 }
