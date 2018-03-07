@@ -21,10 +21,10 @@ public final class PFJOverviewUtil {
 		int scale = number.scale();
 		if (scale > precision) {
 			if (number.signum() == 0) {
-				number = number.setScale(3);
+				number = number.setScale(3, RoundingMode.HALF_UP);
 				formatted = number.toString();
 			} else {
-				number = number.setScale(4);
+				number = number.setScale(4, RoundingMode.HALF_UP);
 				formatter.append(number.toString());
 				int index = formatter.indexOf(".");
 				formatter.deleteCharAt(index - 1);
@@ -32,11 +32,11 @@ public final class PFJOverviewUtil {
 				formatter.setLength(0);
 			}
 		} else if (scale == precision) {
-			number = number.setScale(3);
+			number = number.setScale(3, RoundingMode.HALF_UP);
 			formatted = number.toString();
 		} else {
 			int newScale = 5 - ((precision - scale) + 1); // 1 is the decimal point character
-			number = number.setScale(newScale);
+			number = number.setScale(newScale, RoundingMode.HALF_UP);
 			formatted = number.toString();
 			if (scale == 0) {
 				formatter.append(number.toString());
