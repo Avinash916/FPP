@@ -57,7 +57,6 @@ public class PFJOverviewService {
 		DateTimeFormatter outputformat = DateTimeFormatter.ofPattern("MMMM yyyy");
 		
 		pfjOverviewDetailsMTD.setDimPlPeriodDateId(dateTime.format(outputformat));
-		logger.debug("MTD UI POJO Value  ---> " + pfjOverviewDetailsMTD);
 
 		/*
 		 * UI data generation for LCM filter
@@ -67,7 +66,6 @@ public class PFJOverviewService {
 		PFJOverview pfjOverviewDetailsLCM = populatePFJOverviewDetail(lcmEntities);
 		pfjOverviewDetailsLCM.setTemporalPeriod("LCM");
 		pfjOverviewDetailsLCM.setDimPlPeriodDateId(dateTime.format(outputformat));
-		logger.debug("LCM UI POJO Value  ---> " + pfjOverviewDetailsLCM);
 
 		/*
 		 * UI data generation for LCYTD filter
@@ -77,7 +75,6 @@ public class PFJOverviewService {
 		PFJOverview pfjOverviewDetailsLCYTD = populatePFJOverviewDetail(lcytdEntities);
 		pfjOverviewDetailsLCYTD.setTemporalPeriod("LCYTD");
 		pfjOverviewDetailsLCYTD.setDimPlPeriodDateId(dateTime.format(outputformat));
-		logger.debug("LCYTD UI POJO Value  ---> " + pfjOverviewDetailsLCYTD);
 
 		List<PFJOverview> pfjOverviewDetailss = new ArrayList<PFJOverview>();
 		pfjOverviewDetailss.add(pfjOverviewDetailsMTD);
@@ -109,16 +106,22 @@ public class PFJOverviewService {
 			
 			if (fctDmCompanyLevelActualVsTargetEntity.getFctDmCompanyLevelActualVsTargetId().getMixOfBusiness().equalsIgnoreCase("TOTAL")) {
 				pfjTotalEntity = fctDmCompanyLevelActualVsTargetEntity;
+				logger.debug("PFJ Total Entity ---> " + pfjTotalEntity);
 			} else if (fctDmCompanyLevelActualVsTargetEntity.getFctDmCompanyLevelActualVsTargetId().getMixOfBusiness().equalsIgnoreCase("BETTER OF")) {
 				betterOfEntity = fctDmCompanyLevelActualVsTargetEntity;
+				logger.debug("PFJ Total Entity ---> " + betterOfEntity);
 			} else if (fctDmCompanyLevelActualVsTargetEntity.getFctDmCompanyLevelActualVsTargetId().getMixOfBusiness().equalsIgnoreCase("TOTAL RETAIL")) {
 				totalRetailEntity = fctDmCompanyLevelActualVsTargetEntity;
+				logger.debug("PFJ Total Entity ---> " + totalRetailEntity);
 			} else if (fctDmCompanyLevelActualVsTargetEntity.getFctDmCompanyLevelActualVsTargetId().getMixOfBusiness().equalsIgnoreCase("RETAIL MINUS")) {
 				retailMinusEntity = fctDmCompanyLevelActualVsTargetEntity;
+				logger.debug("PFJ Total Entity ---> " + retailMinusEntity);
 			} else if (fctDmCompanyLevelActualVsTargetEntity.getFctDmCompanyLevelActualVsTargetId().getMixOfBusiness().equalsIgnoreCase("FUNDED")) {
 				fundedEntity = fctDmCompanyLevelActualVsTargetEntity;
+				logger.debug("PFJ Total Entity ---> " + fundedEntity);
 			} else if (fctDmCompanyLevelActualVsTargetEntity.getFctDmCompanyLevelActualVsTargetId().getMixOfBusiness().equalsIgnoreCase("CCC")) {
 				cccEntity = fctDmCompanyLevelActualVsTargetEntity;
+				logger.debug("PFJ Total Entity ---> " + cccEntity);
 			}
 		}
 
