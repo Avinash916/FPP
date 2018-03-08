@@ -20,7 +20,10 @@ import { PfjDataTileComponent } from './Components/pfj-data-tile/pfj-data-tile.c
 import { PfjDataSubTileBetterOfComponent } from './Components/pfj-data-sub-tile-better-of/pfj-data-sub-tile-better-of.component';
 import { PfjDataSubTileRetailMinusComponent } from './Components/pfj-data-sub-tile-retail-minus/pfj-data-sub-tile-retail-minus.component';
 
-import { UtilityService } from './utility-service';
+import { UtilityService } from './Helper/utility-service';
+import { TableauComponent } from './Components/tableau/tableau.component';
+
+import { SafePipe } from './Helper/safe-pipe-url';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,13 +37,14 @@ import { UtilityService } from './utility-service';
     PfjtotalComponent,
     PfjDataTileComponent,
     PfjDataSubTileBetterOfComponent,
-    PfjDataSubTileRetailMinusComponent
+    PfjDataSubTileRetailMinusComponent,
+    TableauComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpModule,
-    
+    HttpModule, 
   ],
   providers: [ServiceConsumer,RepositoryService,UtilityService,{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]

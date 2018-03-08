@@ -18,19 +18,14 @@ const forceSSL = function() {
   }
 }
 
-/*app.get('/', function (req, res) {
-  res.send('Hello World!');
-});*/
-
 app.get('/heroku-token', function(req, res){
-  //res.send(heroku.HEROKU_API_TOKEN);
-  res.send(process.env);
+  res.send(heroku.HEROKU_API_TOKEN);
 });
 
 // Instruct the app
 // to use the forceSSL
 // middleware
-//app.use(forceSSL());
+app.use(forceSSL());
 
 // Run the app by serving the static files
 // in the src/main/resources/static directory
@@ -45,10 +40,3 @@ app.get('/*', function(req, res) {
 // Start the app by listening on the default
 // Heroku port
 app.listen(process.env.PORT || 8080);
-
-console.log("app.PORT "+app.PORT);
-console.log("process.env.PORT "+process.env.PORT);
-
-/*app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
-});*/

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PFJTotal } from '../../Models/pfj-tiles';
-import { UtilityService } from '../../utility-service';
+import { UtilityService } from '../../Helper/utility-service';
 
 @Component({
   selector: 'app-pfjtotal',

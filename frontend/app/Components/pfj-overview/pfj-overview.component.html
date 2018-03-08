@@ -20,9 +20,11 @@
       <!-- Tableu map-->
       <div style="float:left;">
         <div class="dvStickerHeaderCap" style="width: 507px;"></div>
-        <div class="dvStickerHeader" style="width: 507px;">{{this.repository.selectedViewTableau}}</div>
+        <div class="dvStickerHeader" style="width: 507px;">{{this.repository.selectedTableauFilter}}</div>
         <div class="dvStickerContainer">
           <div class="dvTableauMap"></div>
+          <app-tableau [viewUrl]="this.repository.selectedTableauView"
+          [configTableau]="['toolbar=yes','tabs=no','showAppBanner=false','fullscreen=yes']"></app-tableau>
         </div>
       </div>
 
@@ -33,17 +35,17 @@
         <div class="dvStickerContainer" style="width: 243px;">
           <div class="dvTableauMapFilter" style="width: 243px;font-size: 12px;">
     <div class="chooseViewRadioButtonsDiv">
-        <input type="radio"(click)="ToggleTableauHeaderTxt('GROSS PROFIT $')" 
+        <input type="radio"(click)="ToggleTableau('GROSS PROFIT $',this.tableauMapUrlGP)" 
         id="ddlGrossProfitTableau" name="tableauFilter" [checked]="this.repository.selectedTableauFilter == 'GROSS PROFIT $'">
         <label for="ddlGrossProfitTableau">GROSS PROFIT $</label>
     </div>
     <div class="chooseViewRadioButtonsDiv">
-        <input type="radio" (click)="ToggleTableauHeaderTxt('VOLUME')" 
+        <input type="radio" (click)="ToggleTableau('VOLUME',this.tableauMapUrlVolume)" 
         id="ddlVolumeTableau" name="tableauFilter" [checked]="this.repository.selectedTableauFilter == 'VOLUME'">
         <label for="ddlVolumeTableau">VOLUME</label>
     </div>
     <div class="chooseViewRadioButtonsDiv">
-        <input type="radio" (click)="ToggleTableauHeaderTxt('MARGIN')" 
+        <input type="radio" (click)="ToggleTableau('MARGIN',this.tableauMapUrlMargin)" 
         id="ddlMarginTableau" name="tableauFilter" [checked]="this.repository.selectedTableauFilter == 'MARGIN'">
         <label for="ddlMarginTableau">MARGIN</label>
     </div>

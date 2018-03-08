@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { RetailMinus } from '../../Models/pfj-tiles';
-import { UtilityService } from '../../utility-service';
+import { UtilityService } from '../../Helper/utility-service';
 
 @Component({
   selector: 'app-pfj-data-sub-tile-retail-minus',

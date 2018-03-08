@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { UtilityService } from '../../utility-service';
+import { UtilityService } from '../../Helper/utility-service';
 
 
 @Component({
