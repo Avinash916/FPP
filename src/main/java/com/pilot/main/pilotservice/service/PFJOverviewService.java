@@ -103,7 +103,7 @@ public class PFJOverviewService {
 		FctDmCompanyLevelActualVsTargetEntity cccEntity = null;
 		
 		for (FctDmCompanyLevelActualVsTargetEntity fctDmCompanyLevelActualVsTargetEntity : fctDmCompanyLevelActualVsTargetEntities) {
-			
+
 			if (fctDmCompanyLevelActualVsTargetEntity.getFctDmCompanyLevelActualVsTargetId().getMixOfBusiness().equalsIgnoreCase("TOTAL")) {
 				pfjTotalEntity = fctDmCompanyLevelActualVsTargetEntity;
 				logger.debug("PFJ Total Entity ---> " + pfjTotalEntity);

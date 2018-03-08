@@ -24,27 +24,38 @@ public final class PFJOverviewUtil {
 				number = number.setScale(3, RoundingMode.HALF_UP);
 				formatted = number.toString();
 			} else {
-				number = number.setScale(4, RoundingMode.HALF_UP);
+				// number = number.setScale(4, RoundingMode.HALF_UP);
 				formatter.append(number.toString());
 				int index = formatter.indexOf(".");
+				if ((index + 5) <= (formatter.length() - 1)) {
+					formatter.delete(index + 5, formatter.length());
+				}
 				formatter.deleteCharAt(index - 1);
 				formatted = formatter.toString();
-				formatter.setLength(0);
 			}
 		} else if (scale == precision) {
-			number = number.setScale(3, RoundingMode.HALF_UP);
-			formatted = number.toString();
+			// number = number.setScale(3, RoundingMode.HALF_UP);
+			formatter.append(number.toString());
+			int index = formatter.indexOf(".");
+			if ((index + 4) <= (formatter.length() - 1)) {
+				formatter.delete(index + 4, formatter.length());
+			}
+			formatted = formatter.toString();
 		} else {
 			int newScale = 5 - ((precision - scale) + 1); // 1 is the decimal point character
-			number = number.setScale(newScale, RoundingMode.HALF_UP);
-			formatted = number.toString();
+			// number = number.setScale(newScale, RoundingMode.HALF_UP);
+			formatter.append(number.toString());
 			if (scale == 0) {
-				formatter.append(number.toString());
 				formatter.insert(1, ',');
-				formatted = formatter.toString();
-				formatter.setLength(0);
+			} else {
+				int index = formatter.indexOf(".");
+				if ((index + newScale + 1) <= (formatter.length() - 1)) {
+					formatter.delete(index + newScale + 1, formatter.length());
+				}
 			}
+			formatted = formatter.toString();
 		}
+		formatter.setLength(0);
 		return formatted;
 	}
 }
