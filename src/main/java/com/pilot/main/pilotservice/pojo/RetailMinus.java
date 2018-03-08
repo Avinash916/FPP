@@ -1,7 +1,6 @@
 package com.pilot.main.pilotservice.pojo;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 
 public class RetailMinus implements Serializable {
 
@@ -18,9 +17,9 @@ public class RetailMinus implements Serializable {
 	
 	private MixPercentage mixPercentage;
 	
-	private BigDecimal rmDiscountActual;
+	private String rmDiscountActual;
 	
-	private BigDecimal rmDiscountTarget;
+	private String rmDiscountTarget;
 
 	public GrossProfitDollars getGrossProfitDollars() {
 		return grossProfitDollars;
@@ -54,19 +53,19 @@ public class RetailMinus implements Serializable {
 		this.mixPercentage = mixPercentage;
 	}
 
-	public BigDecimal getRmDiscountActual() {
+	public String getRmDiscountActual() {
 		return rmDiscountActual;
 	}
 
-	public void setRmDiscountActual(BigDecimal rmDiscountActual) {
+	public void setRmDiscountActual(String rmDiscountActual) {
 		this.rmDiscountActual = rmDiscountActual;
 	}
 
-	public BigDecimal getRmDiscountTarget() {
+	public String getRmDiscountTarget() {
 		return rmDiscountTarget;
 	}
 
-	public void setRmDiscountTarget(BigDecimal rmDiscountTarget) {
+	public void setRmDiscountTarget(String rmDiscountTarget) {
 		this.rmDiscountTarget = rmDiscountTarget;
 	}
 

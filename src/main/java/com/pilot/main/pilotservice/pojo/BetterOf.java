@@ -1,7 +1,6 @@
 package com.pilot.main.pilotservice.pojo;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 
 public class BetterOf implements Serializable {
 
@@ -18,13 +17,13 @@ public class BetterOf implements Serializable {
 
 	private MixPercentage mixPercentage;
 
-	private BigDecimal buyingPerfActual;
+	private String buyingPerfActual;
 
-	private BigDecimal buyingPerfTarget;
+	private String buyingPerfTarget;
 
-	private BigDecimal effPumpFeeActual;
+	private String effPumpFeeActual;
 
-	private BigDecimal effPumpFeeTarget;
+	private String effPumpFeeTarget;
 
 	public GrossProfitDollars getGrossProfitDollars() {
 		return grossProfitDollars;
@@ -58,35 +57,35 @@ public class BetterOf implements Serializable {
 		this.mixPercentage = mixPercentage;
 	}
 
-	public BigDecimal getBuyingPerfActual() {
+	public String getBuyingPerfActual() {
 		return buyingPerfActual;
 	}
 
-	public void setBuyingPerfActual(BigDecimal buyingPerfActual) {
+	public void setBuyingPerfActual(String buyingPerfActual) {
 		this.buyingPerfActual = buyingPerfActual;
 	}
 
-	public BigDecimal getBuyingPerfTarget() {
+	public String getBuyingPerfTarget() {
 		return buyingPerfTarget;
 	}
 
-	public void setBuyingPerfTarget(BigDecimal buyingPerfTarget) {
+	public void setBuyingPerfTarget(String buyingPerfTarget) {
 		this.buyingPerfTarget = buyingPerfTarget;
 	}
 
-	public BigDecimal getEffPumpFeeActual() {
+	public String getEffPumpFeeActual() {
 		return effPumpFeeActual;
 	}
 
-	public void setEffPumpFeeActual(BigDecimal effPumpFeeActual) {
+	public void setEffPumpFeeActual(String effPumpFeeActual) {
 		this.effPumpFeeActual = effPumpFeeActual;
 	}
 
-	public BigDecimal getEffPumpFeeTarget() {
+	public String getEffPumpFeeTarget() {
 		return effPumpFeeTarget;
 	}
 
-	public void setEffPumpFeeTarget(BigDecimal effPumpFeeTarget) {
+	public void setEffPumpFeeTarget(String effPumpFeeTarget) {
 		this.effPumpFeeTarget = effPumpFeeTarget;
 	}
 
@@ -94,6 +93,7 @@ public class BetterOf implements Serializable {
 	public String toString() {
 		return "BetterOf [grossProfitDollars=" + grossProfitDollars + ", volume=" + volume + ", margin=" + margin
 				+ ", mixPercentage=" + mixPercentage + ", buyingPerfActual=" + buyingPerfActual + ", buyingPerfTarget="
-				+ buyingPerfTarget + ", effPumpActual=" + effPumpFeeActual + ", effPumpTarget=" + effPumpFeeTarget + "]";
+				+ buyingPerfTarget + ", effPumpFeeActual=" + effPumpFeeActual + ", effPumpFeeTarget=" + effPumpFeeTarget
+				+ "]";
 	}
 }

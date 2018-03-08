@@ -57,7 +57,6 @@ public class PFJOverviewService {
 		DateTimeFormatter outputformat = DateTimeFormatter.ofPattern("MMMM yyyy");
 		
 		pfjOverviewDetailsMTD.setDimPlPeriodDateId(dateTime.format(outputformat));
-		logger.debug("MTD UI POJO Value  ---> " + pfjOverviewDetailsMTD);
 
 		/*
 		 * UI data generation for LCM filter
@@ -67,7 +66,6 @@ public class PFJOverviewService {
 		PFJOverview pfjOverviewDetailsLCM = populatePFJOverviewDetail(lcmEntities);
 		pfjOverviewDetailsLCM.setTemporalPeriod("LCM");
 		pfjOverviewDetailsLCM.setDimPlPeriodDateId(dateTime.format(outputformat));
-		logger.debug("LCM UI POJO Value  ---> " + pfjOverviewDetailsLCM);
 
 		/*
 		 * UI data generation for LCYTD filter
@@ -77,7 +75,6 @@ public class PFJOverviewService {
 		PFJOverview pfjOverviewDetailsLCYTD = populatePFJOverviewDetail(lcytdEntities);
 		pfjOverviewDetailsLCYTD.setTemporalPeriod("LCYTD");
 		pfjOverviewDetailsLCYTD.setDimPlPeriodDateId(dateTime.format(outputformat));
-		logger.debug("LCYTD UI POJO Value  ---> " + pfjOverviewDetailsLCYTD);
 
 		List<PFJOverview> pfjOverviewDetailss = new ArrayList<PFJOverview>();
 		pfjOverviewDetailss.add(pfjOverviewDetailsMTD);
@@ -109,16 +106,22 @@ public class PFJOverviewService {
 			
 			if (fctDmCompanyLevelActualVsTargetEntity.getFctDmCompanyLevelActualVsTargetId().getMixOfBusiness().equalsIgnoreCase("TOTAL")) {
 				pfjTotalEntity = fctDmCompanyLevelActualVsTargetEntity;
+				logger.debug("PFJ Total Entity ---> " + pfjTotalEntity);
 			} else if (fctDmCompanyLevelActualVsTargetEntity.getFctDmCompanyLevelActualVsTargetId().getMixOfBusiness().equalsIgnoreCase("BETTER OF")) {
 				betterOfEntity = fctDmCompanyLevelActualVsTargetEntity;
+				logger.debug("PFJ Total Entity ---> " + betterOfEntity);
 			} else if (fctDmCompanyLevelActualVsTargetEntity.getFctDmCompanyLevelActualVsTargetId().getMixOfBusiness().equalsIgnoreCase("TOTAL RETAIL")) {
 				totalRetailEntity = fctDmCompanyLevelActualVsTargetEntity;
+				logger.debug("PFJ Total Entity ---> " + totalRetailEntity);
 			} else if (fctDmCompanyLevelActualVsTargetEntity.getFctDmCompanyLevelActualVsTargetId().getMixOfBusiness().equalsIgnoreCase("RETAIL MINUS")) {
 				retailMinusEntity = fctDmCompanyLevelActualVsTargetEntity;
+				logger.debug("PFJ Total Entity ---> " + retailMinusEntity);
 			} else if (fctDmCompanyLevelActualVsTargetEntity.getFctDmCompanyLevelActualVsTargetId().getMixOfBusiness().equalsIgnoreCase("FUNDED")) {
 				fundedEntity = fctDmCompanyLevelActualVsTargetEntity;
+				logger.debug("PFJ Total Entity ---> " + fundedEntity);
 			} else if (fctDmCompanyLevelActualVsTargetEntity.getFctDmCompanyLevelActualVsTargetId().getMixOfBusiness().equalsIgnoreCase("CCC")) {
 				cccEntity = fctDmCompanyLevelActualVsTargetEntity;
+				logger.debug("PFJ Total Entity ---> " + cccEntity);
 			}
 		}
 
@@ -164,18 +167,19 @@ public class PFJOverviewService {
 		pfjTotal.setGrossProfitDollars(grossProfitDollars);
 		pfjTotal.setVolume(volume);
 		pfjTotal.setMargin(margin);
-		pfjTotal.setTotalGAL(PFJOverviewUtil.formatWithMillion(pfjTotalEntity.getActualVolumeLy()));
+		pfjTotal.setTotalGAL(PFJOverviewUtil.formatWithMillion(pfjTotalEntity.getActualVolume()));
 		pfjTotal.setTotalTarget(PFJOverviewUtil.formatWithMillion(pfjTotalEntity.getTargetVolume()));
-		
+
 		pfjOverviewDetails.setpFJTotal(pfjTotal);
 	}
 
-	private void populateBetterOf(PFJOverview pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity betterOfEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
+	private void populateBetterOf(PFJOverview pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity betterOfEntity,
+			FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
 		GrossProfitDollars grossProfitDollars = populateGP$Tile(betterOfEntity);
 		Volume volume = populateVolumeTile(betterOfEntity);
 		Margin margin = populateMarginTile(betterOfEntity);
 		MixPercentage mixPercentage = populateMixPercentageTile(betterOfEntity, pfjTotalEntity);
-		
+
 		BetterOf betterOf = new BetterOf();
 		betterOf.setGrossProfitDollars(grossProfitDollars);
 		betterOf.setVolume(volume);
@@ -185,31 +189,33 @@ public class PFJOverviewService {
 		betterOf.setBuyingPerfTarget(PFJOverviewUtil.formatWithoutMillion(betterOfEntity.getTargetBuyingPerformance()));
 		betterOf.setEffPumpFeeActual(PFJOverviewUtil.formatWithoutMillion(betterOfEntity.getActualEffectivePumpFee()));
 		betterOf.setEffPumpFeeTarget(PFJOverviewUtil.formatWithoutMillion(betterOfEntity.getTargetEffectivePumpFee()));
-		
+
 		pfjOverviewDetails.setBetterOf(betterOf);
 	}
 
-	private void populateTotalRetail(PFJOverview pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity totalRetailEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
+	private void populateTotalRetail(PFJOverview pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity totalRetailEntity,
+			FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
 		GrossProfitDollars grossProfitDollars = populateGP$Tile(totalRetailEntity);
 		Volume volume = populateVolumeTile(totalRetailEntity);
 		Margin margin = populateMarginTile(totalRetailEntity);
 		MixPercentage mixPercentage = populateMixPercentageTile(totalRetailEntity, pfjTotalEntity);
-		
+
 		TotalRetail totalRetail = new TotalRetail();
 		totalRetail.setGrossProfitDollars(grossProfitDollars);
 		totalRetail.setVolume(volume);
 		totalRetail.setMargin(margin);
 		totalRetail.setMixPercentage(mixPercentage);
-		
+
 		pfjOverviewDetails.setTotalRetail(totalRetail);
 	}
 
-	private void populateRetailMinus(PFJOverview pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity retailMinusEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
+	private void populateRetailMinus(PFJOverview pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity retailMinusEntity,
+			FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
 		GrossProfitDollars grossProfitDollars = populateGP$Tile(retailMinusEntity);
 		Volume volume = populateVolumeTile(retailMinusEntity);
 		Margin margin = populateMarginTile(retailMinusEntity);
 		MixPercentage mixPercentage = populateMixPercentageTile(retailMinusEntity, pfjTotalEntity);
-		
+
 		RetailMinus retailMinus = new RetailMinus();
 		retailMinus.setGrossProfitDollars(grossProfitDollars);
 		retailMinus.setVolume(volume);
@@ -217,85 +223,125 @@ public class PFJOverviewService {
 		retailMinus.setMixPercentage(mixPercentage);
 		retailMinus.setRmDiscountActual(PFJOverviewUtil.formatWithoutMillion(retailMinusEntity.getActualEffectiveRetailMinusRate()));
 		retailMinus.setRmDiscountTarget(PFJOverviewUtil.formatWithoutMillion(retailMinusEntity.getTargetEffectiveRetailMinusRate()));
-		
+
 		pfjOverviewDetails.setRetailMinus(retailMinus);
 	}
 
-	private void populateFunded(PFJOverview pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity fundedEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
+	private void populateFunded(PFJOverview pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity fundedEntity,
+			FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
 		GrossProfitDollars grossProfitDollars = populateGP$Tile(fundedEntity);
 		Volume volume = populateVolumeTile(fundedEntity);
 		Margin margin = populateMarginTile(fundedEntity);
 		MixPercentage mixPercentage = populateMixPercentageTile(fundedEntity, pfjTotalEntity);
-		
+
 		Funded funded = new Funded();
 		funded.setGrossProfitDollars(grossProfitDollars);
 		funded.setVolume(volume);
 		funded.setMargin(margin);
 		funded.setMixPercentage(mixPercentage);
-		
+
 		pfjOverviewDetails.setFunded(funded);
 	}
 
-	private void populateCCC(PFJOverview pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity cccEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
+	private void populateCCC(PFJOverview pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity cccEntity,
+			FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
 		GrossProfitDollars grossProfitDollars = populateGP$Tile(cccEntity);
 		Volume volume = populateVolumeTile(cccEntity);
 		Margin margin = populateMarginTile(cccEntity);
 		MixPercentage mixPercentage = populateMixPercentageTile(cccEntity, pfjTotalEntity);
-		
+
 		CCC ccc = new CCC();
 		ccc.setGrossProfitDollars(grossProfitDollars);
 		ccc.setVolume(volume);
 		ccc.setMargin(margin);
 		ccc.setMixPercentage(mixPercentage);
-		
+
 		pfjOverviewDetails.setCcc(ccc);
 	}
 
 	private GrossProfitDollars populateGP$Tile(FctDmCompanyLevelActualVsTargetEntity pfjOverviewEntity) {
 		GrossProfitDollars grossProfitDollars = new GrossProfitDollars();
+
 		grossProfitDollars.setHeader(PFJOverviewUtil.formatWithMillion(pfjOverviewEntity.getActualProfitNetOfDiscounts()));
-		grossProfitDollars.setVsTgLeft(PFJOverviewUtil.formatWithMillion(pfjOverviewEntity.getActualProfitNetOfDiscounts().subtract(pfjOverviewEntity.getTargetProfitNetOfDiscounts())));
-		grossProfitDollars.setVsTgLeftPositive(grossProfitDollars.getVsTgLeft().signum() > 0);
+
+		BigDecimal vsTgLeft = pfjOverviewEntity.getActualProfitNetOfDiscounts().subtract(pfjOverviewEntity.getTargetProfitNetOfDiscounts());
+		grossProfitDollars.setVsTgLeft(PFJOverviewUtil.formatWithMillion(vsTgLeft.abs()));
+		grossProfitDollars.setVsTgLeftPositive(vsTgLeft.signum() > 0);
 		grossProfitDollars.setVsTgRight(PFJOverviewUtil.formatWithMillion(pfjOverviewEntity.getTargetProfitNetOfDiscounts()));
-		grossProfitDollars.setVsLyLeft(PFJOverviewUtil.formatWithMillion(pfjOverviewEntity.getActualProfitNetOfDiscounts().subtract(pfjOverviewEntity.getActualProfitNetOfDiscountsLy())));
-		grossProfitDollars.setVsLyLeftPositive(grossProfitDollars.getVsLyLeft().signum() > 0);
+
+		BigDecimal vsLyLeft = pfjOverviewEntity.getActualProfitNetOfDiscounts().subtract(pfjOverviewEntity.getActualProfitNetOfDiscountsLy());
+		grossProfitDollars.setVsLyLeft(PFJOverviewUtil.formatWithMillion(vsLyLeft.abs()));
+		grossProfitDollars.setVsLyLeftPositive(vsLyLeft.signum() > 0);
 		grossProfitDollars.setVsLyRight(PFJOverviewUtil.formatWithMillion(pfjOverviewEntity.getActualProfitNetOfDiscountsLy()));
+
 		return grossProfitDollars;
 	}
 
 	private Volume populateVolumeTile(FctDmCompanyLevelActualVsTargetEntity pfjOverviewEntity) {
 		Volume volume = new Volume();
+
 		volume.setHeader(PFJOverviewUtil.formatWithMillion(pfjOverviewEntity.getActualVolume()));
-		volume.setVsTgLeft(PFJOverviewUtil.formatWithMillion(pfjOverviewEntity.getActualVolume().subtract(pfjOverviewEntity.getTargetVolume())));
-		volume.setVsTgLeftPositive(volume.getVsTgLeft().signum() > 0);
-		volume.setVsTgRight(PFJOverviewUtil.formatWithoutMillion(pfjOverviewEntity.getActualVolume().subtract(pfjOverviewEntity.getTargetVolume()).divide(pfjOverviewEntity.getTargetVolume(), 3, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(100))));
-		volume.setVsLyLeft(PFJOverviewUtil.formatWithMillion(pfjOverviewEntity.getActualVolume().subtract(pfjOverviewEntity.getActualVolumeLy())));
-		volume.setVsLyLeftPositive(volume.getVsLyLeft().signum() > 0);
-		volume.setVsLyRight(PFJOverviewUtil.formatWithoutMillion(pfjOverviewEntity.getActualVolume().subtract(pfjOverviewEntity.getActualVolumeLy()).divide(pfjOverviewEntity.getActualVolumeLy(), 3, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(100))));
+
+		BigDecimal vsTgLeft = pfjOverviewEntity.getActualVolume().subtract(pfjOverviewEntity.getTargetVolume());
+		volume.setVsTgLeft(PFJOverviewUtil.formatWithMillion(vsTgLeft.abs()));
+		volume.setVsTgLeftPositive(vsTgLeft.signum() > 0);
+		volume.setVsTgRight(PFJOverviewUtil.formatWithoutMillion(
+				pfjOverviewEntity.getActualVolume().subtract(pfjOverviewEntity.getTargetVolume())
+						.divide(pfjOverviewEntity.getTargetVolume(), 6, RoundingMode.HALF_UP)
+						.multiply(BigDecimal.valueOf(100))));
+
+		BigDecimal vsLyLeft = pfjOverviewEntity.getActualVolume().subtract(pfjOverviewEntity.getActualVolumeLy());
+		volume.setVsLyLeft(PFJOverviewUtil.formatWithMillion(vsLyLeft.abs()));
+		volume.setVsLyLeftPositive(vsLyLeft.signum() > 0);
+		volume.setVsLyRight(PFJOverviewUtil.formatWithoutMillion(
+				pfjOverviewEntity.getActualVolume().subtract(pfjOverviewEntity.getActualVolumeLy())
+						.divide(pfjOverviewEntity.getActualVolumeLy(), 6, RoundingMode.HALF_UP)
+						.multiply(BigDecimal.valueOf(100))));
+
 		return volume;
 	}
 
 	private Margin populateMarginTile(FctDmCompanyLevelActualVsTargetEntity pfjOverviewEntity) {
 		Margin margin = new Margin();
 		margin.setHeader(PFJOverviewUtil.formatWithoutMillion(pfjOverviewEntity.getActualMarginNetOfDiscounts()));
-		margin.setVsTgLeft(PFJOverviewUtil.formatWithoutMillion(pfjOverviewEntity.getActualMarginNetOfDiscounts().subtract(pfjOverviewEntity.getTargetMarginNetOfDiscounts())));
-		margin.setVsTgLeftPositive(margin.getVsTgLeft().signum() > 0);
+
+		BigDecimal vsTgLeft = pfjOverviewEntity.getActualMarginNetOfDiscounts().subtract(pfjOverviewEntity.getTargetMarginNetOfDiscounts());
+		margin.setVsTgLeft(PFJOverviewUtil.formatWithoutMillion(vsTgLeft.abs()));
+		margin.setVsTgLeftPositive(vsTgLeft.signum() > 0);
 		margin.setVsTgRight(PFJOverviewUtil.formatWithoutMillion(pfjOverviewEntity.getTargetMarginNetOfDiscounts()));
-		margin.setVsLyLeft(PFJOverviewUtil.formatWithoutMillion(pfjOverviewEntity.getActualMarginNetOfDiscounts().subtract(pfjOverviewEntity.getActualMarginNetOfDiscountsLy())));
-		margin.setVsLyLeftPositive(margin.getVsLyLeft().signum() > 0);
+
+		BigDecimal vsLyLeft = pfjOverviewEntity.getActualMarginNetOfDiscounts().subtract(pfjOverviewEntity.getActualMarginNetOfDiscountsLy());
+		margin.setVsLyLeft(PFJOverviewUtil.formatWithoutMillion(vsLyLeft.abs()));
+		margin.setVsLyLeftPositive(vsLyLeft.signum() > 0);
 		margin.setVsLyRight(PFJOverviewUtil.formatWithoutMillion(pfjOverviewEntity.getActualMarginNetOfDiscountsLy()));
+
 		return margin;
 	}
 
-	private MixPercentage populateMixPercentageTile(FctDmCompanyLevelActualVsTargetEntity pfjOverviewEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
+	private MixPercentage populateMixPercentageTile(FctDmCompanyLevelActualVsTargetEntity pfjOverviewEntity,
+			FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
 		MixPercentage mixPercentage = new MixPercentage();
-		mixPercentage.setMixActual(pfjOverviewEntity.getActualVolume().divide(pfjTotalEntity.getActualVolume(), 3, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(100)));
-		mixPercentage.setMixTarget(pfjOverviewEntity.getTargetVolume().divide(pfjTotalEntity.getTargetVolume(), 3, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(100)));
-		mixPercentage.setMixVsLy((pfjOverviewEntity.getActualVolume().divide(pfjTotalEntity.getActualVolume(), 6, RoundingMode.HALF_UP))
-									.subtract(pfjOverviewEntity.getActualVolumeLy().divide(pfjTotalEntity.getActualVolumeLy(), 6, RoundingMode.HALF_UP))
-									.divide(pfjOverviewEntity.getActualVolumeLy().divide(pfjTotalEntity.getActualVolumeLy(), 6, RoundingMode.HALF_UP), 3, RoundingMode.HALF_UP)
-									.multiply(BigDecimal.valueOf(100)));
-		mixPercentage.setMixVsLyPositive(mixPercentage.getMixVsLy().signum() > 0);
+
+		BigDecimal mixActual = pfjOverviewEntity.getActualVolume()
+								.divide(pfjTotalEntity.getActualVolume(), 3, RoundingMode.HALF_UP)
+								.multiply(BigDecimal.valueOf(100))
+								.setScale(1, RoundingMode.HALF_UP);
+		mixPercentage.setMixActual(mixActual.toString());
+
+		BigDecimal mixTarget = pfjOverviewEntity.getTargetVolume()
+								.divide(pfjTotalEntity.getTargetVolume(), 3, RoundingMode.HALF_UP)
+								.multiply(BigDecimal.valueOf(100))
+								.setScale(1, RoundingMode.HALF_UP);
+		mixPercentage.setMixTarget(mixTarget.toString());
+
+		BigDecimal mixVsLy = (pfjOverviewEntity.getActualVolume().divide(pfjTotalEntity.getActualVolume(), 6, RoundingMode.HALF_UP))
+								.subtract(pfjOverviewEntity.getActualVolumeLy().divide(pfjTotalEntity.getActualVolumeLy(), 6, RoundingMode.HALF_UP))
+								.divide(pfjOverviewEntity.getActualVolumeLy().divide(pfjTotalEntity.getActualVolumeLy(), 6, RoundingMode.HALF_UP), 3, RoundingMode.HALF_UP)
+								.multiply(BigDecimal.valueOf(100))
+								.setScale(1, RoundingMode.HALF_UP);
+		mixPercentage.setMixVsLy(mixVsLy.abs().toString());
+		mixPercentage.setMixVsLyPositive(mixVsLy.signum() > 0);
+
 		return mixPercentage;
 	}
 }
