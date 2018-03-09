@@ -1,9 +1,9 @@
-const path = require('path');
 const express = require('express');
-const app = express();
+const http = require('http');
+const path = require('path');
 const Heroku = require('heroku-client');
 const heroku = new Heroku({ token: process.env.HEROKU_API_TOKEN });
-
+const app = express();
 
 // If an incoming request uses
 // a protocol other than HTTPS,
@@ -43,8 +43,14 @@ app.get('/backend', (req, res) => {
 
 // Start the app by listening on the default
 // Heroku port
-app.listen(process.env.PORT || 8080,function(){
+/*app.listen(process.env.PORT || 8080,function(){
 
   console.log("Angular app is running");
 
-});
+});*/
+
+const port = process.env.PORT || 3000;
+app.set('port', port);
+
+const server = http.createServer(app);
+server.listen(port, () => console.log('running'));
