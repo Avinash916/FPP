@@ -37,6 +37,14 @@ app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname + '/src/main/resources/static/index.html'));
 });
 
+app.get('/backend', (req, res) => {
+  res.json({url: process.env.FPP_API_URL})
+});
+
 // Start the app by listening on the default
 // Heroku port
-app.listen(process.env.PORT || 8080);
+app.listen(process.env.PORT || 8080,function(){
+
+  console.log("Angular app is running");
+
+});

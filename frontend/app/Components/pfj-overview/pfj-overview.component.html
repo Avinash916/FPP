@@ -35,17 +35,17 @@
         <div class="dvStickerContainer" style="width: 243px;">
           <div class="dvTableauMapFilter" style="width: 243px;font-size: 12px;">
     <div class="chooseViewRadioButtonsDiv">
-        <input type="radio"(click)="ToggleTableau('GROSS PROFIT $',this.tableauMapUrlGP)" 
+        <input type="radio"(click)="ToggleTableau('GROSS PROFIT $','GrossProfitDashboard')" 
         id="ddlGrossProfitTableau" name="tableauFilter" [checked]="this.repository.selectedTableauFilter == 'GROSS PROFIT $'">
         <label for="ddlGrossProfitTableau">GROSS PROFIT $</label>
     </div>
     <div class="chooseViewRadioButtonsDiv">
-        <input type="radio" (click)="ToggleTableau('VOLUME',this.tableauMapUrlVolume)" 
+        <input type="radio" (click)="ToggleTableau('VOLUME','GallonsDashboard')" 
         id="ddlVolumeTableau" name="tableauFilter" [checked]="this.repository.selectedTableauFilter == 'VOLUME'">
         <label for="ddlVolumeTableau">VOLUME</label>
     </div>
     <div class="chooseViewRadioButtonsDiv">
-        <input type="radio" (click)="ToggleTableau('MARGIN',this.tableauMapUrlMargin)" 
+        <input type="radio" (click)="ToggleTableau('MARGIN','MarginDashboard')" 
         id="ddlMarginTableau" name="tableauFilter" [checked]="this.repository.selectedTableauFilter == 'MARGIN'">
         <label for="ddlMarginTableau">MARGIN</label>
     </div>

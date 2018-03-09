@@ -7,9 +7,9 @@ export class RepositoryService {
   customerPricingDetails:CustomerPriceDetails[] = [];
   selctedCustomerPricingDetails:CustomerPriceDetails = new CustomerPriceDetails();
   selectedDataPeriod:string;
-  //selectedViewTableau:string;
   selectedTableauFilter:string;
   selectedTableauView:string;
+  selectedTableauViewType:string;
   constructor() { }
 
 }

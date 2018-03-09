@@ -13,7 +13,6 @@ export class TableauComponent implements OnInit,AfterViewInit,AfterContentChecke
   @Input() viewUrl:string;
   @Input() configTableau:Array<string>[]=[];
   data:string;
-  myTemplate: any = "";
   constructor(public elementRef:ElementRef,public renderer2: Renderer2,
     public sanitizer: DomSanitizer,public cd : ChangeDetectorRef,public http:Http) { }
 
@@ -36,6 +35,9 @@ export class TableauComponent implements OnInit,AfterViewInit,AfterContentChecke
         this.viewUrl += "&:"+c;
       });
     }
+
+    console.log("input url");
+
     //this.data = this.viewUrl.split('?')[0].split('//')[1].split('/')[5];
 
   }

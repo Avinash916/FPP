@@ -15,9 +15,9 @@ import { Http, Response, RequestOptions, Headers } from '@angular/http';
 })
 export class PfjoverViewComponent implements OnInit {
   apiToken:Observable<any> = null;
-  tableauMapUrlGP = AppConfig.TableauMapUrlGP;
-  tableauMapUrlVolume = AppConfig.TableauMapUrlVolume;
-  tableauMapUrlMargin = AppConfig.TableauMapUrlMargin;
+  //tableauMapUrlGP = AppConfig.TableauMapUrlGP;
+  //tableauMapUrlVolume = AppConfig.TableauMapUrlVolume;
+  //tableauMapUrlMargin = AppConfig.TableauMapUrlMargin;
 
   selectedCustPricingDetails : CustomerPriceDetails;
   constructor(public serviceConsumer: ServiceConsumer ,public repository : RepositoryService,
@@ -32,6 +32,18 @@ export class PfjoverViewComponent implements OnInit {
      var arr = window.location.href.split('/');
      var result = arr[0] + "//" + arr[2];
       AppConfig.PFJApiUrl = result+'/';
+
+
+      this.http.get(window.location.origin + '/backend').map((response: Response) => response.json())
+      .subscribe(urlBackend => {
+        //sessionStorage.setItem('url_backend', urlBackend.url);
+        console.log("urlBackend.url "+urlBackend.url);
+      }, () => {
+        console.log('Can´t find the backend URL, using a failover value');
+        //sessionStorage.setItem('url_backend', 'https://failover-url.com');
+      });
+
+
 
      
     // this.http.get('/heroku-token').map(response => response)
@@ -79,22 +91,33 @@ export class PfjoverViewComponent implements OnInit {
     this.ProcessSelectedCustomerPricingDetails("LCYTD");
     this.repository.selectedDataPeriod = "LCYTD";
     this.repository.selectedTableauFilter = "GROSS PROFIT $";
+    this.repository.selectedTableauViewType = "GrossProfitDashboard";
     //this.repository.selectedTableauView = "https://tableau.pilotcorp.net/t/SupportCenter/views/FPPDraft/LCPGPDollarDiff?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:tabs=no";
-    this.repository.selectedTableauView = this.tableauMapUrlGP;
-    this.ToggleTableau(this.repository.selectedTableauFilter,this.repository.selectedTableauView);
+    //this.repository.selectedTableauView = AppConfig.TableauBaseMapUrl.replace('viewtype',this.repository.selectedTableauViewType)
+     //                                       .replace('dataperiod',this.repository.selectedDataPeriod);
+    this.ToggleTableau(this.repository.selectedTableauFilter,this.repository.selectedTableauViewType);
   }
 
   ProcessSelectedCustomerPricingDetails(dataPeriod)
   {
     this.repository.selctedCustomerPricingDetails = this.repository.customerPricingDetails.find(c=>c.temporalPeriod.toUpperCase() == dataPeriod.toUpperCase());
     this.selectedCustPricingDetails = this.repository.selctedCustomerPricingDetails;
-    //console.log(JSON.stringify(this.selectedCustPricingDetails));
     this.repository.selectedDataPeriod = dataPeriod;
+
+
+    //this.repository.selectedTableauView = AppConfig.TableauBaseMapUrl.replace('viewtype',this.repository.selectedTableauViewType)
+     //                                       .replace('dataperiod',this.repository.selectedDataPeriod);
+
+    this.ToggleTableau(this.repository.selectedTableauFilter,this.repository.selectedTableauViewType);
   }
 
   ToggleTableau(data,viewType)
   {
+    console.log("viewType "+viewType);
     this.repository.selectedTableauFilter = data;
-    this.repository.selectedTableauView = viewType;
+    this.repository.selectedTableauViewType = viewType;
+    this.repository.selectedTableauView = AppConfig.TableauBaseMapUrl.replace('viewtype',viewType)
+                                            .replace('dataperiod',this.repository.selectedDataPeriod);
+
   }
 }
