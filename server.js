@@ -37,20 +37,21 @@ app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname + '/src/main/resources/static/index.html'));
 });
 
-app.get('/backend', (req, res) => {
+app.route('/backend'.get((req, res) => {
+  console.log("called url successful");
   res.json({url: process.env.FPP_API_URL})
-});
+}));
+
+
+/*app.route('/api/cats').get((req, res) => {
+  res.send({
+    cats: [{ name: 'lilly' }, { name: 'lucy' }]
+  });
+});*/
 
 // Start the app by listening on the default
 // Heroku port
-/*app.listen(process.env.PORT || 8080,function(){
-
+app.listen(process.env.PORT || 8080,function(){
   console.log("Angular app is running");
+});
 
-});*/
-
-const port = process.env.PORT || 8080;
-app.set('port', port);
-
-const server = http.createServer(app);
-server.listen(port, () => console.log('running'));
