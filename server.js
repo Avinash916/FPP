@@ -18,7 +18,7 @@ const forceSSL = function() {
   }
 }
 
-app.get('/heroku-token', function(req, res){
+app.route('/heroku-token', function(req, res){
   res.send(heroku.HEROKU_API_TOKEN);
 });
 
@@ -37,7 +37,7 @@ app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname + '/src/main/resources/static/index.html'));
 });
 
-app.get('/backend', (req, res) => {
+app.route('/backend', (req, res) => {
   res.json({url: process.env.FPP_API_URL})
 });
 
