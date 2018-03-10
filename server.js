@@ -37,17 +37,17 @@ app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname + '/src/main/resources/static/index.html'));
 });
 
-app.route('/backend'.get((req, res) => {
+app.route('/backend').get((req, res) => {
   console.log("called url successful");
   res.json({url: process.env.FPP_API_URL})
-}));
+});
 
 
-/*app.route('/api/cats').get((req, res) => {
+app.route('/api/cats').get((req, res) => {
   res.send({
     cats: [{ name: 'lilly' }, { name: 'lucy' }]
   });
-});*/
+});
 
 // Start the app by listening on the default
 // Heroku port
