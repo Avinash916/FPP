@@ -25,7 +25,7 @@ app.get('/heroku-token', function(req, res){
 // Instruct the app
 // to use the forceSSL
 // middleware
-app.use(forceSSL());
+//app.use(forceSSL());
 
 // Run the app by serving the static files
 // in the src/main/resources/static directory
@@ -49,7 +49,7 @@ app.get('/backend', (req, res) => {
 
 });*/
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 app.set('port', port);
 
 const server = http.createServer(app);
