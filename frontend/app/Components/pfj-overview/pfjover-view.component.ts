@@ -15,11 +15,10 @@ import { Http, Response, RequestOptions, Headers } from '@angular/http';
 })
 export class PfjoverViewComponent implements OnInit {
   apiToken:Observable<any> = null;
-  //tableauMapUrlGP = AppConfig.TableauMapUrlGP;
-  //tableauMapUrlVolume = AppConfig.TableauMapUrlVolume;
-  //tableauMapUrlMargin = AppConfig.TableauMapUrlMargin;
-
   selectedCustPricingDetails : CustomerPriceDetails;
+  /*IsShowGrossProfitDashboard:boolean=false;
+  IsShowGallonsDashboard:boolean=false;
+  IsShowMarginDashboard:boolean=false;*/
   constructor(public serviceConsumer: ServiceConsumer ,public repository : RepositoryService,
               public utility:UtilityService,private http:Http) {
    }
@@ -63,18 +62,6 @@ export class PfjoverViewComponent implements OnInit {
       this.ProcessSelectedCustomerPricingDetails(this.repository.selectedDataPeriod);
       this.ToggleTableau(this.repository.selectedTableauFilter,this.repository.selectedTableauView);
     }
-    /*let s = '[{"temporalPeriod":"MTD","dimPlPeriodDateId":20180101,"pFJTotal":{"grossProfitDollars":{"vsTgLeft":0.00,"vsTgLeftPositive":true,"vsTgRight":105.23,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":518.71},"volume":{"vsTgLeft":0.00,"vsTgLeftPositive":false,"vsTgRight":0.00,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":0.00},"margin":{"vsTgLeft":0.00,"vsTgLeftPositive":false,"vsTgRight":0.00,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":0.00},"totalGAL":549.68,"totalTarget":554.04},"betterOf":{"grossProfitDollars":{"vsTgLeft":0.00,"vsTgLeftPositive":false,"vsTgRight":53.67,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":25.81},"volume":{"vsTgLeft":0.00,"vsTgLeftPositive":false,"vsTgRight":0.00,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":0.00},"margin":{"vsTgLeft":0.00,"vsTgLeftPositive":false,"vsTgRight":0.00,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":0.00},"mixPercentage":{"mixActual":0.00,"mixTarget":0.00,"mixVsLy":0.00,"mixVsLyPositive":false},"buyingPerfActual":0.00,"buyingPerfTarget":0.00,"effPumpFeeActual":0.00,"effPumpFeeTarget":0.00},"totalRetail":{"grossProfitDollars":{"vsTgLeft":0.00,"vsTgLeftPositive":true,"vsTgRight":51.56,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":492.90},"volume":{"vsTgLeft":0.00,"vsTgLeftPositive":false,"vsTgRight":0.00,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":0.00},"margin":{"vsTgLeft":0.00,"vsTgLeftPositive":false,"vsTgRight":0.00,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":0.00},"mixPercentage":{"mixActual":0.00,"mixTarget":0.00,"mixVsLy":0.00,"mixVsLyPositive":false}},"retailMinus":{"grossProfitDollars":{"vsTgLeft":0.00,"vsTgLeftPositive":true,"vsTgRight":30.52,"vsLyLeft":0.00,"vsLyLeftPositive":true,"vsLyRight":39.32},"volume":{"vsTgLeft":0.00,"vsTgLeftPositive":false,"vsTgRight":0.00,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":0.00},"margin":{"vsTgLeft":0.00,"vsTgLeftPositive":false,"vsTgRight":0.00,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":0.00},"mixPercentage":{"mixActual":0.00,"mixTarget":0.00,"mixVsLy":0.00,"mixVsLyPositive":false},"rmDiscountActual":0.00,"rmDiscountTarget":0.00},"funded":{"grossProfitDollars":{"vsTgLeft":0.00,"vsTgLeftPositive":true,"vsTgRight":11.58,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":234.84},"volume":{"vsTgLeft":0.00,"vsTgLeftPositive":false,"vsTgRight":0.00,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":0.00},"margin":{"vsTgLeft":0.00,"vsTgLeftPositive":false,"vsTgRight":0.00,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":0.00},"mixPercentage":{"mixActual":0.00,"mixTarget":0.00,"mixVsLy":0.00,"mixVsLyPositive":false}},"ccc":{"grossProfitDollars":{"vsTgLeft":0.00,"vsTgLeftPositive":true,"vsTgRight":9.47,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":218.74},"volume":{"vsTgLeft":0.00,"vsTgLeftPositive":false,"vsTgRight":0.00,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":0.00},"margin":{"vsTgLeft":0.00,"vsTgLeftPositive":false,"vsTgRight":0.00,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":0.00},"mixPercentage":{"mixActual":0.00,"mixTarget":0.00,"mixVsLy":0.00,"mixVsLyPositive":false}}},{"temporalPeriod":"LCM","dimPlPeriodDateId":20180101,"pFJTotal":{"grossProfitDollars":{"vsTgLeft":0.00,"vsTgLeftPositive":true,"vsTgRight":113.11,"vsLyLeft":0.00,"vsLyLeftPositive":true,"vsLyRight":570.74},"volume":{"vsTgLeft":0.00,"vsTgLeftPositive":false,"vsTgRight":0.00,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":0.00},"margin":{"vsTgLeft":0.00,"vsTgLeftPositive":false,"vsTgRight":0.00,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":0.00},"totalGAL":593.50,"totalTarget":603.34},"betterOf":{"grossProfitDollars":{"vsTgLeft":0.00,"vsTgLeftPositive":false,"vsTgRight":57.69,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":26.54},"volume":{"vsTgLeft":0.00,"vsTgLeftPositive":true,"vsTgRight":0.00,"vsLyLeft":0.00,"vsLyLeftPositive":true,"vsLyRight":0.00},"margin":{"vsTgLeft":0.00,"vsTgLeftPositive":false,"vsTgRight":0.00,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":0.00},"mixPercentage":{"mixActual":0.00,"mixTarget":0.00,"mixVsLy":0.00,"mixVsLyPositive":false},"buyingPerfActual":0.00,"buyingPerfTarget":0.00,"effPumpFeeActual":0.00,"effPumpFeeTarget":0.00},"totalRetail":{"grossProfitDollars":{"vsTgLeft":0.00,"vsTgLeftPositive":true,"vsTgRight":55.43,"vsLyLeft":0.00,"vsLyLeftPositive":true,"vsLyRight":544.20},"volume":{"vsTgLeft":0.00,"vsTgLeftPositive":false,"vsTgRight":0.00,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":0.00},"margin":{"vsTgLeft":0.00,"vsTgLeftPositive":false,"vsTgRight":0.00,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":0.00},"mixPercentage":{"mixActual":0.00,"mixTarget":0.00,"mixVsLy":0.00,"mixVsLyPositive":false}},"retailMinus":{"grossProfitDollars":{"vsTgLeft":0.00,"vsTgLeftPositive":true,"vsTgRight":32.80,"vsLyLeft":0.00,"vsLyLeftPositive":true,"vsLyRight":42.95},"volume":{"vsTgLeft":0.00,"vsTgLeftPositive":true,"vsTgRight":0.00,"vsLyLeft":0.00,"vsLyLeftPositive":true,"vsLyRight":0.00},"margin":{"vsTgLeft":0.00,"vsTgLeftPositive":false,"vsTgRight":0.00,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":0.00},"mixPercentage":{"mixActual":0.00,"mixTarget":0.00,"mixVsLy":0.00,"mixVsLyPositive":false},"rmDiscountActual":0.00,"rmDiscountTarget":0.00},"funded":{"grossProfitDollars":{"vsTgLeft":0.00,"vsTgLeftPositive":true,"vsTgRight":12.44,"vsLyLeft":0.00,"vsLyLeftPositive":true,"vsLyRight":259.82},"volume":{"vsTgLeft":0.00,"vsTgLeftPositive":false,"vsTgRight":0.00,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":0.00},"margin":{"vsTgLeft":0.00,"vsTgLeftPositive":false,"vsTgRight":0.00,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":0.00},"mixPercentage":{"mixActual":0.00,"mixTarget":0.00,"mixVsLy":0.00,"mixVsLyPositive":false}},"ccc":{"grossProfitDollars":{"vsTgLeft":0.00,"vsTgLeftPositive":true,"vsTgRight":10.18,"vsLyLeft":0.00,"vsLyLeftPositive":true,"vsLyRight":241.44},"volume":{"vsTgLeft":0.00,"vsTgLeftPositive":false,"vsTgRight":0.00,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":0.00},"margin":{"vsTgLeft":0.00,"vsTgLeftPositive":false,"vsTgRight":0.00,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":0.00},"mixPercentage":{"mixActual":0.00,"mixTarget":0.00,"mixVsLy":0.00,"mixVsLyPositive":false}}},{"temporalPeriod":"LCYTD","dimPlPeriodDateId":20180101,"pFJTotal":{"grossProfitDollars":{"vsTgLeft":0.00,"vsTgLeftPositive":true,"vsTgRight":113.11,"vsLyLeft":0.00,"vsLyLeftPositive":true,"vsLyRight":570.74},"volume":{"vsTgLeft":0.00,"vsTgLeftPositive":false,"vsTgRight":0.00,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":0.00},"margin":{"vsTgLeft":0.00,"vsTgLeftPositive":false,"vsTgRight":0.00,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":0.00},"totalGAL":593.50,"totalTarget":603.34},"betterOf":{"grossProfitDollars":{"vsTgLeft":0.00,"vsTgLeftPositive":false,"vsTgRight":57.69,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":26.54},"volume":{"vsTgLeft":0.00,"vsTgLeftPositive":true,"vsTgRight":0.00,"vsLyLeft":0.00,"vsLyLeftPositive":true,"vsLyRight":0.00},"margin":{"vsTgLeft":0.00,"vsTgLeftPositive":false,"vsTgRight":0.00,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":0.00},"mixPercentage":{"mixActual":0.00,"mixTarget":0.00,"mixVsLy":0.00,"mixVsLyPositive":false},"buyingPerfActual":0.00,"buyingPerfTarget":0.00,"effPumpFeeActual":0.00,"effPumpFeeTarget":0.00},"totalRetail":{"grossProfitDollars":{"vsTgLeft":0.00,"vsTgLeftPositive":true,"vsTgRight":55.43,"vsLyLeft":0.00,"vsLyLeftPositive":true,"vsLyRight":544.20},"volume":{"vsTgLeft":0.00,"vsTgLeftPositive":false,"vsTgRight":0.00,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":0.00},"margin":{"vsTgLeft":0.00,"vsTgLeftPositive":false,"vsTgRight":0.00,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":0.00},"mixPercentage":{"mixActual":0.00,"mixTarget":0.00,"mixVsLy":0.00,"mixVsLyPositive":false}},"retailMinus":{"grossProfitDollars":{"vsTgLeft":0.00,"vsTgLeftPositive":true,"vsTgRight":32.80,"vsLyLeft":0.00,"vsLyLeftPositive":true,"vsLyRight":42.95},"volume":{"vsTgLeft":0.00,"vsTgLeftPositive":true,"vsTgRight":0.00,"vsLyLeft":0.00,"vsLyLeftPositive":true,"vsLyRight":0.00},"margin":{"vsTgLeft":0.00,"vsTgLeftPositive":false,"vsTgRight":0.00,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":0.00},"mixPercentage":{"mixActual":0.00,"mixTarget":0.00,"mixVsLy":0.00,"mixVsLyPositive":false},"rmDiscountActual":0.00,"rmDiscountTarget":0.00},"funded":{"grossProfitDollars":{"vsTgLeft":0.00,"vsTgLeftPositive":true,"vsTgRight":12.44,"vsLyLeft":0.00,"vsLyLeftPositive":true,"vsLyRight":259.82},"volume":{"vsTgLeft":0.00,"vsTgLeftPositive":false,"vsTgRight":0.00,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":0.00},"margin":{"vsTgLeft":0.00,"vsTgLeftPositive":false,"vsTgRight":0.00,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":0.00},"mixPercentage":{"mixActual":0.00,"mixTarget":0.00,"mixVsLy":0.00,"mixVsLyPositive":false}},"ccc":{"grossProfitDollars":{"vsTgLeft":0.00,"vsTgLeftPositive":true,"vsTgRight":10.18,"vsLyLeft":0.00,"vsLyLeftPositive":true,"vsLyRight":241.44},"volume":{"vsTgLeft":0.00,"vsTgLeftPositive":false,"vsTgRight":0.00,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":0.00},"margin":{"vsTgLeft":0.00,"vsTgLeftPositive":false,"vsTgRight":0.00,"vsLyLeft":0.00,"vsLyLeftPositive":false,"vsLyRight":0.00},"mixPercentage":{"mixActual":0.00,"mixTarget":0.00,"mixVsLy":0.00,"mixVsLyPositive":false}}}]';
-      s = s.replace(/\\n/g, "\\n")  
-               .replace(/\\'/g, "\\'")
-               .replace(/\\"/g, '\\"')
-               .replace(/\\&/g, "\\&")
-               .replace(/\\r/g, "\\r")
-               .replace(/\\t/g, "\\t")
-               .replace(/\\b/g, "\\b")
-               .replace(/\\f/g, "\\f");
-      var o = JSON.parse(s);
-      console.log(o);
-      this.PopulateCustomerPricingDetails(o);*/
   }
 
   GetHerokuConfigVars(data)
@@ -92,28 +79,58 @@ export class PfjoverViewComponent implements OnInit {
     this.repository.selectedDataPeriod = "LCYTD";
     this.repository.selectedTableauFilter = "GROSS PROFIT $";
     this.repository.selectedTableauViewType = "GrossProfitDashboard";
-    //this.repository.selectedTableauView = "https://tableau.pilotcorp.net/t/SupportCenter/views/FPPDraft/LCPGPDollarDiff?iframeSizedToWindow=true&:embed=y&:showAppBanner=false&:display_count=no&:showVizHome=no&:tabs=no";
-    //this.repository.selectedTableauView = AppConfig.TableauBaseMapUrl.replace('viewtype',this.repository.selectedTableauViewType)
-     //                                       .replace('dataperiod',this.repository.selectedDataPeriod);
     this.ToggleTableau(this.repository.selectedTableauFilter,this.repository.selectedTableauViewType);
   }
 
   ProcessSelectedCustomerPricingDetails(dataPeriod)
   {
+    /*let arrTableauView:string[] = [dataPeriod+"~"+"GrossProfitDashboard"+"~"+this.IsShowGrossProfitDashboard,
+                                  dataPeriod+"~"+"GallonsDashboard"+"~"+this.IsShowGallonsDashboard,
+                                  dataPeriod+"~"+"MarginDashboard"+"~"+this.IsShowMarginDashboard];
+    
+    arrTableauView.forEach(c=>{
+      let tableauView = c.split('~');
+
+      this.repository.arrTableauViewByDataPeriod.push(
+        AppConfig.TableauBaseMapUrl.replace('viewtype',tableauView[1])
+                                            .replace('dataperiod',tableauView[0])+"~"+tableauView[2]
+      )
+
+    });*/                                  
+
+
     this.repository.selctedCustomerPricingDetails = this.repository.customerPricingDetails.find(c=>c.temporalPeriod.toUpperCase() == dataPeriod.toUpperCase());
     this.selectedCustPricingDetails = this.repository.selctedCustomerPricingDetails;
     this.repository.selectedDataPeriod = dataPeriod;
-
-
-    //this.repository.selectedTableauView = AppConfig.TableauBaseMapUrl.replace('viewtype',this.repository.selectedTableauViewType)
-     //                                       .replace('dataperiod',this.repository.selectedDataPeriod);
-
     this.ToggleTableau(this.repository.selectedTableauFilter,this.repository.selectedTableauViewType);
+
+    /*switch(this.repository.selectedTableauViewType){
+      case  "GrossProfitDashboard":{
+        this.IsShowGrossProfitDashboard=true;
+        this.IsShowGallonsDashboard = false;
+        this.IsShowMarginDashboard = false;
+        break;
+      }
+      case  "GallonsDashboard":{
+        this.IsShowGrossProfitDashboard=false;
+        this.IsShowGallonsDashboard = true;
+        this.IsShowMarginDashboard = false;
+        break;
+      }
+      case  "MarginDashboard":{
+        this.IsShowGrossProfitDashboard=false;
+        this.IsShowGallonsDashboard = false;
+        this.IsShowMarginDashboard = true;
+        break;
+      }
+      
+    }*/
+   
   }
 
   ToggleTableau(data,viewType)
   {
-    console.log("viewType "+viewType);
+    //console.log("viewType "+viewType);
     this.repository.selectedTableauFilter = data;
     this.repository.selectedTableauViewType = viewType;
     this.repository.selectedTableauView = AppConfig.TableauBaseMapUrl.replace('viewtype',viewType)

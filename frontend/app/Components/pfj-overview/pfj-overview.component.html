@@ -23,8 +23,26 @@
         <div class="dvStickerHeader" style="width: 507px;">{{this.repository.selectedTableauFilter}}</div>
         <div class="dvStickerContainer">
           <div class="dvTableauMap"></div>
-          <app-tableau [viewUrl]="this.repository.selectedTableauView"
-          [configTableau]="['toolbar=yes','tabs=no','showAppBanner=false','fullscreen=yes']"></app-tableau>
+          <!--<ng-container *ngFor="let tableauUrl of this.repository.arrTableauViewByDataPeriod">
+            {{tableauUrl.split('~')[1]}}
+          <app-tableau [style.display]="tableauUrl.split('~')[1]=='true' ? 'block' : 'none'"  [viewUrl]="tableauUrl.split('~')[0]"
+          [configTableau]="['toolbar=yes','tabs=no',
+          'display_count=no',
+          'showAppBanner=false',
+          'showVizHome=no',
+          'iframeSizedToWindow=true',
+          'embed=y']
+          "></app-tableau>
+          </ng-container>-->
+            <app-tableau
+            [viewUrl]="this.repository.selectedTableauView"
+            [configTableau]="['toolbar=yes','tabs=no',
+            'display_count=no',
+            'showAppBanner=false',
+            'showVizHome=no',
+            'iframeSizedToWindow=true',
+            'embed=y']
+            "></app-tableau>
         </div>
       </div>
 

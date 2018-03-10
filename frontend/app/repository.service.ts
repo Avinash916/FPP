@@ -10,6 +10,7 @@ export class RepositoryService {
   selectedTableauFilter:string;
   selectedTableauView:string;
   selectedTableauViewType:string;
+  arrTableauViewByDataPeriod:string[] = [];
   constructor() { }
 
 }

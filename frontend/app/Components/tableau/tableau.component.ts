@@ -1,6 +1,9 @@
-import { Component, OnInit,AfterViewInit,ElementRef,Renderer2,Input,SimpleChanges,AfterContentChecked,ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit,AfterViewInit,
+  ElementRef,Renderer2,Input,SimpleChanges,
+  AfterContentChecked,ChangeDetectorRef } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Http } from '@angular/http';
+import { RepositoryService } from '../../repository.service';
 declare var tableau: any;
 declare var $: any;
 @Component({
@@ -14,7 +17,7 @@ export class TableauComponent implements OnInit,AfterViewInit,AfterContentChecke
   @Input() configTableau:Array<string>[]=[];
   data:string;
   constructor(public elementRef:ElementRef,public renderer2: Renderer2,
-    public sanitizer: DomSanitizer,public cd : ChangeDetectorRef,public http:Http) { }
+    public sanitizer: DomSanitizer,public cd : ChangeDetectorRef,public http:Http,public repository:RepositoryService) { }
 
   ngAfterViewInit()
   {
@@ -35,10 +38,6 @@ export class TableauComponent implements OnInit,AfterViewInit,AfterContentChecke
         this.viewUrl += "&:"+c;
       });
     }
-
-    console.log("input url");
-
     //this.data = this.viewUrl.split('?')[0].split('//')[1].split('/')[5];
-
   }
 }
