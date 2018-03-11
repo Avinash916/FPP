@@ -18,6 +18,9 @@ const forceSSL = function() {
   }
 }
 
+if (process.env.NODE && ~process.env.NODE.indexOf("heroku"))
+   console.log("I'm in Heroku!");
+
 app.get('/heroku-token', function(req, res){
   res.send(heroku.HEROKU_API_TOKEN);
 });
