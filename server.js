@@ -37,7 +37,7 @@ app.use(express.static(__dirname + '/src/main/resources/static'));
 // For all GET requests, send back index.html
 // so that PathLocationStrategy can be used  
 app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname + '/src/main/resources/static/index1.html'));
+  res.sendFile(path.join(__dirname + '/src/main/resources/static/index.html'));
 });
 
 app.route('/backend').get((req, res) => {
