@@ -2,7 +2,6 @@ const express = require('express');
 const http = require('http');
 const path = require('path');
 const Heroku = require('heroku-client');
-const heroku = new Heroku({ token: process.env.HEROKU_API_TOKEN });
 const app = express();
 
 // If an incoming request uses
@@ -18,17 +17,10 @@ const forceSSL = function() {
   }
 }
 
-if (process.env.NODE && ~process.env.NODE.indexOf("heroku"))
-   console.log("I'm in Heroku!");
-
-app.get('/heroku-token', function(req, res){
-  res.send(heroku.HEROKU_API_TOKEN);
-});
-
 // Instruct the app
 // to use the forceSSL
 // middleware
-//app.use(forceSSL());
+app.use(forceSSL());
 
 // Run the app by serving the static files
 // in the src/main/resources/static directory
@@ -38,18 +30,6 @@ app.use(express.static(__dirname + '/src/main/resources/static'));
 // so that PathLocationStrategy can be used  
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname + '/src/main/resources/static/index.html'));
-});
-
-app.route('/backend').get((req, res) => {
-  console.log("called url successful");
-  res.json({url: process.env.FPP_API_URL})
-});
-
-
-app.route('/api/cats').get((req, res) => {
-  res.send({
-    cats: [{ name: 'lilly' }, { name: 'lucy' }]
-  });
 });
 
 // Start the app by listening on the default
