@@ -1,7 +1,9 @@
 <div class="container-fluid" style="position: absolute;left:2%">
   <div class="row">
     <div class="customer-pricing" style="width: 1315px">PFJ OVERVIEW
-      <span *ngIf="selectedCustPricingDetails != null" style="margin-left: 15px;color: #CECED1">Last Closed Period: <span style="color:#1286AB;">{{selectedCustPricingDetails.dimPlPeriodDateId}} (in MM)</span></span>
+      <span *ngIf="selectedCustPricingDetails != null" style="margin-left: 15px;color: #CECED1">Last Closed Period:
+        <span style="color:#1286AB;">{{selectedCustPricingDetails.dimPlPeriodDateId}} (in MM)</span>
+      </span>
       <div style="float: right;margin-right:22px;font-size: 14px;color: #CECED1">
 
 
@@ -20,7 +22,9 @@
       <!-- Tableu map-->
       <div style="float:left;">
         <div class="dvStickerHeaderCap" style="width: 507px;"></div>
-        <div class="dvStickerHeader" style="width: 507px;">{{this.repository.selectedTableauFilter}}</div>
+        <div class="dvStickerHeader" style="width: 507px;">{{this.repository.selectedTableauFilter}}
+          <a (click)="OpenFullMap()" style="float: right;margin-right: 10px;cursor: pointer;">Click here to open full map</a>
+        </div>
         <div class="dvStickerContainer">
           <div class="dvTableauMap"></div>
           <!--<ng-container *ngFor="let tableauUrl of this.repository.arrTableauViewByDataPeriod">
@@ -34,9 +38,7 @@
           'embed=y']
           "></app-tableau>
           </ng-container>-->
-            <app-tableau
-            [viewUrl]="this.repository.selectedTableauView"
-            [configTableau]="['toolbar=no','tabs=no',
+          <app-tableau [viewUrl]="this.repository.selectedTableauView" [configTableau]="['toolbar=no','tabs=no',
             'display_count=no',
             'showAppBanner=false',
             'showVizHome=no',
@@ -52,49 +54,21 @@
         <div class="dvStickerHeaderSmall" style="width: 243px;">CHOOSE VIEW</div>
         <div class="dvStickerContainer" style="width: 243px;">
           <div class="dvTableauMapFilter" style="width: 243px;font-size: 12px;">
-    <div class="chooseViewRadioButtonsDiv">
-        <input type="radio"(click)="ToggleTableau('GROSS PROFIT $','GrossProfitMap')" 
-        id="ddlGrossProfitTableau" name="tableauFilter" [checked]="this.repository.selectedTableauFilter == 'GROSS PROFIT $'">
-        <label for="ddlGrossProfitTableau">GROSS PROFIT $</label>
-    </div>
-    <div class="chooseViewRadioButtonsDiv">
-        <input type="radio" (click)="ToggleTableau('VOLUME','GallonsMap')" 
-        id="ddlVolumeTableau" name="tableauFilter" [checked]="this.repository.selectedTableauFilter == 'VOLUME'">
-        <label for="ddlVolumeTableau">VOLUME</label>
-    </div>
-    <div class="chooseViewRadioButtonsDiv">
-        <input type="radio" (click)="ToggleTableau('MARGIN','MarginMap')" 
-        id="ddlMarginTableau" name="tableauFilter" [checked]="this.repository.selectedTableauFilter == 'MARGIN'">
-        <label for="ddlMarginTableau">MARGIN</label>
-    </div>
-  
-            <!--<div style="color:#CECED1;padding-top:7%">
-              <span style="margin-left: 5px;vertical-align: sub">
-                <input checked value="GROSS PROFIT $" (click)="ToggleTableauHeaderTxt('GROSS PROFIT $')" name="tableauFilter" ng-control="options"
-                  type="radio">
-              </span>
-              <span>
-                GROSS PROFIT $
-              </span>
+            <div class="chooseViewRadioButtonsDiv">
+              <input type="radio" (click)="ToggleTableau('GROSS PROFIT $','GrossProfitMap','GrossProfitDashboard')" id="ddlGrossProfitTableau"
+                name="tableauFilter" [checked]="this.repository.selectedTableauFilter == 'GROSS PROFIT $'">
+              <label for="ddlGrossProfitTableau">GROSS PROFIT $</label>
             </div>
-            <div style="color:#CECED1;padding-top:27%">
-              <span style="margin-left: 5px;vertical-align: sub">
-                <input value="VOLUME" (click)="ToggleTableauHeaderTxt('VOLUME')" name="tableauFilter" ng-control="options" type="radio">
-              </span>
-              <span>
-                VOLUME
-              </span>
+            <div class="chooseViewRadioButtonsDiv">
+              <input type="radio" (click)="ToggleTableau('VOLUME','GallonsMap','GallonsDashboard')" id="ddlVolumeTableau" name="tableauFilter"
+                [checked]="this.repository.selectedTableauFilter == 'VOLUME'">
+              <label for="ddlVolumeTableau">VOLUME</label>
             </div>
-            <div style="color:#CECED1;padding-top:27%">
-              <span style="margin-left: 5px;vertical-align: sub">
-                <input value="MARGIN" (click)="ToggleTableauHeaderTxt('MARGIN')" name="tableauFilter" ng-control="options" type="radio">
-              </span>
-              <span>
-                MARGIN
-              </span>
-            </div>-->
-            <div></div>
-            <div></div>
+            <div class="chooseViewRadioButtonsDiv">
+              <input type="radio" (click)="ToggleTableau('MARGIN','MarginMap','MarginDashboard')" id="ddlMarginTableau" name="tableauFilter"
+                [checked]="this.repository.selectedTableauFilter == 'MARGIN'">
+              <label for="ddlMarginTableau">MARGIN</label>
+            </div>
           </div>
         </div>
       </div>

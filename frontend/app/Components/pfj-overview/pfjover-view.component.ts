@@ -17,7 +17,7 @@ import { Http, Response, RequestOptions, Headers } from '@angular/http';
 export class PfjoverViewComponent implements OnInit {
   apiToken:Observable<any> = null;
   selectedCustPricingDetails : CustomerPriceDetails;
-
+  
   constructor(public serviceConsumer: ServiceConsumer ,public repository : RepositoryService,
               public utility:UtilityService,private http:Http) {
                
@@ -47,7 +47,7 @@ export class PfjoverViewComponent implements OnInit {
     {
       //console.log("this.repository.selectedDataPeriod "+this.repository.selectedDataPeriod);
       this.ProcessSelectedCustomerPricingDetails(this.repository.selectedDataPeriod);
-      this.ToggleTableau(this.repository.selectedTableauFilter,this.repository.selectedTableauView);
+      this.ToggleTableau(this.repository.selectedTableauFilter,this.repository.selectedTableauView,this.repository.selectedTableauFullMapViewType);
     }
   }
 
@@ -66,7 +66,8 @@ export class PfjoverViewComponent implements OnInit {
     this.repository.selectedDataPeriod = "LCYTD";
     this.repository.selectedTableauFilter = "GROSS PROFIT $";
     this.repository.selectedTableauViewType = "GrossProfitMap";
-    this.ToggleTableau(this.repository.selectedTableauFilter,this.repository.selectedTableauViewType);
+    this.repository.selectedTableauFullMapViewType = "GrossProfitDashboard";
+    this.ToggleTableau(this.repository.selectedTableauFilter,this.repository.selectedTableauViewType,this.repository.selectedTableauFullMapViewType);
   }
 
   ProcessSelectedCustomerPricingDetails(dataPeriod)
@@ -89,7 +90,7 @@ export class PfjoverViewComponent implements OnInit {
     this.repository.selctedCustomerPricingDetails = this.repository.customerPricingDetails.find(c=>c.temporalPeriod.toUpperCase() == dataPeriod.toUpperCase());
     this.selectedCustPricingDetails = this.repository.selctedCustomerPricingDetails;
     this.repository.selectedDataPeriod = dataPeriod;
-    this.ToggleTableau(this.repository.selectedTableauFilter,this.repository.selectedTableauViewType);
+    this.ToggleTableau(this.repository.selectedTableauFilter,this.repository.selectedTableauViewType,this.repository.selectedTableauFullMapViewType);
 
     /*switch(this.repository.selectedTableauViewType){
       case  "GrossProfitDashboard":{
@@ -115,13 +116,27 @@ export class PfjoverViewComponent implements OnInit {
    
   }
 
-  ToggleTableau(data,viewType)
+  ToggleTableau(data,viewType,fullMapViewType)
   {
     //console.log("viewType "+viewType);
     this.repository.selectedTableauFilter = data;
     this.repository.selectedTableauViewType = viewType;
-    this.repository.selectedTableauView = AppConfig.TableauBaseMapUrl.replace('viewtype',viewType)
+    this.repository.selectedTableauFullMapViewType = fullMapViewType;
+    this.repository.selectedTableauView = AppConfig.TableauBaseMapUrl
+                                            .replace('viewtype',this.repository.selectedTableauViewType)
                                             .replace('dataperiod',this.repository.selectedDataPeriod);
+    
+  }
 
+  OpenFullMap()
+  {
+    let fullMapUrl = AppConfig.TableauBaseMapUrl
+                    .replace('viewtype',this.repository.selectedTableauFullMapViewType)
+                    .replace('dataperiod',this.repository.selectedDataPeriod);  
+   // window.location.href = fullMapUrl;
+   window.open(
+    fullMapUrl,
+    '_blank' // <- This is what makes it open in a new window.
+  );
   }
 }
