@@ -8,6 +8,7 @@ import { AppConfig } from '../../app-config';
 import { UtilityService } from '../../Helper/utility-service';
 import { Observable } from 'rxjs/Rx';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
+
 @Component({
   selector: 'app-pfj-overview',
   templateUrl: './pfj-overview.component.html',
@@ -16,11 +17,10 @@ import { Http, Response, RequestOptions, Headers } from '@angular/http';
 export class PfjoverViewComponent implements OnInit {
   apiToken:Observable<any> = null;
   selectedCustPricingDetails : CustomerPriceDetails;
-  /*IsShowGrossProfitDashboard:boolean=false;
-  IsShowGallonsDashboard:boolean=false;
-  IsShowMarginDashboard:boolean=false;*/
+
   constructor(public serviceConsumer: ServiceConsumer ,public repository : RepositoryService,
               public utility:UtilityService,private http:Http) {
+               
    }
 
   ngOnInit() {
@@ -38,8 +38,7 @@ export class PfjoverViewComponent implements OnInit {
         //sessionStorage.setItem('url_backend', urlBackend.url);
         console.log("urlBackend.url "+urlBackend.url);
       }, () => {
-        console.log('Can´t find the backend URL, using a failover value');
-        //sessionStorage.setItem('url_backend', 'https://failover-url.com');
+        
       });
 
 
@@ -78,7 +77,7 @@ export class PfjoverViewComponent implements OnInit {
     this.ProcessSelectedCustomerPricingDetails("LCYTD");
     this.repository.selectedDataPeriod = "LCYTD";
     this.repository.selectedTableauFilter = "GROSS PROFIT $";
-    this.repository.selectedTableauViewType = "GrossProfitDashboard";
+    this.repository.selectedTableauViewType = "GrossProfitMap";
     this.ToggleTableau(this.repository.selectedTableauFilter,this.repository.selectedTableauViewType);
   }
 

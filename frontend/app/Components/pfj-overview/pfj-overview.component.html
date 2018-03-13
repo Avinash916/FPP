@@ -16,7 +16,7 @@
     </div>
     <!--PFJ total section -->
     <ng-container *ngIf="selectedCustPricingDetails != null">
-      <app-pfjtotal [pfjTotal]="selectedCustPricingDetails.pfjTotal"></app-pfjtotal>
+      <app-pfj-total [pfjTotal]="selectedCustPricingDetails.pfjTotal"></app-pfj-total>
       <!-- Tableu map-->
       <div style="float:left;">
         <div class="dvStickerHeaderCap" style="width: 507px;"></div>
@@ -36,7 +36,7 @@
           </ng-container>-->
             <app-tableau
             [viewUrl]="this.repository.selectedTableauView"
-            [configTableau]="['toolbar=yes','tabs=no',
+            [configTableau]="['toolbar=no','tabs=no',
             'display_count=no',
             'showAppBanner=false',
             'showVizHome=no',
@@ -53,17 +53,17 @@
         <div class="dvStickerContainer" style="width: 243px;">
           <div class="dvTableauMapFilter" style="width: 243px;font-size: 12px;">
     <div class="chooseViewRadioButtonsDiv">
-        <input type="radio"(click)="ToggleTableau('GROSS PROFIT $','GrossProfitDashboard')" 
+        <input type="radio"(click)="ToggleTableau('GROSS PROFIT $','GrossProfitMap')" 
         id="ddlGrossProfitTableau" name="tableauFilter" [checked]="this.repository.selectedTableauFilter == 'GROSS PROFIT $'">
         <label for="ddlGrossProfitTableau">GROSS PROFIT $</label>
     </div>
     <div class="chooseViewRadioButtonsDiv">
-        <input type="radio" (click)="ToggleTableau('VOLUME','GallonsDashboard')" 
+        <input type="radio" (click)="ToggleTableau('VOLUME','GallonsMap')" 
         id="ddlVolumeTableau" name="tableauFilter" [checked]="this.repository.selectedTableauFilter == 'VOLUME'">
         <label for="ddlVolumeTableau">VOLUME</label>
     </div>
     <div class="chooseViewRadioButtonsDiv">
-        <input type="radio" (click)="ToggleTableau('MARGIN','MarginDashboard')" 
+        <input type="radio" (click)="ToggleTableau('MARGIN','MarginMap')" 
         id="ddlMarginTableau" name="tableauFilter" [checked]="this.repository.selectedTableauFilter == 'MARGIN'">
         <label for="ddlMarginTableau">MARGIN</label>
     </div>
