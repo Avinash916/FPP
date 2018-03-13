@@ -28,9 +28,9 @@ export class PfjoverViewComponent implements OnInit {
     {
      // let appName = this.utility.GetPrimaryDomainName(location.hostname);
     
-     var arr = window.location.href.split('/');
+     /*var arr = window.location.href.split('/');
      var result = arr[0] + "//" + arr[2];
-      AppConfig.PFJApiUrl = result+'/';
+      AppConfig.PFJApiUrl = result+'/';*/
 
     // this.http.get('/heroku-token').map(response => response)
     //  .subscribe(data=>console.log("heroku api token "+JSON.stringify(data)));
