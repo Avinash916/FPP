@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PfjtotalComponent } from './pfjtotal.component';
+import { PfjtotalComponent } from './pfj-total.component';
 
 describe('PfjtotalComponent', () => {
   let component: PfjtotalComponent;

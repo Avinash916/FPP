@@ -3,9 +3,9 @@ import { PFJTotal } from '../../Models/pfj-tiles';
 import { UtilityService } from '../../Helper/utility-service';
 
 @Component({
-  selector: 'app-pfjtotal',
-  templateUrl: './pfjtotal.component.html',
-  styleUrls: ['./pfjtotal.component.css']
+  selector: 'app-pfj-total',
+  templateUrl: './pfj-total.component.html',
+  styleUrls: ['./pfj-total.component.css']
 })
 export class PfjtotalComponent implements OnInit {
   @Input() pfjTotal : PFJTotal;
