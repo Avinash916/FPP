@@ -33,13 +33,19 @@ export class PfjoverViewComponent implements OnInit {
       AppConfig.PFJApiUrl = result+'/';
 
 
-      this.http.get(window.location.origin + '/backend').map((response: Response) => response.json())
+      /*this.http.get(window.location.origin + '/backend').map((response: Response) => response.json())
       .subscribe(urlBackend => {
         //sessionStorage.setItem('url_backend', urlBackend.url);
         console.log("urlBackend.url "+urlBackend.url);
       }, () => {
+<<<<<<< HEAD
         
       });
+=======
+        console.log('Can´t find the backend URL, using a failover value');
+        //sessionStorage.setItem('url_backend', 'https://failover-url.com');
+      });*/
+>>>>>>> e1150f1dff61c4679238c7adaa9d2c1011c50b3f
 
 
 
