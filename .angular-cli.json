@@ -29,7 +29,7 @@
       "environments": {
         "dev": "environments/environment.ts",
         "staging": "environments/environment.staging.ts",
-        "production": "environments/environment.producton.ts"
+        "production": "environments/environment.prod.ts"
       }
     }
   ],
