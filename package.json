@@ -5,12 +5,11 @@
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
-    "build": "ng build",
+    "heroku-postbuild": "ng build --target=production -e ${NG_ENV:-prod} --aot",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "test": "ng test",
-    "pree2e": "webdriver-manager update",
-    "postinstall": "ng build --aot -prod"
+    "pree2e": "webdriver-manager update"
   },
   "private": true,
   "dependencies": {

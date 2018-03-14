@@ -285,18 +285,20 @@ public class PFJOverviewService {
 		BigDecimal vsTgLeft = pfjOverviewEntity.getActualVolume().subtract(pfjOverviewEntity.getTargetVolume());
 		volume.setVsTgLeft(PFJOverviewUtil.formatWithMillion(vsTgLeft.abs()));
 		volume.setVsTgLeftPositive(vsTgLeft.signum() > 0);
-		volume.setVsTgRight(PFJOverviewUtil.formatWithoutMillion(
-				pfjOverviewEntity.getActualVolume().subtract(pfjOverviewEntity.getTargetVolume())
-						.divide(pfjOverviewEntity.getTargetVolume(), 6, RoundingMode.HALF_UP)
-						.multiply(BigDecimal.valueOf(100))));
+		BigDecimal vsTgRight = pfjOverviewEntity.getActualVolume().subtract(pfjOverviewEntity.getTargetVolume())
+								.divide(pfjOverviewEntity.getTargetVolume(), 6, RoundingMode.HALF_UP)
+								.multiply(BigDecimal.valueOf(100))
+								.setScale(1, RoundingMode.HALF_UP);
+		volume.setVsTgRight(vsTgRight.toString());
 
 		BigDecimal vsLyLeft = pfjOverviewEntity.getActualVolume().subtract(pfjOverviewEntity.getActualVolumeLy());
 		volume.setVsLyLeft(PFJOverviewUtil.formatWithMillion(vsLyLeft.abs()));
 		volume.setVsLyLeftPositive(vsLyLeft.signum() > 0);
-		volume.setVsLyRight(PFJOverviewUtil.formatWithoutMillion(
-				pfjOverviewEntity.getActualVolume().subtract(pfjOverviewEntity.getActualVolumeLy())
-						.divide(pfjOverviewEntity.getActualVolumeLy(), 6, RoundingMode.HALF_UP)
-						.multiply(BigDecimal.valueOf(100))));
+		BigDecimal vsLyRight = pfjOverviewEntity.getActualVolume().subtract(pfjOverviewEntity.getActualVolumeLy())
+								.divide(pfjOverviewEntity.getActualVolumeLy(), 6, RoundingMode.HALF_UP)
+								.multiply(BigDecimal.valueOf(100))
+								.setScale(1, RoundingMode.HALF_UP);
+		volume.setVsLyRight(vsLyRight.toString());
 
 		return volume;
 	}
