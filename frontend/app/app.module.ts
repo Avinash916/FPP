@@ -24,6 +24,7 @@ import { UtilityService } from './Helper/utility-service';
 import { TableauComponent } from './Components/tableau/tableau.component';
 
 import { SafePipe } from './Helper/safe-pipe-url';
+import { AuthenticationModule } from './authentication/authentication.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +45,8 @@ import { SafePipe } from './Helper/safe-pipe-url';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpModule, 
+    HttpModule,
+    AuthenticationModule, 
   ],
   providers: [ServiceConsumer,RepositoryService,UtilityService,{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]

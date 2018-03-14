@@ -2,6 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import { ServiceConsumer } from './service-consumer.service';
 import { AppConfig } from './app-config';
 import { environment } from '../environments/environment';
+import { AuthService } from './authentication/auth.service';
 
 
 @Component({
