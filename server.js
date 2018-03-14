@@ -2,6 +2,7 @@ const express = require('express');
 const http = require('http');
 const path = require('path');
 const Heroku = require('heroku-client');
+const compression = require('compression');
 const app = express();
 
 // If an incoming request uses
@@ -21,6 +22,9 @@ const forceSSL = function() {
 // to use the forceSSL
 // middleware
 app.use(forceSSL());
+
+// Gzip
+app.use(compression());
 
 // Run the app by serving the static files
 // in the src/main/resources/static directory
