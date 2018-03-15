@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { SectionContainerComponent } from './Components/section-container/section-container.component';
 import { FooterComponent } from './Components/footer/footer.component';
-import { PfjoverViewComponent } from './Components/pfj-overview/pfjover-view.component';
+import { PfjoverViewComponent } from './Components/pfj-overview/pfj-overview.component';
 import { RetailPricingComponent } from './Components/retail-pricing/retail-pricing.component';
 import { ExecutiveReportingComponent } from './Components/executive-reporting/executive-reporting.component';
 import { CustomerPricingComponent } from './Components/customer-pricing/customer-pricing.component';

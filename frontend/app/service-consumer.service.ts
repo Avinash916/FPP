@@ -3,6 +3,7 @@ import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { AppConfig } from './app-config';
 import { HttpHeaders } from '@angular/common/http';
+import { AuthHttp, tokenNotExpired } from 'angular2-jwt';
 
 @Injectable()
 export class ServiceConsumer {
