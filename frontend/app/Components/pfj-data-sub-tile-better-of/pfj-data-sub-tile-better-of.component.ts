@@ -1,5 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { BetterOf } from '../../Models/pfj-tiles';
+<<<<<<< HEAD
+=======
+import { UtilityService } from '../../Helper/utility-service';
+>>>>>>> ssointegration
 @Component({
   selector: 'app-pfj-data-sub-tile-better-of',
   templateUrl: './pfj-data-sub-tile-better-of.component.html',
@@ -7,6 +11,7 @@ import { BetterOf } from '../../Models/pfj-tiles';
 })
 export class PfjDataSubTileBetterOfComponent implements OnInit {
   @Input() betterOf : BetterOf;
+<<<<<<< HEAD
   constructor() { }
 
   ngOnInit() {
@@ -18,3 +23,10 @@ export class PfjDataSubTileBetterOfComponent implements OnInit {
   }
 
 }
+=======
+  constructor(public utility:UtilityService) { }
+
+  ngOnInit() {
+  }
+ }
+>>>>>>> ssointegration

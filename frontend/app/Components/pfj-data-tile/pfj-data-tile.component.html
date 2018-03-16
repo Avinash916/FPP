@@ -6,6 +6,7 @@
       <div style="min-height: 116px;">
         <div class=dvSticker>
           <div class="dvStickerHeaderLeft"> TOTAL GP$</div>
+<<<<<<< HEAD
           <div class="dvStickerHeaderRight"> 140.4</div>
           <div class="dvStickerContentLeft">
             <div style="padding-top: 10px;">
@@ -16,16 +17,47 @@
               <div>
                 <span class="col-sm-2 spnStickerCenterValVsTg">VS.TG</span>
                 <span class="col-sm-3 spnStickerRightVal">{{roundOffData(dataTile.grossProfitDollars.vsTgRight)}}</span>
+=======
+          <div class="dvStickerHeaderRight">{{dataTile.grossProfitDollars.header}}</div>
+          <div class="dvStickerContentLeft">
+            <div style="padding-top: 10px;">
+              <span class="col-sm-6 spnStickerLeftVal">
+                <ng-container *ngIf="dataTile.grossProfitDollars.vsTgLeft != '0'; else blankContextualHelp">
+                  <img *ngIf="dataTile.grossProfitDollars.vsTgLeftPositive" src='assets/images/up_arrow.png'>
+                  <img *ngIf="!dataTile.grossProfitDollars.vsTgLeftPositive" src='assets/images/down_arrow.png'>
+                </ng-container>
+                <ng-template #blankContextualHelp>
+                  <span class="blnkContextual"></span>
+                </ng-template>
+                {{utility.FormatContextualData(dataTile.grossProfitDollars.vsTgLeft)}}</span>
+              <div>
+                <span class="col-sm-2 spnStickerCenterValVsTg">VS.TG</span>
+                <span class="col-sm-3 spnStickerRightVal">{{dataTile.grossProfitDollars.vsTgRight}}</span>
+>>>>>>> ssointegration
               </div>
             </div>
             <div style="padding-top: 10px;">
               <span class="col-sm-6 spnStickerLeftVal">
+<<<<<<< HEAD
                 <img *ngIf="dataTile.grossProfitDollars.vsLyLeftPositive" src='assets/images/up_arrow.png'>
               <img *ngIf="!dataTile.grossProfitDollars.vsLyLeftPositive" src='assets/images/down_arrow.png'> 
               {{roundOffData(dataTile.grossProfitDollars.vsLyLeft)}}</span>
               <div>
                 <span class="col-sm-2 spnStickerCenterValVsTLy">VS.LY</span>
                 <span class="col-sm-3 spnStickerRightVal">{{roundOffData(dataTile.grossProfitDollars.vsLyRight)}}</span>
+=======
+                <ng-container *ngIf="dataTile.grossProfitDollars.vsLyLeft != '0'; else blankContextualHelp">
+                  <img *ngIf="dataTile.grossProfitDollars.vsLyLeftPositive" src='assets/images/up_arrow.png'>
+                  <img *ngIf="!dataTile.grossProfitDollars.vsLyLeftPositive" src='assets/images/down_arrow.png'>
+                </ng-container>
+                <ng-template #blankContextualHelp>
+                  <span class="blnkContextual"></span>
+                </ng-template>
+                {{utility.FormatContextualData(dataTile.grossProfitDollars.vsLyLeft)}}</span>
+              <div>
+                <span class="col-sm-2 spnStickerCenterValVsTLy">VS.LY</span>
+                <span class="col-sm-3 spnStickerRightVal">{{dataTile.grossProfitDollars.vsLyRight}}</span>
+>>>>>>> ssointegration
               </div>
             </div>
           </div>
@@ -35,6 +67,7 @@
       <div style="min-height: 116px;">
         <div class=dvSticker>
           <div class="dvStickerHeaderLeft"> VOLUME</div>
+<<<<<<< HEAD
           <div class="dvStickerHeaderRight"> 140.4</div>
           <div class="dvStickerContentLeft">
             <div style="padding-top: 10px;">
@@ -45,16 +78,49 @@
               <div>
                 <span class="col-sm-2 spnStickerCenterValVsTg">VS.TG</span>
                 <span class="col-sm-3 spnStickerRightVal">{{roundOffData(dataTile.volume.vsTgRight)}}%</span>
+=======
+          <div class="dvStickerHeaderRight">{{dataTile.volume.header}}</div>
+          <div class="dvStickerContentLeft">
+            <div style="padding-top: 10px;">
+              <span class="col-sm-6 spnStickerLeftVal">
+                <ng-container *ngIf="dataTile.volume.vsTgLeft != '0'; else blankContextualHelp">
+                  <img *ngIf="dataTile.volume.vsTgLeftPositive" src='assets/images/up_arrow.png'>
+                  <img *ngIf="!dataTile.volume.vsTgLeftPositive" src='assets/images/down_arrow.png'>
+                </ng-container>
+                <ng-template #blankContextualHelp>
+                  <span class="blnkContextual"></span>
+                </ng-template>
+                {{utility.FormatContextualData(dataTile.volume.vsTgLeft)}}
+              </span>
+              <div>
+                <span class="col-sm-2 spnStickerCenterValVsTg">VS.TG</span>
+                <span class="col-sm-3 spnStickerRightVal">{{dataTile.volume.vsTgRight}}%</span>
+>>>>>>> ssointegration
               </div>
             </div>
             <div style="padding-top: 10px;">
               <span class="col-sm-6 spnStickerLeftVal">
+<<<<<<< HEAD
               <img *ngIf="dataTile.volume.vsLyLeftPositive" src='assets/images/up_arrow.png'>
               <img *ngIf="!dataTile.volume.vsLyLeftPositive" src='assets/images/down_arrow.png'>
               {{roundOffData(dataTile.volume.vsLyLeft)}}</span>
               <div>
                 <span class="col-sm-2 spnStickerCenterValVsTLy">VS.LY</span>
                 <span class="col-sm-3 spnStickerRightVal">{{roundOffData(dataTile.volume.vsLyRight)}}%</span>
+=======
+                <ng-container *ngIf="dataTile.volume.vsLyLeft != '0'; else blankContextualHelp">
+                  <img *ngIf="dataTile.volume.vsLyLeftPositive" src='assets/images/up_arrow.png'>
+                  <img *ngIf="!dataTile.volume.vsLyLeftPositive" src='assets/images/down_arrow.png'>
+                </ng-container>
+                <ng-template #blankContextualHelp>
+                  <span class="blnkContextual"></span>
+                </ng-template>
+                {{utility.FormatContextualData(dataTile.volume.vsLyLeft)}}
+              </span>
+              <div>
+                <span class="col-sm-2 spnStickerCenterValVsTLy">VS.LY</span>
+                <span class="col-sm-3 spnStickerRightVal">{{dataTile.volume.vsLyRight}}%</span>
+>>>>>>> ssointegration
               </div>
             </div>
           </div>
@@ -67,7 +133,11 @@
         <div>
           <div class="mixPercentageColumns">
             <span style="position: absolute;top:0px;">ACTUAL</span>
+<<<<<<< HEAD
             <span style="position: absolute;bottom:0px;">{{roundOffData(dataTile.mixPercentage.mixActual)}}%</span>
+=======
+            <span style="position: absolute;bottom:0px;">{{dataTile.mixPercentage.mixActual}}%</span>
+>>>>>>> ssointegration
           </div>
 
           <div class="mixPercentageColumns">
@@ -77,7 +147,11 @@
 
           <div class="mixPercentageColumns" style="margin-left: 110px;">
             <span style="position: absolute;top:0px;">TARGET</span>
+<<<<<<< HEAD
             <span style="position: absolute;bottom:0px;">{{roundOffData(dataTile.mixPercentage.mixTarget)}}%</span>
+=======
+            <span style="position: absolute;bottom:0px;">{{dataTile.mixPercentage.mixTarget}}%</span>
+>>>>>>> ssointegration
           </div>
           <div class="mixPercentageColumns" style="margin-left: 111px;">
             <div class="vl"></div>
@@ -85,10 +159,19 @@
           </div>
 
           <div class="mixPercentageColumns" style="margin-left: 186px;">
+<<<<<<< HEAD
             <img *ngIf = "dataTile.mixPercentage.mixVsLyPositive"class="imgMixPercentage" src='assets/images/up_arrow.png'>
             <img *ngIf = "!dataTile.mixPercentage.mixVsLyPositive"class="imgMixPercentage" src='assets/images/down_arrow.png'>
             <span style="position: absolute;top:0px;">VS.LY</span>
             <span style="position: absolute;bottom:0px;">{{roundOffData(dataTile.mixPercentage.mixVsLy)}}%</span>
+=======
+            <ng-container *ngIf="dataTile.mixPercentage.mixVsLy != '0'">
+              <img *ngIf="dataTile.mixPercentage.mixVsLyPositive" class="imgMixPercentage" src='assets/images/up_arrow.png'>
+              <img *ngIf="!dataTile.mixPercentage.mixVsLyPositive" class="imgMixPercentage" src='assets/images/down_arrow.png'>
+            </ng-container>
+            <span style="position: absolute;top:0px;">VS.LY</span>
+            <span style="position: absolute;bottom:0px;">{{utility.FormatContextualData(dataTile.mixPercentage.mixVsLy)}}%</span>
+>>>>>>> ssointegration
           </div>
 
         </div>
@@ -96,6 +179,7 @@
       <div style="min-height: 116px;">
         <div class=dvSticker>
           <div class="dvStickerHeaderLeft"> MARGIN</div>
+<<<<<<< HEAD
           <div class="dvStickerHeaderRight"> 140.4</div>
           <div class="dvStickerContentLeft">
             <div style="padding-top: 10px;">
@@ -106,16 +190,49 @@
               <div>
                 <span class="col-sm-2 spnStickerCenterValVsTg">VS.TG</span>
                 <span class="col-sm-3 spnStickerRightVal">{{roundOffData(dataTile.margin.vsTgRight)}}</span>
+=======
+          <div class="dvStickerHeaderRight">{{dataTile.margin.header}}</div>
+          <div class="dvStickerContentLeft">
+            <div style="padding-top: 10px;">
+              <span class="col-sm-6 spnStickerLeftVal">
+                <ng-container *ngIf="dataTile.margin.vsTgLeft != '0'; else blankContextualHelp">
+                  <img *ngIf="dataTile.margin.vsTgLeftPositive" src='assets/images/up_arrow.png'>
+                  <img *ngIf="!dataTile.margin.vsTgLeftPositive" src='assets/images/down_arrow.png'>
+                </ng-container>
+                <ng-template #blankContextualHelp>
+                  <span class="blnkContextual"></span>
+                </ng-template>
+                {{utility.FormatContextualData(dataTile.margin.vsTgLeft)}}
+              </span>
+              <div>
+                <span class="col-sm-2 spnStickerCenterValVsTg">VS.TG</span>
+                <span class="col-sm-3 spnStickerRightVal">{{dataTile.margin.vsTgRight}}</span>
+>>>>>>> ssointegration
               </div>
             </div>
             <div style="padding-top: 10px;">
               <span class="col-sm-6 spnStickerLeftVal">
+<<<<<<< HEAD
               <img *ngIf="dataTile.margin.vsLyLeftPositive" src='assets/images/up_arrow.png'>
               <img *ngIf="!dataTile.margin.vsLyLeftPositive" src='assets/images/down_arrow.png'>
               {{roundOffData(dataTile.margin.vsLyLeft)}}</span>
               <div>
                 <span class="col-sm-2 spnStickerCenterValVsTLy">VS.LY</span>
                 <span class="col-sm-3 spnStickerRightVal">{{roundOffData(dataTile.margin.vsLyRight)}}</span>
+=======
+                <ng-container *ngIf="dataTile.margin.vsLyLeft != '0'; else blankContextualHelp">
+                  <img *ngIf="dataTile.margin.vsLyLeftPositive" src='assets/images/up_arrow.png'>
+                  <img *ngIf="!dataTile.margin.vsLyLeftPositive" src='assets/images/down_arrow.png'>
+                </ng-container>
+                <ng-template #blankContextualHelp>
+                  <span class="blnkContextual"></span>
+                </ng-template>
+                {{utility.FormatContextualData(dataTile.margin.vsLyLeft)}}
+              </span>
+              <div>
+                <span class="col-sm-2 spnStickerCenterValVsTLy">VS.LY</span>
+                <span class="col-sm-3 spnStickerRightVal">{{dataTile.margin.vsLyRight}}</span>
+>>>>>>> ssointegration
               </div>
             </div>
           </div>
@@ -124,6 +241,7 @@
 
       <ng-container *ngIf='dataTileName == "BETTER OF"'>
         <div class="dvStickerDevider"></div>
+<<<<<<< HEAD
         <app-pfj-data-sub-tile-better-of [betterOf] = dataTile></app-pfj-data-sub-tile-better-of>
       </ng-container>
 
@@ -131,6 +249,15 @@
           <div class="dvStickerDevider"></div>
           <app-pfj-data-sub-tile-retail-minus [retailMinus] = dataTile></app-pfj-data-sub-tile-retail-minus>
         </ng-container>
+=======
+        <app-pfj-data-sub-tile-better-of [betterOf]=dataTile></app-pfj-data-sub-tile-better-of>
+      </ng-container>
+
+      <ng-container *ngIf='dataTileName == "RETAIL MINUS"'>
+        <div class="dvStickerDevider"></div>
+        <app-pfj-data-sub-tile-retail-minus [retailMinus]=dataTile></app-pfj-data-sub-tile-retail-minus>
+      </ng-container>
+>>>>>>> ssointegration
 
     </div>
   </div>

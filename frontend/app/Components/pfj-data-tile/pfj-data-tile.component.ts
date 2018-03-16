@@ -1,4 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
+<<<<<<< HEAD
+=======
+import { UtilityService } from '../../Helper/utility-service';
+>>>>>>> ssointegration
 
 
 @Component({
@@ -11,6 +15,7 @@ export class PfjDataTileComponent implements OnInit {
   @Input() dataTile : any;
   @Input() isRequiredSubTile:boolean;
   @Input() arrItemsSubTile
+<<<<<<< HEAD
   constructor() { }
 
   ngOnInit() {
@@ -21,4 +26,10 @@ export class PfjDataTileComponent implements OnInit {
     data = data.toString().trim().replace("-","");
     return parseFloat(data).toFixed(2);
   }
+=======
+  constructor(public utility:UtilityService) { }
+
+  ngOnInit() {
+  } 
+>>>>>>> ssointegration
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package com.pilot.main.pilotrepo.repo;
 
 import org.springframework.data.querydsl.QueryDslPredicateExecutor;
@@ -9,4 +10,17 @@ public interface FctDmCompanyLevelActualVsTargetRepo
 		extends CrudRepository<FctDmCompanyLevelActualVsTargetEntity, Long>,
 		QueryDslPredicateExecutor<FctDmCompanyLevelActualVsTargetEntity> {
 
+=======
+package com.pilot.main.pilotrepo.repo;
+
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
+import org.springframework.data.repository.CrudRepository;
+
+import com.pilot.main.pilotrepo.entity.FctDmCompanyLevelActualVsTargetEntity;
+
+public interface FctDmCompanyLevelActualVsTargetRepo
+		extends CrudRepository<FctDmCompanyLevelActualVsTargetEntity, Long>,
+		QuerydslPredicateExecutor<FctDmCompanyLevelActualVsTargetEntity> {
+
+>>>>>>> ssointegration
 }

@@ -1,0 +1,85 @@
+<div class="container-fluid" style="position: absolute;left:2%">
+  <div class="row">
+    <div class="customer-pricing" style="width: 1315px">PFJ OVERVIEW
+      <span *ngIf="selectedCustPricingDetails != null" style="margin-left: 15px;color: #CECED1">Last Closed Period:
+        <span style="color:#1286AB;">{{selectedCustPricingDetails.dimPlPeriodDateId}} (in MM)</span>
+      </span>
+      <div style="float: right;margin-right:22px;font-size: 14px;color: #CECED1">
+
+
+        <input type="radio" (click)="ProcessSelectedCustomerPricingDetails('MTD')" id="ddlMTD" name="toggleDataPeriod" [checked]="this.repository.selectedDataPeriod == 'MTD'">
+        <label style="margin: 0 5px 0 10px;" for="ddlMTD">MTD</label>
+        <input type="radio" (click)="ProcessSelectedCustomerPricingDetails('LCM')" id="ddlLCM" name="toggleDataPeriod" [checked]="this.repository.selectedDataPeriod == 'LCM'">
+        <label style="margin: 0 5px 0 10px;" for="ddlLCM">LCM</label>
+        <input type="radio" (click)="ProcessSelectedCustomerPricingDetails('LCYTD')" id="ddlLCYTD" name="toggleDataPeriod" [checked]="this.repository.selectedDataPeriod == 'LCYTD'">
+        <label style="margin: 0 5px 0 10px;" for="ddlLCYTD">LCYTD</label>
+
+      </div>
+    </div>
+    <!--PFJ total section -->
+    <ng-container *ngIf="selectedCustPricingDetails != null">
+      <app-pfj-total [pfjTotal]="selectedCustPricingDetails.pfjTotal"></app-pfj-total>
+      <!-- Tableu map-->
+      <div style="float:left;">
+        <div class="dvStickerHeaderCap" style="width: 507px;"></div>
+        <div class="dvStickerHeader" style="width: 507px;">{{this.repository.selectedTableauFilter}}
+          <a (click)="OpenFullMap()" style="float: right;margin-right: 10px;cursor: pointer;">Click here to open full map</a>
+        </div>
+        <div class="dvStickerContainer">
+          <div class="dvTableauMap"></div>
+          <!--<ng-container *ngFor="let tableauUrl of this.repository.arrTableauViewByDataPeriod">
+            {{tableauUrl.split('~')[1]}}
+          <app-tableau [style.display]="tableauUrl.split('~')[1]=='true' ? 'block' : 'none'"  [viewUrl]="tableauUrl.split('~')[0]"
+          [configTableau]="['toolbar=yes','tabs=no',
+          'display_count=no',
+          'showAppBanner=false',
+          'showVizHome=no',
+          'iframeSizedToWindow=true',
+          'embed=y']
+          "></app-tableau>
+          </ng-container>-->
+          <app-tableau [viewUrl]="this.repository.selectedTableauView" [configTableau]="['toolbar=no','tabs=no',
+            'display_count=no',
+            'showAppBanner=false',
+            'showVizHome=no',
+            'iframeSizedToWindow=true',
+            'embed=y']
+            "></app-tableau>
+        </div>
+      </div>
+
+      <!--Choose view-->
+      <div style="float:left;">
+        <div class="dvStickerHeaderCapSmall" style="width: 243px;"></div>
+        <div class="dvStickerHeaderSmall" style="width: 243px;">CHOOSE VIEW</div>
+        <div class="dvStickerContainer" style="width: 243px;">
+          <div class="dvTableauMapFilter" style="width: 243px;font-size: 12px;">
+            <div class="chooseViewRadioButtonsDiv">
+              <input type="radio" (click)="ToggleTableau('GROSS PROFIT $','GrossProfitMap','GrossProfitDashboard')" id="ddlGrossProfitTableau"
+                name="tableauFilter" [checked]="this.repository.selectedTableauFilter == 'GROSS PROFIT $'">
+              <label for="ddlGrossProfitTableau">GROSS PROFIT $</label>
+            </div>
+            <div class="chooseViewRadioButtonsDiv">
+              <input type="radio" (click)="ToggleTableau('VOLUME','GallonsMap','GallonsDashboard')" id="ddlVolumeTableau" name="tableauFilter"
+                [checked]="this.repository.selectedTableauFilter == 'VOLUME'">
+              <label for="ddlVolumeTableau">VOLUME</label>
+            </div>
+            <div class="chooseViewRadioButtonsDiv">
+              <input type="radio" (click)="ToggleTableau('MARGIN','MarginMap','MarginDashboard')" id="ddlMarginTableau" name="tableauFilter"
+                [checked]="this.repository.selectedTableauFilter == 'MARGIN'">
+              <label for="ddlMarginTableau">MARGIN</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-bottom: 5px;float:left;width:100%"></div>
+      <app-pfj-data-tile [dataTileName]="'BETTER OF'" [dataTile]="selectedCustPricingDetails.betterOf" [isRequiredSubTile]="true"></app-pfj-data-tile>
+      <app-pfj-data-tile [dataTileName]="'TOTAL RETAIL'" [dataTile]="selectedCustPricingDetails.totalRetail"></app-pfj-data-tile>
+      <app-pfj-data-tile [dataTileName]="'RETAIL MINUS'" [dataTile]="selectedCustPricingDetails.retailMinus" [isRequiredSubTile]="true"></app-pfj-data-tile>
+      <app-pfj-data-tile [dataTileName]="'FUNDED'" [dataTile]="selectedCustPricingDetails.funded"></app-pfj-data-tile>
+      <app-pfj-data-tile [dataTileName]="'CCC'" [dataTile]="selectedCustPricingDetails.ccc"></app-pfj-data-tile>
+
+    </ng-container>
+    <div style="margin-bottom: 20px;float:left;width:100%"></div>
+  </div>
+</div>

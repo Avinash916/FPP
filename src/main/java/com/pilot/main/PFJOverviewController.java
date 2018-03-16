@@ -10,7 +10,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+<<<<<<< HEAD
 import com.pilot.main.pilotservice.pojo.PFJOverviewDetail;
+=======
+import com.pilot.main.pilotservice.pojo.PFJOverview;
+>>>>>>> ssointegration
 import com.pilot.main.pilotservice.service.PFJOverviewService;
 
 @RestController
@@ -21,16 +25,29 @@ public class PFJOverviewController {
 	private static final Logger logger = LoggerFactory.getLogger(PFJOverviewController.class);
 
 	@Autowired
+<<<<<<< HEAD
 	PFJOverviewService customerPricingService;
 
 	/**
 	 * Get details for Customer Pricing screen
+=======
+	PFJOverviewService pfjOverviewService;
+
+	/**
+	 * Get PFJ Overview Dashboard
+>>>>>>> ssointegration
 	 * 
 	 * @return
 	 */
 	@GetMapping(path = "/getdashboard")
+<<<<<<< HEAD
 	public List<PFJOverviewDetail> getAllNotes() {
 		logger.info("---in Customer Pricing Controller ---");
 		return customerPricingService.fetchPFJOverviewDetails();
+=======
+	public List<PFJOverview> getPFJOVerviewDashboard() {
+		logger.info("---in Customer Pricing Controller ---");
+		return pfjOverviewService.fetchPFJOverviewDetails();
+>>>>>>> ssointegration
 	}
 }

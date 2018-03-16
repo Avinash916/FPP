@@ -1,14 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+<<<<<<< HEAD
 import { PfjoverViewComponent } from './Components/pfjover-view/pfjover-view.component';
+=======
+import { PfjoverViewComponent } from './Components/pfj-overview/pfjover-view.component';
+>>>>>>> ssointegration
 import { RetailPricingComponent } from './Components/retail-pricing/retail-pricing.component';
 import { ExecutiveReportingComponent } from './Components/executive-reporting/executive-reporting.component';
 import { CustomerPricingComponent } from './Components/customer-pricing/customer-pricing.component';
 
 const appRoutes: Routes = [
+<<<<<<< HEAD
     {path: '', redirectTo: '/pfjover-view',pathMatch: 'full'},
     { path: '', component: PfjoverViewComponent},
     { path: 'pfjover-view', component: PfjoverViewComponent },
+=======
+    { path: '', redirectTo: '/pfj-overview',pathMatch: 'full'},
+    { path: '', component: PfjoverViewComponent},
+    { path: 'pfj-overview', component: PfjoverViewComponent },
+>>>>>>> ssointegration
     { path: 'retail-pricing', component: RetailPricingComponent },
     { path: 'executive-reporting', component: ExecutiveReportingComponent },
     { path: 'customer-pricing', component: CustomerPricingComponent },

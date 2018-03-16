@@ -1,5 +1,7 @@
-const path = require('path');
 const express = require('express');
+const http = require('http');
+const path = require('path');
+const Heroku = require('heroku-client');
 const app = express();
 
 // If an incoming request uses
@@ -32,4 +34,8 @@ app.get('/*', function(req, res) {
 
 // Start the app by listening on the default
 // Heroku port
-app.listen(process.env.PORT || 8080);
+var port = process.env.PORT || 8080;
+app.listen(port, function () {
+  console.log('app listening on port ' + port + '!');
+});
+

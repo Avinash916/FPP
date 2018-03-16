@@ -9,7 +9,11 @@
       "outDir": "src/main/resources/static",
       "assets": [
         "assets",
+<<<<<<< HEAD
         "pilotflyingj_favicon.ico",
+=======
+        "favicon.ico",
+>>>>>>> ssointegration
         "images"
       ],
       "index": "index.html",
@@ -22,12 +26,17 @@
       "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "styles.css"
+<<<<<<< HEAD
+=======
       ],
-      "scripts": [],
+      "scripts": [
+>>>>>>> ssointegration
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
-        "prod": "environments/environment.prod.ts"
+        "staging": "environments/environment.staging.ts",
+        "production": "environments/environment.prod.ts"
       }
     }
   ],
