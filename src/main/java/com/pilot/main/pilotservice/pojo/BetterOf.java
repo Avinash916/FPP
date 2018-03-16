@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 package com.pilot.main.pilotservice.pojo;
 
 import java.io.Serializable;
@@ -103,6 +104,14 @@ public class BetterOf implements Serializable {
 package com.pilot.main.pilotservice.pojo;
 
 import java.io.Serializable;
+=======
+package com.pilot.main.pilotservice.pojo;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+
+import com.pilot.main.pilotservice.util.PFJOverviewUtil;
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1
 
 public class BetterOf implements Serializable {
 
@@ -119,6 +128,7 @@ public class BetterOf implements Serializable {
 
 	private MixPercentage mixPercentage;
 
+<<<<<<< HEAD
 	private String buyingPerfActual;
 
 	private String buyingPerfTarget;
@@ -126,6 +136,15 @@ public class BetterOf implements Serializable {
 	private String effPumpFeeActual;
 
 	private String effPumpFeeTarget;
+=======
+	private BigDecimal buyingPerfActual;
+
+	private BigDecimal buyingPerfTarget;
+
+	private BigDecimal effPumpFeeActual;
+
+	private BigDecimal effPumpFeeTarget;
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1
 
 	public GrossProfitDollars getGrossProfitDollars() {
 		return grossProfitDollars;
@@ -159,6 +178,7 @@ public class BetterOf implements Serializable {
 		this.mixPercentage = mixPercentage;
 	}
 
+<<<<<<< HEAD
 	public String getBuyingPerfActual() {
 		return buyingPerfActual;
 	}
@@ -189,14 +209,51 @@ public class BetterOf implements Serializable {
 
 	public void setEffPumpFeeTarget(String effPumpFeeTarget) {
 		this.effPumpFeeTarget = effPumpFeeTarget;
+=======
+	public BigDecimal getBuyingPerfActual() {
+		return buyingPerfActual;
+	}
+
+	public void setBuyingPerfActual(BigDecimal buyingPerfActual) {
+		this.buyingPerfActual = PFJOverviewUtil.formatMillionNumbers(buyingPerfActual);
+	}
+
+	public BigDecimal getBuyingPerfTarget() {
+		return buyingPerfTarget;
+	}
+
+	public void setBuyingPerfTarget(BigDecimal buyingPerfTarget) {
+		this.buyingPerfTarget = PFJOverviewUtil.formatMillionNumbers(buyingPerfTarget);
+	}
+
+	public BigDecimal getEffPumpFeeActual() {
+		return effPumpFeeActual;
+	}
+
+	public void setEffPumpFeeActual(BigDecimal effPumpFeeActual) {
+		this.effPumpFeeActual = PFJOverviewUtil.formatMillionNumbers(effPumpFeeActual);
+	}
+
+	public BigDecimal getEffPumpFeeTarget() {
+		return effPumpFeeTarget;
+	}
+
+	public void setEffPumpFeeTarget(BigDecimal effPumpFeeTarget) {
+		this.effPumpFeeTarget = PFJOverviewUtil.formatMillionNumbers(effPumpFeeTarget);
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1
 	}
 
 	@Override
 	public String toString() {
 		return "BetterOf [grossProfitDollars=" + grossProfitDollars + ", volume=" + volume + ", margin=" + margin
 				+ ", mixPercentage=" + mixPercentage + ", buyingPerfActual=" + buyingPerfActual + ", buyingPerfTarget="
+<<<<<<< HEAD
 				+ buyingPerfTarget + ", effPumpFeeActual=" + effPumpFeeActual + ", effPumpFeeTarget=" + effPumpFeeTarget
 				+ "]";
 	}
 >>>>>>> ssointegration
+=======
+				+ buyingPerfTarget + ", effPumpActual=" + effPumpFeeActual + ", effPumpTarget=" + effPumpFeeTarget + "]";
+	}
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1
 }

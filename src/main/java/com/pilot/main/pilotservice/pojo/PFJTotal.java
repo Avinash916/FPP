@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 package com.pilot.main.pilotservice.pojo;
 
 import java.io.Serializable;
@@ -72,6 +73,14 @@ public class PFJTotal implements Serializable {
 package com.pilot.main.pilotservice.pojo;
 
 import java.io.Serializable;
+=======
+package com.pilot.main.pilotservice.pojo;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+
+import com.pilot.main.pilotservice.util.PFJOverviewUtil;
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1
 
 public class PFJTotal implements Serializable {
 	
@@ -86,9 +95,15 @@ public class PFJTotal implements Serializable {
 	
 	private Margin margin;
 	
+<<<<<<< HEAD
 	private String totalGAL;
 	
 	private String totalTarget;
+=======
+	private BigDecimal totalGAL;
+	
+	private BigDecimal totalTarget;
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1
 
 	public GrossProfitDollars getGrossProfitDollars() {
 		return grossProfitDollars;
@@ -114,6 +129,7 @@ public class PFJTotal implements Serializable {
 		this.margin = margin;
 	}
 
+<<<<<<< HEAD
 	public String getTotalGAL() {
 		return totalGAL;
 	}
@@ -128,6 +144,22 @@ public class PFJTotal implements Serializable {
 
 	public void setTotalTarget(String totalTarget) {
 		this.totalTarget = totalTarget;
+=======
+	public BigDecimal getTotalGAL() {
+		return totalGAL;
+	}
+
+	public void setTotalGAL(BigDecimal totalGAL) {
+		this.totalGAL = PFJOverviewUtil.formatMillionNumbers(totalGAL);
+	}
+
+	public BigDecimal getTotalTarget() {
+		return totalTarget;
+	}
+
+	public void setTotalTarget(BigDecimal totalTarget) {
+		this.totalTarget = PFJOverviewUtil.formatMillionNumbers(totalTarget);
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1
 	}
 
 	@Override
@@ -135,5 +167,8 @@ public class PFJTotal implements Serializable {
 		return "PFJTotal [grossProfitDollars=" + grossProfitDollars + ", volume=" + volume + ", margin=" + margin
 				+ ", totalGAL=" + totalGAL + ", totalTarget=" + totalTarget + "]";
 	}
+<<<<<<< HEAD
 >>>>>>> ssointegration
+=======
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1
 }

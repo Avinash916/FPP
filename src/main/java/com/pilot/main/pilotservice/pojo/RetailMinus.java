@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 package com.pilot.main.pilotservice.pojo;
 
 import java.io.Serializable;
@@ -83,6 +84,14 @@ public class RetailMinus implements Serializable {
 package com.pilot.main.pilotservice.pojo;
 
 import java.io.Serializable;
+=======
+package com.pilot.main.pilotservice.pojo;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+
+import com.pilot.main.pilotservice.util.PFJOverviewUtil;
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1
 
 public class RetailMinus implements Serializable {
 
@@ -99,9 +108,15 @@ public class RetailMinus implements Serializable {
 	
 	private MixPercentage mixPercentage;
 	
+<<<<<<< HEAD
 	private String rmDiscountActual;
 	
 	private String rmDiscountTarget;
+=======
+	private BigDecimal rmDiscountActual;
+	
+	private BigDecimal rmDiscountTarget;
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1
 
 	public GrossProfitDollars getGrossProfitDollars() {
 		return grossProfitDollars;
@@ -135,6 +150,7 @@ public class RetailMinus implements Serializable {
 		this.mixPercentage = mixPercentage;
 	}
 
+<<<<<<< HEAD
 	public String getRmDiscountActual() {
 		return rmDiscountActual;
 	}
@@ -149,6 +165,22 @@ public class RetailMinus implements Serializable {
 
 	public void setRmDiscountTarget(String rmDiscountTarget) {
 		this.rmDiscountTarget = rmDiscountTarget;
+=======
+	public BigDecimal getRmDiscountActual() {
+		return rmDiscountActual;
+	}
+
+	public void setRmDiscountActual(BigDecimal rmDiscountActual) {
+		this.rmDiscountActual = PFJOverviewUtil.formatMillionNumbers(rmDiscountActual);
+	}
+
+	public BigDecimal getRmDiscountTarget() {
+		return rmDiscountTarget;
+	}
+
+	public void setRmDiscountTarget(BigDecimal rmDiscountTarget) {
+		this.rmDiscountTarget = PFJOverviewUtil.formatMillionNumbers(rmDiscountTarget);
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1
 	}
 
 	@Override
@@ -157,5 +189,8 @@ public class RetailMinus implements Serializable {
 				+ ", mixPercentage=" + mixPercentage + ", rmDiscountActual=" + rmDiscountActual + ", rmDiscountTarget="
 				+ rmDiscountTarget + "]";
 	}
+<<<<<<< HEAD
 >>>>>>> ssointegration
+=======
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1
 }

@@ -2,11 +2,16 @@ package com.pilot.main.pilotservice.service;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+<<<<<<< HEAD:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 <<<<<<< HEAD
 =======
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 >>>>>>> ssointegration
+=======
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,26 +25,36 @@ import com.pilot.main.pilotrepo.entity.QFctDmCompanyLevelActualVsTargetEntity;
 import com.pilot.main.pilotrepo.repo.FctDmCompanyLevelActualVsTargetRepo;
 import com.pilot.main.pilotservice.pojo.BetterOf;
 import com.pilot.main.pilotservice.pojo.CCC;
+<<<<<<< HEAD:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 <<<<<<< HEAD
 import com.pilot.main.pilotservice.pojo.PFJOverviewDetail;
 =======
 >>>>>>> ssointegration
+=======
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 import com.pilot.main.pilotservice.pojo.Funded;
 import com.pilot.main.pilotservice.pojo.GrossProfitDollars;
 import com.pilot.main.pilotservice.pojo.Margin;
 import com.pilot.main.pilotservice.pojo.MixPercentage;
+<<<<<<< HEAD:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 <<<<<<< HEAD
 =======
 import com.pilot.main.pilotservice.pojo.PFJOverview;
 >>>>>>> ssointegration
+=======
+import com.pilot.main.pilotservice.pojo.PFJOverview;
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 import com.pilot.main.pilotservice.pojo.PFJTotal;
 import com.pilot.main.pilotservice.pojo.RetailMinus;
 import com.pilot.main.pilotservice.pojo.TotalRetail;
 import com.pilot.main.pilotservice.pojo.Volume;
+<<<<<<< HEAD:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 <<<<<<< HEAD
 =======
 import com.pilot.main.pilotservice.util.PFJOverviewUtil;
 >>>>>>> ssointegration
+=======
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 
 @Service
 public class PFJOverviewService {
@@ -49,6 +64,7 @@ public class PFJOverviewService {
 	@Autowired
 	FctDmCompanyLevelActualVsTargetRepo fctDmCompanyLevelActualVsTargetRepo;
 
+<<<<<<< HEAD:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 <<<<<<< HEAD
 	public List<PFJOverviewDetail> fetchPFJOverviewDetails() {
 =======
@@ -57,6 +73,9 @@ public class PFJOverviewService {
 
 	public List<PFJOverview> fetchPFJOverviewDetails() {
 >>>>>>> ssointegration
+=======
+	public List<PFJOverview> fetchPFJOverviewDetails() {
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 		logger.info("---in Customer Pricing Service ---");
 
 		/*
@@ -64,11 +83,14 @@ public class PFJOverviewService {
 		 */
 		List<FctDmCompanyLevelActualVsTargetEntity> mtdEntities = findEntitiesByTemporalPeriod("MTD");
 		logger.info("Found MTD type rows ---> " + mtdEntities.size());
+<<<<<<< HEAD:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 <<<<<<< HEAD
 		PFJOverviewDetail PFJOverviewDetailMTD = populatePFJOverviewDetail(mtdEntities);
 		PFJOverviewDetailMTD.setTemporalPeriod("MTD");
 		PFJOverviewDetailMTD.setDimPlPeriodDateId(mtdEntities.get(0).getDimPlPeriodDateId());
 =======
+=======
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 		PFJOverview pfjOverviewDetailsMTD = populatePFJOverviewDetail(mtdEntities);
 		pfjOverviewDetailsMTD.setTemporalPeriod("MTD");
 
@@ -79,13 +101,18 @@ public class PFJOverviewService {
 		DateTimeFormatter outputformat = DateTimeFormatter.ofPattern("MMMM yyyy");
 		
 		pfjOverviewDetailsMTD.setDimPlPeriodDateId(dateTime.format(outputformat));
+<<<<<<< HEAD:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 >>>>>>> ssointegration
+=======
+		logger.info("MTD UI POJO Value  ---> " + pfjOverviewDetailsMTD);
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 
 		/*
 		 * UI data generation for LCM filter
 		 */
 		List<FctDmCompanyLevelActualVsTargetEntity> lcmEntities = findEntitiesByTemporalPeriod("LCM");
 		logger.info("Found LCM type rows ---> " + lcmEntities.size());
+<<<<<<< HEAD:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 <<<<<<< HEAD
 		PFJOverviewDetail PFJOverviewDetailLCM = populatePFJOverviewDetail(lcmEntities);
 		PFJOverviewDetailLCM.setTemporalPeriod("LCM");
@@ -95,12 +122,19 @@ public class PFJOverviewService {
 		pfjOverviewDetailsLCM.setTemporalPeriod("LCM");
 		pfjOverviewDetailsLCM.setDimPlPeriodDateId(dateTime.format(outputformat));
 >>>>>>> ssointegration
+=======
+		PFJOverview pfjOverviewDetailsLCM = populatePFJOverviewDetail(lcmEntities);
+		pfjOverviewDetailsLCM.setTemporalPeriod("LCM");
+		pfjOverviewDetailsLCM.setDimPlPeriodDateId(dateTime.format(outputformat));
+		logger.info("LCM UI POJO Value  ---> " + pfjOverviewDetailsLCM);
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 
 		/*
 		 * UI data generation for LCYTD filter
 		 */
 		List<FctDmCompanyLevelActualVsTargetEntity> lcytdEntities = findEntitiesByTemporalPeriod("LCYTD");
 		logger.info("Found LCYTD type rows ---> " + lcytdEntities.size());
+<<<<<<< HEAD:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 <<<<<<< HEAD
 		PFJOverviewDetail PFJOverviewDetailLCYTD = populatePFJOverviewDetail(lcytdEntities);
 		PFJOverviewDetailLCYTD.setTemporalPeriod("LCYTD");
@@ -120,6 +154,12 @@ public class PFJOverviewService {
 		PFJOverview pfjOverviewDetailsLCYTD = populatePFJOverviewDetail(lcytdEntities);
 		pfjOverviewDetailsLCYTD.setTemporalPeriod("LCYTD");
 		pfjOverviewDetailsLCYTD.setDimPlPeriodDateId(dateTime.format(outputformat));
+=======
+		PFJOverview pfjOverviewDetailsLCYTD = populatePFJOverviewDetail(lcytdEntities);
+		pfjOverviewDetailsLCYTD.setTemporalPeriod("LCYTD");
+		pfjOverviewDetailsLCYTD.setDimPlPeriodDateId(dateTime.format(outputformat));
+		logger.info("LCYTD UI POJO Value  ---> " + pfjOverviewDetailsLCYTD);
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 
 		List<PFJOverview> pfjOverviewDetailss = new ArrayList<PFJOverview>();
 		pfjOverviewDetailss.add(pfjOverviewDetailsMTD);
@@ -129,6 +169,7 @@ public class PFJOverviewService {
 		return pfjOverviewDetailss;
 	}
 
+<<<<<<< HEAD:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 	private List<FctDmCompanyLevelActualVsTargetEntity> findEntitiesByTemporalPeriod(String temporalPeriod) {
 		return (List<FctDmCompanyLevelActualVsTargetEntity>) fctDmCompanyLevelActualVsTargetRepo
 				.findAll(QFctDmCompanyLevelActualVsTargetEntity.fctDmCompanyLevelActualVsTargetEntity.fctDmCompanyLevelActualVsTargetId.temporalPeriod.eq(temporalPeriod));
@@ -137,6 +178,10 @@ public class PFJOverviewService {
 	private PFJOverview populatePFJOverviewDetail(List<FctDmCompanyLevelActualVsTargetEntity> fctDmCompanyLevelActualVsTargetEntities) {
 		PFJOverview pfjOverviewDetails = new PFJOverview();
 >>>>>>> ssointegration
+=======
+	private PFJOverview populatePFJOverviewDetail(List<FctDmCompanyLevelActualVsTargetEntity> fctDmCompanyLevelActualVsTargetEntities) {
+		PFJOverview pfjOverviewDetails = new PFJOverview();
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 		
 		/*
 		 * MIX_OF_BUSINESS entities
@@ -149,7 +194,10 @@ public class PFJOverviewService {
 		FctDmCompanyLevelActualVsTargetEntity cccEntity = null;
 		
 		for (FctDmCompanyLevelActualVsTargetEntity fctDmCompanyLevelActualVsTargetEntity : fctDmCompanyLevelActualVsTargetEntities) {
+<<<<<<< HEAD:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 <<<<<<< HEAD
+=======
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 			
 			if (fctDmCompanyLevelActualVsTargetEntity.getFctDmCompanyLevelActualVsTargetId().getMixOfBusiness().equalsIgnoreCase("TOTAL")) {
 				pfjTotalEntity = fctDmCompanyLevelActualVsTargetEntity;
@@ -169,37 +217,66 @@ public class PFJOverviewService {
 		/*
 		 * Populate PFJTotal
 		 */
+<<<<<<< HEAD:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 		populatePFJTotal(PFJOverviewDetail, pfjTotalEntity);
+=======
+		populatePFJTotal(pfjOverviewDetails, pfjTotalEntity);
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 		
 		/*
 		 * Populate BetterOf
 		 */
+<<<<<<< HEAD:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 		populateBetterOf(PFJOverviewDetail, betterOfEntity, pfjTotalEntity);
+=======
+		populateBetterOf(pfjOverviewDetails, betterOfEntity, pfjTotalEntity);
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 		
 		/*
 		 * Populate TotalRetail
 		 */
+<<<<<<< HEAD:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 		populateTotalRetail(PFJOverviewDetail, totalRetailEntity, pfjTotalEntity);
+=======
+		populateTotalRetail(pfjOverviewDetails, totalRetailEntity, pfjTotalEntity);
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 		
 		/*
 		 * Populate RetailMinus
 		 */
+<<<<<<< HEAD:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 		populateRetailMinus(PFJOverviewDetail, retailMinusEntity, pfjTotalEntity);
+=======
+		populateRetailMinus(pfjOverviewDetails, retailMinusEntity, pfjTotalEntity);
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 		
 		/*
 		 * Populate Funded
 		 */
+<<<<<<< HEAD:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 		populateFunded(PFJOverviewDetail, fundedEntity, pfjTotalEntity);
+=======
+		populateFunded(pfjOverviewDetails, fundedEntity, pfjTotalEntity);
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 		
 		/*
 		 * Populate CCC
 		 */
+<<<<<<< HEAD:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 		populateCCC(PFJOverviewDetail, cccEntity, pfjTotalEntity);
 		
 		return PFJOverviewDetail;
 	}
 
 	private void populatePFJTotal(PFJOverviewDetail PFJOverviewDetail, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
+=======
+		populateCCC(pfjOverviewDetails, cccEntity, pfjTotalEntity);
+		
+		return pfjOverviewDetails;
+	}
+
+	private void populatePFJTotal(PFJOverview pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 		GrossProfitDollars grossProfitDollars = new GrossProfitDollars();
 		grossProfitDollars.setHeader(pfjTotalEntity.getActualProfitNetOfDiscounts());
 		grossProfitDollars.setVsTgLeft(pfjTotalEntity.getActualProfitNetOfDiscounts().subtract(pfjTotalEntity.getTargetProfitNetOfDiscounts()));
@@ -233,6 +310,7 @@ public class PFJOverviewService {
 		// margin.setVsLyLeft(margin.getVsLyLeft().abs());
 		margin.setVsLyRight(pfjTotalEntity.getActualMarginNetOfDiscountsLy());
 		
+<<<<<<< HEAD:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 =======
 
 			if (fctDmCompanyLevelActualVsTargetEntity.getFctDmCompanyLevelActualVsTargetId().getMixOfBusiness().equalsIgnoreCase("TOTAL")) {
@@ -295,10 +373,13 @@ public class PFJOverviewService {
 		Margin margin = populateMarginTile(pfjTotalEntity);
 
 >>>>>>> ssointegration
+=======
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 		PFJTotal pfjTotal = new PFJTotal();
 		pfjTotal.setGrossProfitDollars(grossProfitDollars);
 		pfjTotal.setVolume(volume);
 		pfjTotal.setMargin(margin);
+<<<<<<< HEAD:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 <<<<<<< HEAD
 		pfjTotal.setTotalGAL(pfjTotalEntity.getActualVolumeLy());
 		pfjTotal.setTotalTarget(pfjTotalEntity.getTargetVolume());
@@ -308,6 +389,15 @@ public class PFJOverviewService {
 
 	private void populateBetterOf(PFJOverviewDetail PFJOverviewDetail, 
 			FctDmCompanyLevelActualVsTargetEntity betterOfEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
+=======
+		pfjTotal.setTotalGAL(pfjTotalEntity.getActualVolumeLy());
+		pfjTotal.setTotalTarget(pfjTotalEntity.getTargetVolume());
+		
+		pfjOverviewDetails.setpFJTotal(pfjTotal);
+	}
+
+	private void populateBetterOf(PFJOverview pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity betterOfEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 		GrossProfitDollars grossProfitDollars = new GrossProfitDollars();
 		grossProfitDollars.setHeader(betterOfEntity.getActualProfitNetOfDiscounts());
 		grossProfitDollars.setVsTgLeft(betterOfEntity.getActualProfitNetOfDiscounts().subtract(betterOfEntity.getTargetProfitNetOfDiscounts()));
@@ -351,6 +441,7 @@ public class PFJOverviewService {
 		mixPercentage.setMixVsLyPositive(mixPercentage.getMixVsLy().signum() > 0);
 		// mixPercentage.setMixVsLy(mixPercentage.getMixVsLy().abs());
 		
+<<<<<<< HEAD:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 =======
 		pfjTotal.setTotalGAL(PFJOverviewUtil.formatWithMillion(pfjTotalEntity.getActualVolume()));
 		pfjTotal.setTotalTarget(PFJOverviewUtil.formatWithMillion(pfjTotalEntity.getTargetVolume()));
@@ -366,21 +457,33 @@ public class PFJOverviewService {
 		MixPercentage mixPercentage = populateMixPercentageTile(betterOfEntity, pfjTotalEntity);
 
 >>>>>>> ssointegration
+=======
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 		BetterOf betterOf = new BetterOf();
 		betterOf.setGrossProfitDollars(grossProfitDollars);
 		betterOf.setVolume(volume);
 		betterOf.setMargin(margin);
 		betterOf.setMixPercentage(mixPercentage);
+<<<<<<< HEAD:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 <<<<<<< HEAD
+=======
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 		betterOf.setBuyingPerfActual(betterOfEntity.getActualBuyingPerformance());
 		betterOf.setBuyingPerfTarget(betterOfEntity.getTargetBuyingPerformance());
 		betterOf.setEffPumpFeeActual(betterOfEntity.getActualEffectivePumpFee());
 		betterOf.setEffPumpFeeTarget(betterOfEntity.getTargetEffectivePumpFee());
 		
+<<<<<<< HEAD:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 		PFJOverviewDetail.setBetterOf(betterOf);
 	}
 
 	private void populateTotalRetail(PFJOverviewDetail PFJOverviewDetail, FctDmCompanyLevelActualVsTargetEntity totalRetailEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
+=======
+		pfjOverviewDetails.setBetterOf(betterOf);
+	}
+
+	private void populateTotalRetail(PFJOverview pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity totalRetailEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 		GrossProfitDollars grossProfitDollars = new GrossProfitDollars();
 		grossProfitDollars.setHeader(totalRetailEntity.getActualProfitNetOfDiscounts());
 		grossProfitDollars.setVsTgLeft(totalRetailEntity.getActualProfitNetOfDiscounts().subtract(totalRetailEntity.getTargetProfitNetOfDiscounts()));
@@ -425,6 +528,7 @@ public class PFJOverviewService {
 		mixPercentage.setMixVsLyPositive(mixPercentage.getMixVsLy().signum() > 0);
 		// mixPercentage.setMixVsLy(mixPercentage.getMixVsLy().abs());
 		
+<<<<<<< HEAD:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 =======
 		betterOf.setBuyingPerfActual(PFJOverviewUtil.formatWithoutMillion(betterOfEntity.getActualBuyingPerformance()));
 		betterOf.setBuyingPerfTarget(PFJOverviewUtil.formatWithoutMillion(betterOfEntity.getTargetBuyingPerformance()));
@@ -442,17 +546,27 @@ public class PFJOverviewService {
 		MixPercentage mixPercentage = populateMixPercentageTile(totalRetailEntity, pfjTotalEntity);
 
 >>>>>>> ssointegration
+=======
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 		TotalRetail totalRetail = new TotalRetail();
 		totalRetail.setGrossProfitDollars(grossProfitDollars);
 		totalRetail.setVolume(volume);
 		totalRetail.setMargin(margin);
 		totalRetail.setMixPercentage(mixPercentage);
+<<<<<<< HEAD:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 <<<<<<< HEAD
 		
 		PFJOverviewDetail.setTotalRetail(totalRetail);
 	}
 
 	private void populateRetailMinus(PFJOverviewDetail PFJOverviewDetail, FctDmCompanyLevelActualVsTargetEntity retailMinusEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
+=======
+		
+		pfjOverviewDetails.setTotalRetail(totalRetail);
+	}
+
+	private void populateRetailMinus(PFJOverview pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity retailMinusEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 		GrossProfitDollars grossProfitDollars = new GrossProfitDollars();
 		grossProfitDollars.setHeader(retailMinusEntity.getActualProfitNetOfDiscounts());
 		grossProfitDollars.setVsTgLeft(retailMinusEntity.getActualProfitNetOfDiscounts().subtract(retailMinusEntity.getTargetProfitNetOfDiscounts()));
@@ -496,6 +610,7 @@ public class PFJOverviewService {
 		mixPercentage.setMixVsLyPositive(mixPercentage.getMixVsLy().signum() > 0);
 		// mixPercentage.setMixVsLy(mixPercentage.getMixVsLy().abs());
 		
+<<<<<<< HEAD:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 =======
 
 		pfjOverviewDetails.setTotalRetail(totalRetail);
@@ -509,11 +624,14 @@ public class PFJOverviewService {
 		MixPercentage mixPercentage = populateMixPercentageTile(retailMinusEntity, pfjTotalEntity);
 
 >>>>>>> ssointegration
+=======
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 		RetailMinus retailMinus = new RetailMinus();
 		retailMinus.setGrossProfitDollars(grossProfitDollars);
 		retailMinus.setVolume(volume);
 		retailMinus.setMargin(margin);
 		retailMinus.setMixPercentage(mixPercentage);
+<<<<<<< HEAD:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 <<<<<<< HEAD
 		retailMinus.setRmDiscountActual(retailMinusEntity.getActualEffectiveRetailMinusRate());
 		retailMinus.setRmDiscountTarget(retailMinusEntity.getTargetEffectiveRetailMinusRate());
@@ -522,6 +640,15 @@ public class PFJOverviewService {
 	}
 
 	private void populateFunded(PFJOverviewDetail PFJOverviewDetail, FctDmCompanyLevelActualVsTargetEntity fundedEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
+=======
+		retailMinus.setRmDiscountActual(retailMinusEntity.getActualEffectiveRetailMinusRate());
+		retailMinus.setRmDiscountTarget(retailMinusEntity.getTargetEffectiveRetailMinusRate());
+		
+		pfjOverviewDetails.setRetailMinus(retailMinus);
+	}
+
+	private void populateFunded(PFJOverview pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity fundedEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 		GrossProfitDollars grossProfitDollars = new GrossProfitDollars();
 		grossProfitDollars.setHeader(fundedEntity.getActualProfitNetOfDiscounts());
 		grossProfitDollars.setVsTgLeft(fundedEntity.getActualProfitNetOfDiscounts().subtract(fundedEntity.getTargetProfitNetOfDiscounts()));
@@ -566,6 +693,7 @@ public class PFJOverviewService {
 		mixPercentage.setMixVsLyPositive(mixPercentage.getMixVsLy().signum() > 0);
 		// mixPercentage.setMixVsLy(mixPercentage.getMixVsLy().abs());
 		
+<<<<<<< HEAD:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 =======
 		retailMinus.setRmDiscountActual(PFJOverviewUtil.formatWithoutMillion(retailMinusEntity.getActualEffectiveRetailMinusRate()));
 		retailMinus.setRmDiscountTarget(PFJOverviewUtil.formatWithoutMillion(retailMinusEntity.getTargetEffectiveRetailMinusRate()));
@@ -581,17 +709,27 @@ public class PFJOverviewService {
 		MixPercentage mixPercentage = populateMixPercentageTile(fundedEntity, pfjTotalEntity);
 
 >>>>>>> ssointegration
+=======
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 		Funded funded = new Funded();
 		funded.setGrossProfitDollars(grossProfitDollars);
 		funded.setVolume(volume);
 		funded.setMargin(margin);
 		funded.setMixPercentage(mixPercentage);
+<<<<<<< HEAD:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 <<<<<<< HEAD
 		
 		PFJOverviewDetail.setFunded(funded);
 	}
 
 	private void populateCCC(PFJOverviewDetail PFJOverviewDetail, FctDmCompanyLevelActualVsTargetEntity cccEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
+=======
+		
+		pfjOverviewDetails.setFunded(funded);
+	}
+
+	private void populateCCC(PFJOverview pfjOverviewDetails, FctDmCompanyLevelActualVsTargetEntity cccEntity, FctDmCompanyLevelActualVsTargetEntity pfjTotalEntity) {
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 		GrossProfitDollars grossProfitDollars = new GrossProfitDollars();
 		grossProfitDollars.setHeader(cccEntity.getActualProfitNetOfDiscounts());
 		grossProfitDollars.setVsTgLeft(cccEntity.getActualProfitNetOfDiscounts().subtract(cccEntity.getTargetProfitNetOfDiscounts()));
@@ -636,6 +774,7 @@ public class PFJOverviewService {
 		mixPercentage.setMixVsLyPositive(mixPercentage.getMixVsLy().signum() > 0);
 		// mixPercentage.setMixVsLy(mixPercentage.getMixVsLy().abs());
 		
+<<<<<<< HEAD:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 =======
 
 		pfjOverviewDetails.setFunded(funded);
@@ -649,19 +788,27 @@ public class PFJOverviewService {
 		MixPercentage mixPercentage = populateMixPercentageTile(cccEntity, pfjTotalEntity);
 
 >>>>>>> ssointegration
+=======
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 		CCC ccc = new CCC();
 		ccc.setGrossProfitDollars(grossProfitDollars);
 		ccc.setVolume(volume);
 		ccc.setMargin(margin);
 		ccc.setMixPercentage(mixPercentage);
+<<<<<<< HEAD:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 <<<<<<< HEAD
 		
 		PFJOverviewDetail.setCcc(ccc);
+=======
+		
+		pfjOverviewDetails.setCcc(ccc);
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 	}
 
 	private List<FctDmCompanyLevelActualVsTargetEntity> findEntitiesByTemporalPeriod(String temporalPeriod) {
 		return (List<FctDmCompanyLevelActualVsTargetEntity>) fctDmCompanyLevelActualVsTargetRepo
 				.findAll(QFctDmCompanyLevelActualVsTargetEntity.fctDmCompanyLevelActualVsTargetEntity.fctDmCompanyLevelActualVsTargetId.temporalPeriod.eq(temporalPeriod));
+<<<<<<< HEAD:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 =======
 
 		pfjOverviewDetails.setCcc(ccc);
@@ -754,5 +901,7 @@ public class PFJOverviewService {
 
 		return mixPercentage;
 >>>>>>> ssointegration
+=======
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1:src/main/java/com/pilot/main/pilotservice/service/PFJOverviewService.java
 	}
 }

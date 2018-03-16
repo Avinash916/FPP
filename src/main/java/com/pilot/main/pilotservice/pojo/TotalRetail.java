@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 package com.pilot.main.pilotservice.pojo;
 
 import java.io.Serializable;
@@ -56,6 +57,8 @@ public class TotalRetail implements Serializable {
 				+ ", mixPercentage=" + mixPercentage + "]";
 	}
 =======
+=======
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1
 package com.pilot.main.pilotservice.pojo;
 
 import java.io.Serializable;
@@ -112,5 +115,8 @@ public class TotalRetail implements Serializable {
 		return "TotalRetail [grossProfitDollars=" + grossProfitDollars + ", volume=" + volume + ", margin=" + margin
 				+ ", mixPercentage=" + mixPercentage + "]";
 	}
+<<<<<<< HEAD
 >>>>>>> ssointegration
+=======
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1
 }

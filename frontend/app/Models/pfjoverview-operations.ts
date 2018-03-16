@@ -9,10 +9,14 @@ export class PfjOverviewOperations {
             let customerPriceDetails:CustomerPriceDetails = new CustomerPriceDetails();
             customerPriceDetails.temporalPeriod = c.temporalPeriod;
 <<<<<<< HEAD
+<<<<<<< HEAD
             customerPriceDetails.lastClosedPeriod = c.lastClosedPeriod;
 =======
             customerPriceDetails.dimPlPeriodDateId = c.dimPlPeriodDateId;
 >>>>>>> ssointegration
+=======
+            customerPriceDetails.dimPlPeriodDateId = c.dimPlPeriodDateId;
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1
             customerPriceDetails.pfjTotal = c.pFJTotal;
             customerPriceDetails.betterOf = c.betterOf;
             customerPriceDetails.totalRetail = c.totalRetail;

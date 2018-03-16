@@ -1,8 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import { UtilityService } from '../../Helper/utility-service';
 >>>>>>> ssointegration
+=======
+import { UtilityService } from '../../utility-service';
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1
 
 
 @Component({
@@ -15,6 +19,7 @@ export class PfjDataTileComponent implements OnInit {
   @Input() dataTile : any;
   @Input() isRequiredSubTile:boolean;
   @Input() arrItemsSubTile
+<<<<<<< HEAD
 <<<<<<< HEAD
   constructor() { }
 
@@ -32,4 +37,10 @@ export class PfjDataTileComponent implements OnInit {
   ngOnInit() {
   } 
 >>>>>>> ssointegration
+=======
+  constructor(public utility:UtilityService) { }
+
+  ngOnInit() {
+  } 
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1
 }

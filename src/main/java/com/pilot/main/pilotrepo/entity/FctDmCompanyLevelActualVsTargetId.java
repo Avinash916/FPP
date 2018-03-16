@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 package com.pilot.main.pilotrepo.entity;
 
 import java.io.Serializable;
@@ -53,6 +54,8 @@ public class FctDmCompanyLevelActualVsTargetId implements Serializable {
 				+ ", mixOfBusiness=" + mixOfBusiness + ", temporalPeriod=" + temporalPeriod + "]";
 	}
 =======
+=======
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1
 package com.pilot.main.pilotrepo.entity;
 
 import java.io.Serializable;
@@ -106,5 +109,8 @@ public class FctDmCompanyLevelActualVsTargetId implements Serializable {
 		return "FctDmCompanyLevelActualVsTargetId [dimLineOfBusinessGroupId=" + dimLineOfBusinessGroupId
 				+ ", mixOfBusiness=" + mixOfBusiness + ", temporalPeriod=" + temporalPeriod + "]";
 	}
+<<<<<<< HEAD
 >>>>>>> ssointegration
+=======
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1
 }

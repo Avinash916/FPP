@@ -11,7 +11,11 @@ import { CustomerPricingComponent } from './Components/customer-pricing/customer
 
 const appRoutes: Routes = [
 <<<<<<< HEAD
+<<<<<<< HEAD
     {path: '', redirectTo: '/pfjover-view',pathMatch: 'full'},
+=======
+    { path: '', redirectTo: '/pfjover-view',pathMatch: 'full'},
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1
     { path: '', component: PfjoverViewComponent},
     { path: 'pfjover-view', component: PfjoverViewComponent },
 =======

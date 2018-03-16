@@ -18,6 +18,7 @@ export class ServiceConsumer {
 <<<<<<< HEAD
   GetCustomerPricingDetails():Observable<any>
   {
+<<<<<<< HEAD
     console.log(AppConfig.PFJApiUrl+"/customerpricing/getprices");
     return this.http.get(AppConfig.PFJApiUrl+"/customerpricing/getprices")
 =======
@@ -35,6 +36,10 @@ export class ServiceConsumer {
     //console.log(AppConfig.PFJApiUrl);
     return this.http.get(AppConfig.PFJApiUrl+"pfjoverview/getdashboard")
 >>>>>>> ssointegration
+=======
+    console.log(AppConfig.PFJApiUrl+"pfjoverview/getdashboard");
+    return this.http.get(AppConfig.PFJApiUrl+"pfjoverview/getdashboard")
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1
     .map((res:Response)=>res.json())
     .catch((error:any)=>Observable.throw(error.json().error || 'Server Error'));
   }

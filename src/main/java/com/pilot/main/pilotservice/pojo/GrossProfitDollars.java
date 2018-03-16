@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 package com.pilot.main.pilotservice.pojo;
 
 import java.io.Serializable;
@@ -94,6 +95,14 @@ public class GrossProfitDollars implements Serializable {
 package com.pilot.main.pilotservice.pojo;
 
 import java.io.Serializable;
+=======
+package com.pilot.main.pilotservice.pojo;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+
+import com.pilot.main.pilotservice.util.PFJOverviewUtil;
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1
 
 public class GrossProfitDollars implements Serializable {
 	
@@ -102,6 +111,7 @@ public class GrossProfitDollars implements Serializable {
 	 */
 	private static final long serialVersionUID = -5871771939814681660L;
 
+<<<<<<< HEAD
 	private String header;
 
 	private String vsTgLeft;
@@ -130,6 +140,36 @@ public class GrossProfitDollars implements Serializable {
 
 	public void setVsTgLeft(String vsTgLeft) {
 		this.vsTgLeft = vsTgLeft;
+=======
+	private BigDecimal header;
+
+	private BigDecimal vsTgLeft;
+	
+	private Boolean vsTgLeftPositive;
+	
+	private BigDecimal vsTgRight;
+	
+	private BigDecimal vsLyLeft;
+	
+	private Boolean vsLyLeftPositive;
+	
+	private BigDecimal vsLyRight;
+
+	public BigDecimal getHeader() {
+		return header;
+	}
+
+	public void setHeader(BigDecimal header) {
+		this.header = PFJOverviewUtil.formatMillionNumbers(header);
+	}
+
+	public BigDecimal getVsTgLeft() {
+		return vsTgLeft;
+	}
+
+	public void setVsTgLeft(BigDecimal vsTgLeft) {
+		this.vsTgLeft = PFJOverviewUtil.formatMillionNumbers(vsTgLeft);
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1
 	}
 
 	public Boolean getVsTgLeftPositive() {
@@ -140,6 +180,7 @@ public class GrossProfitDollars implements Serializable {
 		this.vsTgLeftPositive = vsTgLeftPositive;
 	}
 
+<<<<<<< HEAD
 	public String getVsTgRight() {
 		return vsTgRight;
 	}
@@ -154,6 +195,22 @@ public class GrossProfitDollars implements Serializable {
 
 	public void setVsLyLeft(String vsLyLeft) {
 		this.vsLyLeft = vsLyLeft;
+=======
+	public BigDecimal getVsTgRight() {
+		return vsTgRight;
+	}
+
+	public void setVsTgRight(BigDecimal vsTgRight) {
+		this.vsTgRight = PFJOverviewUtil.formatMillionNumbers(vsTgRight);
+	}
+
+	public BigDecimal getVsLyLeft() {
+		return vsLyLeft;
+	}
+
+	public void setVsLyLeft(BigDecimal vsLyLeft) {
+		this.vsLyLeft = PFJOverviewUtil.formatMillionNumbers(vsLyLeft);
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1
 	}
 
 	public Boolean getVsLyLeftPositive() {
@@ -164,12 +221,21 @@ public class GrossProfitDollars implements Serializable {
 		this.vsLyLeftPositive = vsLyLeftPositive;
 	}
 
+<<<<<<< HEAD
 	public String getVsLyRight() {
 		return vsLyRight;
 	}
 
 	public void setVsLyRight(String vsLyRight) {
 		this.vsLyRight = vsLyRight;
+=======
+	public BigDecimal getVsLyRight() {
+		return vsLyRight;
+	}
+
+	public void setVsLyRight(BigDecimal vsLyRight) {
+		this.vsLyRight = PFJOverviewUtil.formatMillionNumbers(vsLyRight);
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1
 	}
 
 	@Override
@@ -178,5 +244,8 @@ public class GrossProfitDollars implements Serializable {
 				+ vsTgLeftPositive + ", vsTgRight=" + vsTgRight + ", vsLyLeft=" + vsLyLeft + ", vsLyLeftPositive="
 				+ vsLyLeftPositive + ", vsLyRight=" + vsLyRight + "]";
 	}
+<<<<<<< HEAD
 >>>>>>> ssointegration
+=======
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1
 }

@@ -38,7 +38,12 @@ import { PfjDataSubTileRetailMinusComponent } from './Components/pfj-data-sub-ti
 import { UtilityService } from './Helper/utility-service';
 import { TableauComponent } from './Components/tableau/tableau.component';
 
+<<<<<<< HEAD
 import { SafePipe } from './Helper/safe-pipe-url';
+=======
+import { UtilityService } from './utility-service';
+
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,6 +69,7 @@ import { SafePipe } from './Helper/safe-pipe-url';
     BrowserModule,
     AppRoutingModule,
 <<<<<<< HEAD
+<<<<<<< HEAD
     HttpModule
   ],
   providers: [ServiceConsumer,RepositoryService],
@@ -72,6 +78,12 @@ import { SafePipe } from './Helper/safe-pipe-url';
   ],
   providers: [ServiceConsumer,RepositoryService,UtilityService,{provide: LocationStrategy, useClass: HashLocationStrategy}],
 >>>>>>> ssointegration
+=======
+    HttpModule,
+    
+  ],
+  providers: [ServiceConsumer,RepositoryService,UtilityService,{provide: LocationStrategy, useClass: HashLocationStrategy}],
+>>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1
   bootstrap: [AppComponent]
 })
 export class AppModule { }
