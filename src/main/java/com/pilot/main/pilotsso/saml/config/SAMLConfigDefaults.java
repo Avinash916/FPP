@@ -24,58 +24,60 @@ import org.springframework.security.saml.websso.WebSSOProfileImpl;
 
 @Configuration
 public class SAMLConfigDefaults {
-    @Bean
-    public static SAMLBootstrap sAMLBootstrap() {
-        return new SAMLBootstrap();
-    }
 
-    @Bean
-    public ParserPoolHolder parserPoolHolder() {
-        return new ParserPoolHolder();
-    }
+	@Bean
+	public static SAMLBootstrap sAMLBootstrap() {
+		return new SAMLBootstrap();
+	}
 
-    @Bean
-    public SAMLContextProviderImpl contextProvider() {
-        return new SAMLContextProviderImpl();
-    }
+	@Bean
+	public ParserPoolHolder parserPoolHolder() {
+		return new ParserPoolHolder();
+	}
 
-    @Bean
-    public SAMLDefaultLogger samlLogger() {
-        return new SAMLDefaultLogger();
-    }
+	@Bean
+	public SAMLContextProviderImpl contextProvider() {
+		return new SAMLContextProviderImpl();
+	}
 
-    @Bean
-    public WebSSOProfileConsumer webSSOprofileConsumer() {
-        return new WebSSOProfileConsumerImpl();
-    }
+	@Bean
+	public SAMLDefaultLogger samlLogger() {
+		return new SAMLDefaultLogger();
+	}
 
-    @Bean
-    public WebSSOProfileConsumerHoKImpl hokWebSSOprofileConsumer() {
-        return new WebSSOProfileConsumerHoKImpl();
-    }
+	@Bean
+	public WebSSOProfileConsumer webSSOprofileConsumer() {
+		return new WebSSOProfileConsumerImpl();
+	}
 
-    @Bean
-    public WebSSOProfile webSSOprofile() {
-        return new WebSSOProfileImpl();
-    }
+	@Bean
+	public WebSSOProfileConsumerHoKImpl hokWebSSOprofileConsumer() {
+		return new WebSSOProfileConsumerHoKImpl();
+	}
 
-    @Bean
-    public WebSSOProfileECPImpl ecpProfile() {
-        return new WebSSOProfileECPImpl();
-    }
+	@Bean
+	public WebSSOProfile webSSOprofile() {
+		return new WebSSOProfileImpl();
+	}
 
-    @Bean
-    public WebSSOProfileHoKImpl hokWebSSOProfile() {
-        return new WebSSOProfileHoKImpl();
-    }
+	@Bean
+	public WebSSOProfileECPImpl ecpProfile() {
+		return new WebSSOProfileECPImpl();
+	}
 
-    @Bean
-    public SingleLogoutProfile logoutProfile() {
-        return new SingleLogoutProfileImpl();
-    }
+	@Bean
+	public WebSSOProfileHoKImpl hokWebSSOProfile() {
+		return new WebSSOProfileHoKImpl();
+	}
 
-    @Bean
-    public CachingMetadataManager metadataManager(List<MetadataProvider> metadataProviders) throws MetadataProviderException, ResourceException {
-        return new CachingMetadataManager(metadataProviders);
-    }
+	@Bean
+	public SingleLogoutProfile logoutProfile() {
+		return new SingleLogoutProfileImpl();
+	}
+
+	@Bean
+	public CachingMetadataManager metadataManager(List<MetadataProvider> metadataProviders)
+			throws MetadataProviderException, ResourceException {
+		return new CachingMetadataManager(metadataProviders);
+	}
 }
