@@ -8,6 +8,8 @@ import { AppConfig } from '../../app-config';
 import { UtilityService } from '../../Helper/utility-service';
 import { Observable } from 'rxjs/Rx';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
+import { Router } from '@angular/router';
+import { AuthService } from '../../authentication/auth.service';
 
 @Component({
   selector: 'app-pfj-overview',
@@ -19,11 +21,16 @@ export class PfjoverViewComponent implements OnInit {
   selectedCustPricingDetails: CustomerPriceDetails;
 
   constructor(public serviceConsumer: ServiceConsumer, public repository: RepositoryService,
-    public utility: UtilityService, private http: Http) {
+    public utility: UtilityService, private http: Http,private router:Router,private authService:AuthService) {
 
   }
 
   ngOnInit() {
+    if(!this.authService.isLoggedIn())
+    {
+      this.router.navigate(['/ssologin']);
+    }
+
     if (this.repository.customerPricingDetails.length <= 0) {
       // let appName = this.utility.GetPrimaryDomainName(location.hostname);
 

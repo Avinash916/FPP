@@ -6,12 +6,14 @@ import { ExecutiveReportingComponent } from './Components/executive-reporting/ex
 import { CustomerPricingComponent } from './Components/customer-pricing/customer-pricing.component';
 import { AuthGuard } from './authentication/auth-guard.service';
 import { LoginComponent } from './authentication/login/login.component';
+import { SSOLoginComponent } from './authentication/ssologin/ssologin.component';
 
 const appRoutes: Routes = [
-    { path: '', redirectTo: '/pfj-overview',pathMatch: 'full', canActivate:[AuthGuard]},
-    { path: '', component: PfjoverViewComponent, canActivate:[AuthGuard]},
+    { path: '', redirectTo: '/pfj-overview', pathMatch: 'full'},
+    { path: '', component: PfjoverViewComponent},
+    { path: 'ssologin', component: SSOLoginComponent},
     { path: 'login', component: LoginComponent},
-    { path: 'pfj-overview', component: PfjoverViewComponent, canActivate:[AuthGuard] },
+    { path: 'pfj-overview', component: PfjoverViewComponent},
     { path: 'retail-pricing', component: RetailPricingComponent, canActivate:[AuthGuard] },
     { path: 'executive-reporting', component: ExecutiveReportingComponent, canActivate:[AuthGuard] },
     { path: 'customer-pricing', component: CustomerPricingComponent, canActivate:[AuthGuard] },
