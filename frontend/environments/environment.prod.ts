@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiurl : 'http://fuel-pricing-platform-prod.herokuapp.com/'
+  apiurl : 'https://fuel-pricing-platform.herokuapp.com/'
 };
