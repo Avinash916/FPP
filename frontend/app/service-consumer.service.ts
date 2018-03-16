@@ -8,7 +8,11 @@ import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { AppConfig } from './app-config';
 import { HttpHeaders } from '@angular/common/http';
+<<<<<<< HEAD
 >>>>>>> ssointegration
+=======
+import { AuthHttp, tokenNotExpired } from 'angular2-jwt';
+>>>>>>> Development
 
 @Injectable()
 export class ServiceConsumer {

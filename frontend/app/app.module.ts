@@ -8,6 +8,7 @@ import { HeaderComponent } from './Components/header/header.component';
 import { SectionContainerComponent } from './Components/section-container/section-container.component';
 import { FooterComponent } from './Components/footer/footer.component';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { PfjoverViewComponent } from './Components/pfjover-view/pfjover-view.component';
 import { RetailPricingComponent } from './Components/retail-pricing/retail-pricing.component';
 import { ExecutiveReportingComponent } from './Components/executive-reporting/executive-reporting.component';
@@ -22,6 +23,9 @@ import { PfjDataSubTileBetterOfComponent } from './Components/pfj-data-sub-tile-
 import { PfjDataSubTileRetailMinusComponent } from './Components/pfj-data-sub-tile-retail-minus/pfj-data-sub-tile-retail-minus.component';
 =======
 import { PfjoverViewComponent } from './Components/pfj-overview/pfjover-view.component';
+=======
+import { PfjoverViewComponent } from './Components/pfj-overview/pfj-overview.component';
+>>>>>>> Development
 import { RetailPricingComponent } from './Components/retail-pricing/retail-pricing.component';
 import { ExecutiveReportingComponent } from './Components/executive-reporting/executive-reporting.component';
 import { CustomerPricingComponent } from './Components/customer-pricing/customer-pricing.component';
@@ -40,10 +44,14 @@ import { TableauComponent } from './Components/tableau/tableau.component';
 
 <<<<<<< HEAD
 import { SafePipe } from './Helper/safe-pipe-url';
+<<<<<<< HEAD
 =======
 import { UtilityService } from './utility-service';
 
 >>>>>>> c23f1a2dac02f9465e3f80b3c9688dce9ef023f1
+=======
+import { AuthenticationModule } from './authentication/authentication.module';
+>>>>>>> Development
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,11 +78,16 @@ import { UtilityService } from './utility-service';
     AppRoutingModule,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     HttpModule
   ],
   providers: [ServiceConsumer,RepositoryService],
 =======
     HttpModule, 
+=======
+    HttpModule,
+    AuthenticationModule, 
+>>>>>>> Development
   ],
   providers: [ServiceConsumer,RepositoryService,UtilityService,{provide: LocationStrategy, useClass: HashLocationStrategy}],
 >>>>>>> ssointegration
