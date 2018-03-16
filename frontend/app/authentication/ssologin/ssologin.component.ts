@@ -10,7 +10,7 @@ export class SSOLoginComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    location.href = 'https://spring-saml-sample.herokuapp.com/saml/discovery?entityID=https%3A%2F%2Fspring-saml-sample.herokuapp.com&returnIDParam=idp';
+    location.href = 'https://spring-saml-sample.herokuapp.com/saml/login';
   }
 
 }
