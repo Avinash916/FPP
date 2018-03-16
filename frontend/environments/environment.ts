@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  apiurl : 'http://fuel-pricing-platform-dev.herokuapp.com/'
+  apiurl : 'https://fuel-pricing-platform-dev.herokuapp.com/'
 };
