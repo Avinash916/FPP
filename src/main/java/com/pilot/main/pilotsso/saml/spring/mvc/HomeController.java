@@ -21,7 +21,7 @@ public class HomeController {
 
 	@RequestMapping("/home")
 	public RedirectView pfjOverview(@SAMLUser SAMLUserDetails user) {
-		RedirectView redirectView = new RedirectView("http://fuel-pricing-platform-dev.herokuapp.com/");
+		RedirectView redirectView = new RedirectView("https://fuel-pricing-platform-dev.herokuapp.com/");
 		// redirectView.addObject("userId", user.getUsername());
 		// redirectView.addObject("samlAttributes", user.getAttributes());
 		return redirectView;
