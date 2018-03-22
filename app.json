@@ -1,0 +1,92 @@
+{
+  "name": "FuelPricingPlatform",
+  "scripts": {
+  },
+  "env": {
+    "DATABASE_BASTION_KEY": {
+      "required": true
+    },
+    "DATABASE_BASTION_REKEYS_AFTER": {
+      "required": true
+    },
+    "DATABASE_BASTIONS": {
+      "required": true
+    },
+    "FPP_POSTGRESQL_DATASOURCE": {
+      "required": true
+    },
+    "FPP_POSTGRESQL_PASSWORD": {
+      "required": true
+    },
+    "FPP_POSTGRESQL_USERNAME": {
+      "required": true
+    },
+    "HEROKU_APP_ID": {
+      "required": true
+    },
+    "HEROKU_APP_NAME": {
+      "required": true
+    },
+    "HEROKU_POSTGRESQL_ONYX_BASTION_KEY": {
+      "required": true
+    },
+    "HEROKU_POSTGRESQL_ONYX_BASTION_REKEYS_AFTER": {
+      "required": true
+    },
+    "HEROKU_POSTGRESQL_ONYX_BASTIONS": {
+      "required": true
+    },
+    "HEROKU_POSTGRESQL_ONYX_URL": {
+      "required": true
+    },
+    "HEROKU_POSTGRESQL_WHITE_BASTION_KEY": {
+      "required": true
+    },
+    "HEROKU_POSTGRESQL_WHITE_BASTION_REKEYS_AFTER": {
+      "required": true
+    },
+    "HEROKU_POSTGRESQL_WHITE_BASTIONS": {
+      "required": true
+    },
+    "HEROKU_POSTGRESQL_WHITE_URL": {
+      "required": true
+    },
+    "HEROKU_RELEASE_CREATED_AT": {
+      "required": true
+    },
+    "HEROKU_RELEASE_VERSION": {
+      "required": true
+    },
+    "HEROKU_SLUG_COMMIT": {
+      "required": true
+    },
+    "HEROKU_SLUG_DESCRIPTION": {
+      "required": true
+    },
+    "NG_ENV": {
+      "required": true
+    },
+    "PAPERTRAIL_API_TOKEN": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+    "papertrail",
+    "heroku-postgresql",
+    "heroku-postgresql",
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "heroku/java"
+    }
+  ]
+}
